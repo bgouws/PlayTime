@@ -10,21 +10,28 @@ import UIKit
 
 class SignViewController: UIViewController {
 
+    //Components
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtComfirmPassword: UITextField!
+    @IBOutlet weak var btnCreateAccount: UIButton!
+    @IBOutlet weak var btnBack: UIButton!
+    
+    //Function that Loads they view
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //Styling The Components
+        btnCreateAccount.customButton()
+        btnBack.customButton()
+        txtPassword.customTextBox()
+        txtEmail.customTextBox()
+        txtComfirmPassword.customTextBox()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //Button Clicked Functions
+    @IBAction func btnBack(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "launchView", sender: self)
     }
-    */
-
 }
