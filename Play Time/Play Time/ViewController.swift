@@ -26,27 +26,11 @@ class ViewController: UIViewController {
         txtPassword.customTextBox()
         signUp.customButton()
         signIn.customButton()
-        
-        /*var email = ""
-        var password = ""
-        
-        email = txtEmail.text!
-        password = txtPassword.text!
-        
-        //Struct
-        var myUsers = Users()
-        
-        myUsers.email = email
-        myUsers.password = password*/
     }
     
     //Button Clicked Functions
     @IBAction func btnSignIn(_ sender: UIButton) {
         sender.pulsate()
-        
-        var myAccounts = Accounts()
-        print("Setting email and password")
-        myAccounts.setAccounts(email: "Brandon", password: "Brandon")
                 
         self.performSegue(withIdentifier: "SignInView", sender: self)
     }
