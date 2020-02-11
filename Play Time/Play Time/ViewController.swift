@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var signUp: UIButton!
     
     override func viewDidLoad() {
+        //This is the new update
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //Writing to console
