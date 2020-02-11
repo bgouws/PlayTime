@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignViewController: UIViewController {
+class SignViewController: UIViewController , UITextFieldDelegate{
 
     //Components
     @IBOutlet weak var txtEmail: UITextField!
@@ -28,10 +28,55 @@ class SignViewController: UIViewController {
         txtPassword.customTextBox()
         txtEmail.customTextBox()
         txtComfirmPassword.customTextBox()
+        
+        txtPassword.delegate = self
+        txtEmail.delegate = self
+        txtComfirmPassword.delegate = self
+        
+        //Listen for keyboard events
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object:nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object:nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object:nil)
     }
+    
+    deinit {
+        //Stop Listening for keyboard hide/show events
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object:nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object:nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object:nil)
+    }
+
     
     //Button Clicked Functions
     @IBAction func btnBack(_ sender: UIButton) {
         self.performSegue(withIdentifier: "launchView", sender: self)
+    }
+    
+    //When the keyboard will change its state
+    @objc func keyboardWillChange(notification: Notification) {
+        print("Keyboard will show: \(notification.name.rawValue)")
+        
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            view.frame.origin.y = -keyboardRect.height
+        } else {
+            view.frame.origin.y = 0
+        }
+    }
+    
+    //Hiding the keyboard
+    func hideKeyboard() {
+        txtEmail.resignFirstResponder()
+        txtPassword.resignFirstResponder()
+        txtComfirmPassword.resignFirstResponder()
+    }
+    
+    //UITextFieldDelegate Methods
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeyboard()
+        return true
     }
 }

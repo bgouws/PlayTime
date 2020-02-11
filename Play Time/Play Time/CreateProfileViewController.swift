@@ -1,35 +1,32 @@
 //
-//  ViewController.swift
+//  CreateProfileViewController.swift
 //  Play Time
 //
-//  Created by Brandon Gouws on 2020/02/04.
+//  Created by Brandon Gouws on 2020/02/11.
 //  Copyright © 2020 Brandon Gouws. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class CreateProfileViewController: UIViewController, UITextFieldDelegate {
 
-    //Components
-    @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var signIn: UIButton!
-    @IBOutlet weak var signUp: UIButton!
+    // MARK: - Declaration of components
+    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtSurname: UITextField!
+    @IBOutlet weak var btnCreate: UIButton!
+    @IBOutlet weak var txtBio: UITextView!
     
     override func viewDidLoad() {
-        //This is the new update
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //Writing to console
-        print("View has loaded")
-        //Styling Components
-        txtEmail.customTextBox()
-        txtPassword.customTextBox()
-        signUp.customButton()
-        signIn.customButton()
         
-        txtPassword.delegate = self
-        txtEmail.delegate = self
+        // MARK: - Preparing View
+        btnCreate.customButton()
+        txtName.customTextBox()
+        txtSurname.customTextBox()
+        
+        txtSurname.delegate = self
+        txtName.delegate = self
         
         //Listen for keyboard events
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object:nil)
@@ -44,20 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object:nil)
     }
     
-    
-    
-    //Button Clicked Functions
-    @IBAction func btnSignIn(_ sender: UIButton) {
-        sender.pulsate()
-        hideKeyboard()
-        self.performSegue(withIdentifier: "SignInView", sender: self)
-    }
-    
-    @IBAction func btnSignUp(_ sender: UIButton) {
-        sender.pulsate()
-        self.performSegue(withIdentifier: "SignView",sender: self)
-    }
-    
+    //When the keyboard will change its state
     @objc func keyboardWillChange(notification: Notification) {
         print("Keyboard will show: \(notification.name.rawValue)")
         
@@ -74,8 +58,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //Hiding the keyboard
     func hideKeyboard() {
-        txtEmail.resignFirstResponder()
-        txtPassword.resignFirstResponder()
+        txtSurname.resignFirstResponder()
+        txtName.resignFirstResponder()
+        
     }
     
     //UITextFieldDelegate Methods
@@ -84,4 +69,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 }
-

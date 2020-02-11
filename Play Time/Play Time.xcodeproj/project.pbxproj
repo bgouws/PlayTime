@@ -15,6 +15,7 @@
 		B6376DD523E97DE50033C48D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6376DD323E97DE50033C48D /* LaunchScreen.storyboard */; };
 		B6376DE023E97DE60033C48D /* Play_TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DDF23E97DE60033C48D /* Play_TimeTests.swift */; };
 		B6376DEB23E98D8E0033C48D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DEA23E98D8E0033C48D /* CustomButton.swift */; };
+		B664815823F2C0770073EB9E /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664815723F2C0770073EB9E /* CreateProfileViewController.swift */; };
 		B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */; };
 		B664DA0523EAEB120064D455 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0423EAEB120064D455 /* UserAccount.swift */; };
 		B664DA0723EAF5BE0064D455 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0623EAF5BE0064D455 /* Accounts.swift */; };
@@ -46,6 +47,7 @@
 		B6376DDF23E97DE60033C48D /* Play_TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play_TimeTests.swift; sourceTree = "<group>"; };
 		B6376DE123E97DE60033C48D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6376DEA23E98D8E0033C48D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B664815723F2C0770073EB9E /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		B664DA0423EAEB120064D455 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		B664DA0623EAF5BE0064D455 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */,
 				B664DA0423EAEB120064D455 /* UserAccount.swift */,
 				B664DA0623EAF5BE0064D455 /* Accounts.swift */,
+				B664815723F2C0770073EB9E /* CreateProfileViewController.swift */,
 			);
 			path = "Play Time";
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				B6C9555223EAA37F0096213B /* SignInViewController.swift in Sources */,
 				B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */,
 				B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */,
+				B664815823F2C0770073EB9E /* CreateProfileViewController.swift in Sources */,
 				B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */,
 				B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */,
 				B664DA0523EAEB120064D455 /* UserAccount.swift in Sources */,

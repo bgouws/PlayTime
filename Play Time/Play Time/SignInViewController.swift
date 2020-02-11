@@ -10,10 +10,10 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
-    @IBOutlet weak var lblTest: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
+        
     }
 }
