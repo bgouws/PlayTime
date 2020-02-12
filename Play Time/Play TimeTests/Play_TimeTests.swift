@@ -8,9 +8,9 @@
 
 import XCTest
 @testable import Play_Time
-
+//swiftlint:disable all
 class Play_TimeTests: XCTestCase {
-
+//swiftlint:enable all
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
