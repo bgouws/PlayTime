@@ -26,7 +26,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
         txtSurname.customTextBox()
         
         txtSurname.delegate = self
-        txtName.delegate = self
+        //txtName.delegate = self
         
         //Listen for keyboard events
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object:nil)
@@ -40,6 +40,8 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object:nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object:nil)
     }
+    
+    //MARK: - Functions
     
     //When the keyboard will change its state
     @objc func keyboardWillChange(notification: Notification) {

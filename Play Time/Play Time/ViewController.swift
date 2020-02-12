@@ -46,11 +46,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    //Button Clicked Functions
+    // MARK: -Button Clicked Functions
     @IBAction func btnSignIn(_ sender: UIButton) {
         sender.pulsate()
         hideKeyboard()
-        self.performSegue(withIdentifier: "SignInView", sender: self)
+        
+        //variables
+        let email = txtEmail.text
+        let password = txtPassword.text
+        
+        //validation
+        if (isValidEmail(email!) && password != ""){
+                //self.performSegue(withIdentifier: "SignInView", sender: self)
+        } else {
+            clearFields()
+            let alertController = UIAlertController(title: "Sign In Unsuccessful", message: "Error Signing In." , preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     @IBAction func btnSignUp(_ sender: UIButton) {
@@ -70,6 +83,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         } else {
             view.frame.origin.y = 0
         }
+    }
+    
+    // MARK: - Functions
+    
+    //Email validation
+    func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
+    }
+    
+    //Clearing component
+    func clearFields() {
+        txtEmail.text = ""
+        txtPassword.text = ""
     }
     
     //Hiding the keyboard

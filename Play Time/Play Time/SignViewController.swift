@@ -47,9 +47,43 @@ class SignViewController: UIViewController , UITextFieldDelegate{
     }
 
     
-    //Button Clicked Functions
+    // MARK: - Button Clicked Functions
     @IBAction func btnBack(_ sender: UIButton) {
         self.performSegue(withIdentifier: "launchView", sender: self)
+    }
+    
+    @IBAction func btnCreate(_ sender: Any) {
+        //variables
+        let email = txtEmail.text
+        let password = txtPassword.text
+        let conPassword = txtComfirmPassword.text
+        
+        //validation
+        if (isValidEmail(email!) && password != "" && conPassword != "" && conPassword == password){
+                self.performSegue(withIdentifier: "CreateProfileView", sender: self)
+        } else {
+            clearFields()
+            let alertController = UIAlertController(title: "Sign Up Unsuccessful", message: "Error Signing Up." , preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Functions
+    
+    //Email validation
+    func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
+    }
+    
+    //Clearing component
+    func clearFields() {
+        txtEmail.text = ""
+        txtPassword.text = ""
+        txtComfirmPassword.text = ""
     }
     
     //When the keyboard will change its state
