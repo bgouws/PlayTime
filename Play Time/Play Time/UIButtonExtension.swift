@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    
     func pulsate() {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 0.1
@@ -20,11 +19,9 @@ extension UIButton {
         pulse.repeatCount = 2
         pulse.initialVelocity = 0.5
         pulse.damping = 1.0
-        
         layer.add(pulse, forKey: nil)
     }
-    
-    func customButton(){
+    func customButton() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
         layer.shadowRadius = 8
@@ -36,5 +33,4 @@ extension UIButton {
         layer.borderWidth = 3.0
         layer.borderColor = UIColor.darkGray.cgColor
     }
-    
 }

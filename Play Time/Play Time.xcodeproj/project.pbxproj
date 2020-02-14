@@ -17,8 +17,8 @@
 		B6376DEB23E98D8E0033C48D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DEA23E98D8E0033C48D /* CustomButton.swift */; };
 		B664815823F2C0770073EB9E /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664815723F2C0770073EB9E /* CreateProfileViewController.swift */; };
 		B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */; };
-		B664DA0523EAEB120064D455 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0423EAEB120064D455 /* UserAccount.swift */; };
-		B664DA0723EAF5BE0064D455 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0623EAF5BE0064D455 /* Accounts.swift */; };
+		B6A0260123F4127E00678393 /* ValidationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260023F4127E00678393 /* ValidationExtension.swift */; };
+		B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260223F4179800678393 /* ToDoViewController.swift */; };
 		B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554923EA87700096213B /* UIButtonExtension.swift */; };
 		B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554F23EAA2B20096213B /* SignViewController.swift */; };
 		B6C9555223EAA37F0096213B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9555123EAA37F0096213B /* SignInViewController.swift */; };
@@ -49,8 +49,8 @@
 		B6376DEA23E98D8E0033C48D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B664815723F2C0770073EB9E /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
-		B664DA0423EAEB120064D455 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
-		B664DA0623EAF5BE0064D455 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		B6A0260023F4127E00678393 /* ValidationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationExtension.swift; sourceTree = "<group>"; };
+		B6A0260223F4179800678393 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		B6C9554923EA87700096213B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		B6C9554F23EAA2B20096213B /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		B6C9555123EAA37F0096213B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -107,9 +107,9 @@
 				B6C9554F23EAA2B20096213B /* SignViewController.swift */,
 				B6C9555123EAA37F0096213B /* SignInViewController.swift */,
 				B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */,
-				B664DA0423EAEB120064D455 /* UserAccount.swift */,
-				B664DA0623EAF5BE0064D455 /* Accounts.swift */,
 				B664815723F2C0770073EB9E /* CreateProfileViewController.swift */,
+				B6A0260023F4127E00678393 /* ValidationExtension.swift */,
+				B6A0260223F4179800678393 /* ToDoViewController.swift */,
 			);
 			path = "Play Time";
 			sourceTree = "<group>";
@@ -245,15 +245,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */,
+				B6A0260123F4127E00678393 /* ValidationExtension.swift in Sources */,
 				B6C9555223EAA37F0096213B /* SignInViewController.swift in Sources */,
 				B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */,
 				B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */,
 				B664815823F2C0770073EB9E /* CreateProfileViewController.swift in Sources */,
 				B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */,
 				B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */,
-				B664DA0523EAEB120064D455 /* UserAccount.swift in Sources */,
 				B6376DEB23E98D8E0033C48D /* CustomButton.swift in Sources */,
-				B664DA0723EAF5BE0064D455 /* Accounts.swift in Sources */,
 				B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */,
 				B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */,
 			);

@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    
     func customTextBox() {
         layer.masksToBounds = true
         layer.masksToBounds = true
