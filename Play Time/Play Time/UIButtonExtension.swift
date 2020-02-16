@@ -33,4 +33,13 @@ extension UIButton {
         layer.borderWidth = 3.0
         layer.borderColor = UIColor.darkGray.cgColor
     }
+    func customSelectButton() {
+        backgroundColor = UIColor.gray
+        clipsToBounds = true
+        layer.masksToBounds = false
+        layer.cornerRadius = 10
+        layer.borderWidth = 3.0
+        layer.borderColor = UIColor.darkGray.cgColor
+        titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
+    }
 }

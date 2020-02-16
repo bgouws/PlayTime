@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B60BA1AF23F6B48700F8A348 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60BA1AE23F6B48700F8A348 /* UITextViewExtension.swift */; };
 		B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DC823E97DE50033C48D /* AppDelegate.swift */; };
 		B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DCA23E97DE50033C48D /* SceneDelegate.swift */; };
 		B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DCC23E97DE50033C48D /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B60BA1AE23F6B48700F8A348 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
 		B6376DC523E97DE50033C48D /* Play Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6376DC823E97DE50033C48D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6376DCA23E97DE50033C48D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				B664815723F2C0770073EB9E /* CreateProfileViewController.swift */,
 				B6A0260023F4127E00678393 /* ValidationExtension.swift */,
 				B6A0260223F4179800678393 /* ToDoViewController.swift */,
+				B60BA1AE23F6B48700F8A348 /* UITextViewExtension.swift */,
 			);
 			path = "Play Time";
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */,
+				B60BA1AF23F6B48700F8A348 /* UITextViewExtension.swift in Sources */,
 				B6A0260123F4127E00678393 /* ValidationExtension.swift in Sources */,
 				B6C9555223EAA37F0096213B /* SignInViewController.swift in Sources */,
 				B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */,

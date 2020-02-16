@@ -55,7 +55,6 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         let conPassword = txtComfirmPassword.text
         //validation
         if email?.isValidEmail(email!) ?? false && password != "" && conPassword != "" && conPassword == password {
-            self.performSegue(withIdentifier: "CreateProfileView", sender: self)
         } else {
             clearFields()
             let alertController = UIAlertController(title: "Sign Up Unsuccessful",
