@@ -52,7 +52,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let password = txtPassword.text
         //validation
         if password != "" && email?.isValidEmail(email!) ?? false {
-            self.performSegue(withIdentifier: "todoView", sender: self)
         } else {
             clearFields()
             let alertController = UIAlertController(title: "Sign In Unsuccessful", message: "Error Signing In.",
@@ -93,5 +92,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         hideKeyboard()
         return true
+    }
+    override func willTransition(to newCollection: UITraitCollection,
+                                 with coordinator: UIViewControllerTransitionCoordinator) {
+        print(UIDevice.current.orientation.isLandscape)
     }
 }
