@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -28,13 +29,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         signIn.customButton()
         txtPassword.delegate = self
         txtEmail.delegate = self
-        //Listen for keyboard events
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
-                                               name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     deinit {
         //Stop Listening for keyboard hide/show events
@@ -52,6 +46,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let password = txtPassword.text
         //validation
         if password != "" && email?.isValidEmail(email!) ?? false {
+            signUserIn(email: email!, password: password!)
         } else {
             clearFields()
             let alertController = UIAlertController(title: "Sign In Unsuccessful", message: "Error Signing In.",
@@ -64,19 +59,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btnSignUp(_ sender: UIButton) {
         sender.pulsate()
         self.performSegue(withIdentifier: "SignView", sender: self)
-    }
-    @objc func keyboardWillChange(notification: Notification) {
-        print("Keyboard will show: \(notification.name.rawValue)")
-        guard let keyboardRect =
-            (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
-        }
-        if notification.name == UIResponder.keyboardWillShowNotification ||
-            notification.name == UIResponder.keyboardWillChangeFrameNotification {
-            view.frame.origin.y = -keyboardRect.height
-        } else {
-            view.frame.origin.y = 0
-        }
     }
     //Clearing component
     func clearFields() {
@@ -96,5 +78,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func willTransition(to newCollection: UITraitCollection,
                                  with coordinator: UIViewControllerTransitionCoordinator) {
         print(UIDevice.current.orientation.isLandscape)
+    }
+    func signUserIn(email: String, password: String) {
+        // swiftlint:disable all
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            // swiftlint:enable all
+            if let error = error {
+                print("Failed to sign user in with error: ", error.localizedDescription)
+                self.clearFields()
+                self.displayError()
+                return
+            }
+            print("Successfully Logged user in.")
+            self.performSegue(withIdentifier: "HomeView", sender: self)
+        }
+    }
+    func displayError() {
+        let alertController = UIAlertController(title: "Sign In Unsuccessful", message: "Error Signing In.",
+                                                preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        self.present(alertController, animated: true, completion: nil)
     }
 }

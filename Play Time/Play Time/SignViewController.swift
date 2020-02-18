@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class SignViewController: UIViewController, UITextFieldDelegate {
 
@@ -20,6 +22,7 @@ class SignViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //let ref = Data
         //Styling The Components
         btnCreateAccount.customButton()
         btnBack.customButton()
@@ -29,13 +32,6 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         txtPassword.delegate = self
         txtEmail.delegate = self
         txtComfirmPassword.delegate = self
-        //Listen for keyboard events
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
-                                               name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     deinit {
         //Stop Listening for keyboard hide/show events
@@ -55,6 +51,7 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         let conPassword = txtComfirmPassword.text
         //validation
         if email?.isValidEmail(email!) ?? false && password != "" && conPassword != "" && conPassword == password {
+            creatUser(email: email!, password: password!)
         } else {
             clearFields()
             let alertController = UIAlertController(title: "Sign Up Unsuccessful",
@@ -70,20 +67,6 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         txtPassword.text = ""
         txtComfirmPassword.text = ""
     }
-    //When the keyboard will change its state
-    @objc func keyboardWillChange(notification: Notification) {
-        print("Keyboard will show: \(notification.name.rawValue)")
-        guard let keyboardRect =
-            (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
-        }
-        if notification.name == UIResponder.keyboardWillShowNotification ||
-            notification.name == UIResponder.keyboardWillChangeFrameNotification {
-            view.frame.origin.y = -keyboardRect.height
-        } else {
-            view.frame.origin.y = 0
-        }
-    }
     //Hiding the keyboard
     func hideKeyboard() {
         txtEmail.resignFirstResponder()
@@ -94,5 +77,24 @@ class SignViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         hideKeyboard()
         return true
+    }
+    func creatUser(email: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                print("Failed to create user ", error.localizedDescription)
+                return
+            }
+            // swiftlint:disable all
+            guard let uid = result?.user.uid else { return }
+            Database.database().reference().child("users").child(uid).updateChildValues(["email": email], withCompletionBlock: { error, ref in
+                // swiftlint:enable all
+                if let error = error {
+                    print("Failed to update database values with error: ", error.localizedDescription)
+                    return
+            }
+                print("Successful Sign Up")
+                self.performSegue(withIdentifier: "styleView", sender: self)
+            })
+        }
     }
 }

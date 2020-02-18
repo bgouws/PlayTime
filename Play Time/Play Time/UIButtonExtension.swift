@@ -42,4 +42,19 @@ extension UIButton {
         layer.borderColor = UIColor.darkGray.cgColor
         titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
     }
+    func colorChange(checker: Bool) {
+        let greenColor = UIColor(red: 0.37, green: 0.58, blue: 0.33, alpha: 1.0)
+        let yellowColor = UIColor(red: 0.95, green: 0.84, blue: 0.38, alpha: 1.0)
+        var mainColor = UIColor(red: 0.5, green: 100/255, blue: 1, alpha: 0.5)
+        if checker == true {
+            mainColor = greenColor
+        } else {
+            mainColor = yellowColor
+        }
+        if backgroundColor == UIColor.lightGray {
+            backgroundColor = mainColor
+        } else {
+            backgroundColor = UIColor.lightGray
+        }
+    }
 }
