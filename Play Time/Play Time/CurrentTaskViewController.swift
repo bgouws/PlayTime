@@ -10,18 +10,25 @@ import UIKit
 
 class CurrentTaskViewController: UIViewController {
 
+    @IBOutlet weak var txtHeaderTask: UILabel!
     @IBOutlet weak var btnReset: UIButton!
+    @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     var timer = Timer()
     var isTimerRunning = false
     var counter = 0.0
+    var fHour = ""
+    var fMinute = ""
+    var fSecond = ""
+    var fTitle = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         btnStart.customButton()
         btnStop.customButton()
         btnReset.customButton()
+        btnBack.customButton()
         btnStop.isEnabled = false
         btnReset.isEnabled = false
         // Do any additional setup after loading the view.
@@ -61,7 +68,7 @@ class CurrentTaskViewController: UIViewController {
             secondString = "0\(second)"
         }
         timerLabel.text = "\(hourString):\(minuteString):\(secondString)"
-        if minuteString == "00" && secondString == "15"{
+        if hourString == fHour && minuteString == fMinute && secondString == fSecond {
             timerLabel.textColor = UIColor.systemGreen
             isTimerRunning = false
             timer.invalidate()
@@ -73,6 +80,9 @@ class CurrentTaskViewController: UIViewController {
         timer.invalidate()
         btnStart.isEnabled = true
         btnStop.isEnabled = false
+    }
+    @IBAction func btnBack(_ sender: Any) {
+        self.performSegue(withIdentifier: "backListView", sender: self)
     }
     @IBAction func btnReset(_ sender: Any) {
         timerLabel.textColor = UIColor.black

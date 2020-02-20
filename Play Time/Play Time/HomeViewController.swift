@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         }
     }
     @IBAction func btnMove(_ sender: Any) {
-        self.performSegue(withIdentifier: "TimerTestView", sender: self)
+        self.performSegue(withIdentifier: "taskView", sender: self)
     }
     func signOut() {
         do {
