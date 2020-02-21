@@ -84,10 +84,8 @@ class SignViewController: UIViewController, UITextFieldDelegate {
                 print("Failed to create user ", error.localizedDescription)
                 return
             }
-            // swiftlint:disable all
             guard let uid = result?.user.uid else { return }
             Database.database().reference().child("users").child(uid).updateChildValues(["email": email], withCompletionBlock: { error, ref in
-                // swiftlint:enable all
                 if let error = error {
                     print("Failed to update database values with error: ", error.localizedDescription)
                     return

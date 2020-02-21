@@ -11,7 +11,7 @@ import Firebase
 
 class MusicTasteViewController: UIViewController {
 
-    var list = [""]
+    var list: [String] = []
     var checker = true
     var count = 0
     // MARK: Components
@@ -115,6 +115,7 @@ class MusicTasteViewController: UIViewController {
         let ref = Database.database().reference()
         let user = Auth.auth().currentUser?.uid
         ref.child("users").child(user!).setValue(["Music Taste": list])
+        self.performSegue(withIdentifier: "ShowList", sender: self)
     }
     func checkList(value: String) -> Bool {
         for genre in list where genre == value {

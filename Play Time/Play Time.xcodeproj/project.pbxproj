@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,11 +27,14 @@
 		B64AC41823FCF7E70019462E /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64AC41723FCF7E70019462E /* AddTaskViewController.swift */; };
 		B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */; };
 		B697B2CA23FA4AED002D06C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B697B2C923FA4AED002D06C7 /* GoogleService-Info.plist */; };
+		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
 		B6A0260123F4127E00678393 /* ValidationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260023F4127E00678393 /* ValidationExtension.swift */; };
 		B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260223F4179800678393 /* ToDoViewController.swift */; };
 		B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554923EA87700096213B /* UIButtonExtension.swift */; };
 		B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554F23EAA2B20096213B /* SignViewController.swift */; };
 		B6C9555223EAA37F0096213B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9555123EAA37F0096213B /* SignInViewController.swift */; };
+		B6E3504C23FEBB0300DB3110 /* apiCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E3504B23FEBB0300DB3110 /* apiCall.swift */; };
+		B6F5A20223FEA54200C9918B /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F5A20123FEA54200C9918B /* Tracks.swift */; };
 		C7A9406898F6CE0692B3A054 /* libPods-Play TimeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5CDCAA377F5CF0AFC6133E /* libPods-Play TimeTests.a */; };
 /* End PBXBuildFile section */
 
@@ -74,11 +77,14 @@
 		B64AC41723FCF7E70019462E /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		B697B2C923FA4AED002D06C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B6A0260023F4127E00678393 /* ValidationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationExtension.swift; sourceTree = "<group>"; };
 		B6A0260223F4179800678393 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		B6C9554923EA87700096213B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		B6C9554F23EAA2B20096213B /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		B6C9555123EAA37F0096213B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B6E3504B23FEBB0300DB3110 /* apiCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiCall.swift; sourceTree = "<group>"; };
+		B6F5A20123FEA54200C9918B /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 		D776A3E5DB862B0DBEA6C720 /* Pods-Play TimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play TimeTests.debug.xcconfig"; path = "Target Support Files/Pods-Play TimeTests/Pods-Play TimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */,
 				10F0714C20B10A4AC6D5ABE7 /* libPods-Play Time.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +123,7 @@
 		44E2892701964C56CD810FAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */,
 				58EC22279EE55E902D901655 /* libPods-Play Time.a */,
 				6A5CDCAA377F5CF0AFC6133E /* libPods-Play TimeTests.a */,
 			);
@@ -169,6 +177,8 @@
 				B602D7E323FBF79B006AD3C3 /* Task.swift */,
 				B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */,
 				B64AC41723FCF7E70019462E /* AddTaskViewController.swift */,
+				B6F5A20123FEA54200C9918B /* Tracks.swift */,
+				B6E3504B23FEBB0300DB3110 /* apiCall.swift */,
 			);
 			path = "Play Time";
 			sourceTree = "<group>";
@@ -356,6 +366,7 @@
 				B60BA1AF23F6B48700F8A348 /* UITextViewExtension.swift in Sources */,
 				B64AC41823FCF7E70019462E /* AddTaskViewController.swift in Sources */,
 				B6A0260123F4127E00678393 /* ValidationExtension.swift in Sources */,
+				B6F5A20223FEA54200C9918B /* Tracks.swift in Sources */,
 				B6C9555223EAA37F0096213B /* SignInViewController.swift in Sources */,
 				B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */,
 				B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */,
@@ -368,6 +379,7 @@
 				B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */,
 				B624CBC823FA5D5E0008F03B /* HomeViewController.swift in Sources */,
 				B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */,
+				B6E3504C23FEBB0300DB3110 /* apiCall.swift in Sources */,
 				B602D7E423FBF79B006AD3C3 /* Task.swift in Sources */,
 				B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */,
 			);

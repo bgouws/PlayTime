@@ -16,9 +16,4 @@ class LaunchViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    func animateLogo() {
-        UIView.animate(withDuration: 1, animations: {
-            self.imgLogo.frame.origin.y -= 50
-        }, completion: nil)
-    }
 }

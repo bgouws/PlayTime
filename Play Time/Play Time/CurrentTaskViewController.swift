@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class CurrentTaskViewController: UIViewController {
-
+    @IBOutlet weak var lblSongTitle: UILabel!
     @IBOutlet weak var txtHeaderTask: UILabel!
     @IBOutlet weak var btnReset: UIButton!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
+    let player = MPMusicPlayerController.applicationQueuePlayer
     var timer = Timer()
     var isTimerRunning = false
     var counter = 0.0
@@ -34,6 +36,32 @@ class CurrentTaskViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func btnStart(_ sender: Any) {
+        //Creating a query
+        let query = MPMediaQuery.songs()
+        //Setting up query filter
+        let isPresent = MPMediaPropertyPredicate(value: "Jazz", forProperty: MPMediaItemPropertyGenre,
+                                                 comparisonType: .equalTo)
+        //Adding the filter to the query
+        query.addFilterPredicate(isPresent)
+        guard let items = query.items else { return }
+        let sTitles = items.filter {
+            let titles = $0.genre
+            return titles == "Jazz"
+        }
+        let queue = MPMediaItemCollection(items: sTitles)
+        player.stop()
+        player.setQueue(with: queue)
+        player.shuffleMode = .songs
+        player.play()
+        var listOfTracks = [TrackDetails]()
+        let myRequest = TrackRequest.init()
+        myRequest.getData { result in
+            switch result {
+            case .failure(let error): print(error)
+            case .success(let actualData): listOfTracks = actualData
+                print(listOfTracks)
+            }
+        }
         if !isTimerRunning {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
                                          selector: #selector(runTimer), userInfo: nil, repeats: true)
@@ -67,8 +95,10 @@ class CurrentTaskViewController: UIViewController {
         if second < 10 {
             secondString = "0\(second)"
         }
+        //print(musicPlayer.currentPlaybackTime)
         timerLabel.text = "\(hourString):\(minuteString):\(secondString)"
         if hourString == fHour && minuteString == fMinute && secondString == fSecond {
+            player.stop()
             timerLabel.textColor = UIColor.systemGreen
             isTimerRunning = false
             timer.invalidate()
