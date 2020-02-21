@@ -12,7 +12,17 @@ So if the user were to create a task such as "Running or gym" the application sh
 Whereas if the user selects a task called "Break" or "Rest" it should select a sub genre like "Soul"
 
 ## Screenshots
+### Sign In
+![](Play%20Time/Images/SignIn.PNG)
 
+### Sign Up
+![](Play%20Time/Images/SignUp.PNG)
+
+### Music Taste Selection
+![](Play%20Time/Images/SelectTaste.PNG)
+
+### Task List
+![](Play%20Time/Images/TaskList.PNG)
 
 
 [![Build Status](https://app.bitrise.io/app/6b4ff5672b302e4b/status.svg?token=JBd3HJLJwh_ksHHACk0Ytg&branch=master)](https://app.bitrise.io/app/6b4ff5672b302e4b)
