@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DyD-iN-D7d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XeK-4m-IZC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,69 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
-        <scene sceneID="9In-LK-9dx">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="DyD-iN-D7d" customClass="HomeViewController" customModule="Play_Time" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="GuD-rk-IPN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="tuS-JD-bRJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eo4-EH-3Z5">
-                                <rect key="frame" x="57" y="809" width="300" height="40"/>
-                                <color key="backgroundColor" red="0.46566450599999998" green="0.64212161300000004" blue="0.39400985840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="7yA-77-sMl"/>
-                                    <constraint firstAttribute="height" constant="40" id="R6j-IL-bx2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Sign Out"/>
-                                <connections>
-                                    <action selector="btnSignOut:" destination="DyD-iN-D7d" eventType="touchUpInside" id="q7h-OG-v0G"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15A-m2-P6g">
-                                <rect key="frame" x="184" y="438" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="btnMove:" destination="DyD-iN-D7d" eventType="touchUpInside" id="Te6-ER-meB"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="tuS-JD-bRJ" firstAttribute="top" secondItem="4UF-SZ-4yp" secondAttribute="top" id="AFr-ze-OuM"/>
-                            <constraint firstItem="tuS-JD-bRJ" firstAttribute="leading" secondItem="4UF-SZ-4yp" secondAttribute="leading" id="CfA-gm-ud0"/>
-                            <constraint firstItem="eo4-EH-3Z5" firstAttribute="centerX" secondItem="GuD-rk-IPN" secondAttribute="centerX" id="EhE-dc-m7w"/>
-                            <constraint firstItem="tuS-JD-bRJ" firstAttribute="trailing" secondItem="4UF-SZ-4yp" secondAttribute="trailing" id="GIf-bM-5Lb"/>
-                            <constraint firstItem="eo4-EH-3Z5" firstAttribute="bottom" secondItem="4UF-SZ-4yp" secondAttribute="bottom" constant="-13" id="YbX-nk-NJu"/>
-                            <constraint firstItem="tuS-JD-bRJ" firstAttribute="bottom" secondItem="4UF-SZ-4yp" secondAttribute="bottom" id="faG-Ev-v45"/>
-                            <constraint firstItem="tuS-JD-bRJ" firstAttribute="leading" secondItem="4UF-SZ-4yp" secondAttribute="leading" id="h2F-v0-0ER"/>
-                            <constraint firstItem="tuS-JD-bRJ" firstAttribute="trailing" secondItem="4UF-SZ-4yp" secondAttribute="trailing" id="q4E-nl-ZhI"/>
-                            <constraint firstItem="tuS-JD-bRJ" firstAttribute="bottom" secondItem="4UF-SZ-4yp" secondAttribute="bottom" id="r4s-bD-Ct4"/>
-                            <constraint firstItem="tuS-JD-bRJ" firstAttribute="top" secondItem="4UF-SZ-4yp" secondAttribute="top" id="z3X-D4-Ey3"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="4UF-SZ-4yp"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5WQ-vY-FQz"/>
-                    <connections>
-                        <outlet property="btnMove" destination="15A-m2-P6g" id="hMV-Ab-uYX"/>
-                        <outlet property="btnSignOut" destination="eo4-EH-3Z5" id="vBc-B9-EJK"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="displayLoginView" id="pVr-3T-gFb"/>
-                        <segue destination="r0B-yr-Dae" kind="show" identifier="bypassView" id="VRu-Sc-9gt"/>
-                        <segue destination="Qys-ga-rpf" kind="show" identifier="TimerTestView" id="SWo-nY-dK0"/>
-                        <segue destination="XeK-4m-IZC" kind="show" identifier="taskView" id="9IT-j9-UZQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H41-uO-edB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-230.43478260869566" y="-573.21428571428567"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -172,12 +109,12 @@
                         <outlet property="txtEmail" destination="PgJ-Qw-JHi" id="jCm-2f-tgE"/>
                         <outlet property="txtPassword" destination="qpL-H3-dvP" id="sca-Zj-kTw"/>
                         <segue destination="mha-Dn-9ea" kind="show" identifier="SignView" id="Pne-T9-4Ha"/>
-                        <segue destination="DyD-iN-D7d" kind="show" identifier="HomeView" id="CR4-Zt-z8D"/>
+                        <segue destination="XeK-4m-IZC" kind="show" identifier="HomeView" id="0xF-up-f2V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230.43478260869566" y="130.58035714285714"/>
+            <point key="canvasLocation" x="-675" y="-1008"/>
         </scene>
         <!--Sign View Controller-->
         <scene sceneID="rMy-Vs-fvm">
@@ -297,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gMa-JC-XwL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569.56521739130437" y="130.58035714285714"/>
+            <point key="canvasLocation" x="-304" y="-314"/>
         </scene>
         <!--Music Taste View Controller-->
         <scene sceneID="TTz-Q5-eGM">
@@ -420,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENG-gE-uJ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1344.9275362318842" y="130.58035714285714"/>
+            <point key="canvasLocation" x="420" y="-314"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wNH-dF-Axk">
@@ -457,96 +394,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gf-fv-wPq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4393" y="131"/>
-        </scene>
-        <!--Add Task View Controller-->
-        <scene sceneID="IAw-9q-GWE">
-            <objects>
-                <viewController id="12x-W5-z8S" customClass="AddTaskViewController" customModule="Play_Time" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bQa-9S-Shd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a task:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5l-J4-1hJ">
-                                <rect key="frame" x="129" y="20" width="156" height="43"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Task Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pl9-1z-yIb">
-                                <rect key="frame" x="57" y="83" width="300" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="A3h-FU-cZV"/>
-                                    <constraint firstAttribute="height" constant="40" id="DPZ-Ch-Bow"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Task Duration 00:00:00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcL-3N-MCH">
-                                <rect key="frame" x="57" y="133" width="300" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="4yE-en-AEX"/>
-                                    <constraint firstAttribute="height" constant="40" id="YAS-f3-9L7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cO-gB-U1A">
-                                <rect key="frame" x="57" y="263" width="300" height="40"/>
-                                <color key="backgroundColor" red="0.46566450599999998" green="0.64212161300000004" blue="0.39400985840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="KxN-Ca-JMO"/>
-                                    <constraint firstAttribute="height" constant="40" id="njM-RR-gPy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="btnCancel:" destination="12x-W5-z8S" eventType="touchUpInside" id="iSc-Mx-nRR"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9A5-kQ-oLA">
-                                <rect key="frame" x="57" y="213" width="300" height="40"/>
-                                <color key="backgroundColor" red="0.46566450599999998" green="0.64212161300000004" blue="0.39400985840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="HMC-c3-Caj"/>
-                                    <constraint firstAttribute="height" constant="40" id="agD-pM-Bda"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Add Task"/>
-                                <connections>
-                                    <action selector="btnAddTask:" destination="12x-W5-z8S" eventType="touchUpInside" id="L9E-bh-3s7"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="pl9-1z-yIb" firstAttribute="top" secondItem="O5l-J4-1hJ" secondAttribute="bottom" constant="20" id="1bp-l6-JIM"/>
-                            <constraint firstItem="pl9-1z-yIb" firstAttribute="centerX" secondItem="bQa-9S-Shd" secondAttribute="centerX" id="591-CQ-MwX"/>
-                            <constraint firstItem="O5l-J4-1hJ" firstAttribute="centerX" secondItem="bQa-9S-Shd" secondAttribute="centerX" id="5g9-58-lhm"/>
-                            <constraint firstItem="5cO-gB-U1A" firstAttribute="centerX" secondItem="bQa-9S-Shd" secondAttribute="centerX" id="Bpd-rm-cIE"/>
-                            <constraint firstItem="O5l-J4-1hJ" firstAttribute="top" secondItem="JKX-Y9-CUF" secondAttribute="top" constant="20" id="Sjl-JD-9aA"/>
-                            <constraint firstItem="vcL-3N-MCH" firstAttribute="centerX" secondItem="bQa-9S-Shd" secondAttribute="centerX" id="Xyr-KS-Vz5"/>
-                            <constraint firstItem="5cO-gB-U1A" firstAttribute="top" secondItem="9A5-kQ-oLA" secondAttribute="bottom" constant="10" id="bdN-Q7-9Ht"/>
-                            <constraint firstItem="vcL-3N-MCH" firstAttribute="top" secondItem="pl9-1z-yIb" secondAttribute="bottom" constant="10" id="q2Z-uF-XeH"/>
-                            <constraint firstItem="9A5-kQ-oLA" firstAttribute="top" secondItem="vcL-3N-MCH" secondAttribute="bottom" constant="40" id="qjW-jS-TLN"/>
-                            <constraint firstItem="9A5-kQ-oLA" firstAttribute="centerX" secondItem="bQa-9S-Shd" secondAttribute="centerX" id="xjJ-r7-XU2"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="JKX-Y9-CUF"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Xnx-9B-ny7"/>
-                    <connections>
-                        <outlet property="btnAddTask" destination="9A5-kQ-oLA" id="ec6-6q-YaY"/>
-                        <outlet property="btnCancel" destination="5cO-gB-U1A" id="jk6-IY-GVa"/>
-                        <outlet property="txtDuration" destination="vcL-3N-MCH" id="ntW-kM-XwP"/>
-                        <outlet property="txtTaskTitle" destination="pl9-1z-yIb" id="lsJ-Q5-h9y"/>
-                        <segue destination="XeK-4m-IZC" kind="show" identifier="listView" id="OKS-xm-1jo"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dpf-9V-FZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2154" y="-586"/>
+            <point key="canvasLocation" x="1771" y="-648"/>
         </scene>
         <!--Task List View Controller-->
         <scene sceneID="Mjz-8u-Sy6">
@@ -619,6 +467,21 @@
                                     <action selector="btnAddSingleTask:" destination="XeK-4m-IZC" eventType="touchUpInside" id="dSt-Sv-4M1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWR-aY-nDZ">
+                                <rect key="frame" x="288" y="57" width="106" height="40"/>
+                                <color key="backgroundColor" red="0.46566450599999998" green="0.64212161300000004" blue="0.39400985840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NlU-xx-SHn"/>
+                                    <constraint firstAttribute="width" constant="106" id="TTU-c8-5yy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLogout:" destination="XeK-4m-IZC" eventType="touchUpInside" id="B18-rn-t5A"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -626,11 +489,13 @@
                             <constraint firstItem="myj-sy-yfE" firstAttribute="top" secondItem="btT-s7-ZIf" secondAttribute="top" constant="13" id="Biy-F4-cQd"/>
                             <constraint firstItem="pnp-0T-D4Z" firstAttribute="top" secondItem="tyd-FU-On9" secondAttribute="bottom" constant="10" id="EhR-4Q-0rW"/>
                             <constraint firstItem="myj-sy-yfE" firstAttribute="leading" secondItem="btT-s7-ZIf" secondAttribute="leading" constant="40" id="GEK-fr-Y99"/>
+                            <constraint firstItem="btT-s7-ZIf" firstAttribute="trailing" secondItem="kWR-aY-nDZ" secondAttribute="trailing" constant="20" id="IFh-c8-jmM"/>
                             <constraint firstItem="pnp-0T-D4Z" firstAttribute="leading" secondItem="btT-s7-ZIf" secondAttribute="leading" constant="16" id="OPv-t8-otI"/>
                             <constraint firstItem="pnp-0T-D4Z" firstAttribute="trailing" secondItem="btT-s7-ZIf" secondAttribute="trailing" constant="-16" id="Raf-bj-USm"/>
                             <constraint firstItem="pnp-0T-D4Z" firstAttribute="centerX" secondItem="cK4-be-rd2" secondAttribute="centerX" id="ViH-18-QnG"/>
                             <constraint firstItem="btT-s7-ZIf" firstAttribute="trailing" secondItem="tyd-FU-On9" secondAttribute="trailing" constant="20" id="Ylj-Nm-sdx"/>
                             <constraint firstItem="dIk-ws-SUB" firstAttribute="leading" secondItem="btT-s7-ZIf" secondAttribute="leading" constant="40" id="ZWR-kH-3JG"/>
+                            <constraint firstItem="kWR-aY-nDZ" firstAttribute="top" secondItem="btT-s7-ZIf" secondAttribute="top" constant="13" id="lt2-lz-xD1"/>
                             <constraint firstItem="pnp-0T-D4Z" firstAttribute="bottom" secondItem="btT-s7-ZIf" secondAttribute="bottom" constant="19" id="rrg-Jf-SSt"/>
                             <constraint firstItem="dIk-ws-SUB" firstAttribute="top" secondItem="myj-sy-yfE" secondAttribute="bottom" constant="8" id="wTF-RQ-qcO"/>
                         </constraints>
@@ -639,16 +504,17 @@
                     <navigationItem key="navigationItem" id="Sh6-dZ-tNS"/>
                     <connections>
                         <outlet property="btnAddSingleTask" destination="tyd-FU-On9" id="OG8-9z-yGB"/>
+                        <outlet property="btnLogout" destination="kWR-aY-nDZ" id="pEK-FS-f6L"/>
                         <outlet property="tableView" destination="pnp-0T-D4Z" id="6D2-jj-oqw"/>
                         <outlet property="txtDuration" destination="dIk-ws-SUB" id="cC6-SQ-d40"/>
                         <outlet property="txtTitle" destination="myj-sy-yfE" id="Ewh-HB-Qma"/>
-                        <segue destination="12x-W5-z8S" kind="show" identifier="addTaskView" id="QzO-iT-iCD"/>
                         <segue destination="Qys-ga-rpf" kind="show" identifier="ActiveTaskView" id="Bjg-p5-cxT"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="SignOutView" id="QDX-Yd-XKj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLN-sp-Rkc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153.6231884057975" y="130.58035714285714"/>
+            <point key="canvasLocation" x="49" y="-1008"/>
         </scene>
         <!--Current Task View Controller-->
         <scene sceneID="a6G-4u-P7W">
@@ -804,7 +670,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gm9-Y9-LPq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2904" y="131"/>
+            <point key="canvasLocation" x="790" y="-1008"/>
         </scene>
     </scenes>
     <resources>
@@ -812,9 +678,7 @@
         <image name="Title" width="350" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SWo-nY-dK0"/>
         <segue reference="mRL-l8-Sth"/>
-        <segue reference="VRu-Sc-9gt"/>
-        <segue reference="pVr-3T-gFb"/>
+        <segue reference="Mti-Ic-JM1"/>
     </inferredMetricsTieBreakers>
 </document>

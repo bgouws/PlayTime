@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TaskListViewController: UIViewController {
 
@@ -14,7 +15,10 @@ class TaskListViewController: UIViewController {
     var finalMinute = ""
     var finalSecond = ""
     var finalTitle = ""
+    let move = "SignOutView"
+    var flag = false
     //@IBOutlet weak var btnAddTask: UIButton!
+    @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var txtTaskTitle: UITextField!
     @IBOutlet weak var txtTitle: UITextField!
@@ -28,7 +32,24 @@ class TaskListViewController: UIViewController {
         tasks = createTask()
         tableView.delegate = self
         tableView.dataSource = self
+        authenticateUserAndConfigure()
         // Do any additional setup after loading the view.
+    }
+    func authenticateUserAndConfigure() {
+        if Auth.auth().currentUser == nil {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "SignOutView", sender: self)
+            }
+        }
+    }
+    @IBAction func btnLogout(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?",
+                                                preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive,
+                                                handler: {(_) in self.signOut(moveTo: self.move)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     func createTask() -> [Task] { //Read text file here
         var tempTask: [Task] = []
@@ -65,6 +86,15 @@ class TaskListViewController: UIViewController {
     @IBAction func btnAddSingleTask(_ sender: Any) {
         insetNewTask()
     }
+    func signOut(moveTo: String) {
+        do {
+            flag = false
+            try Auth.auth().signOut()
+            self.performSegue(withIdentifier: moveTo, sender: self)
+        } catch let error {
+            print("Failed to sign out with error: ", error.localizedDescription)
+        }
+    }
 }
 
 extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -94,6 +124,7 @@ extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell number: \(indexPath.row)!")
+        flag = true
         finalHour = tasks[indexPath.row].hour
         finalMinute = tasks[indexPath.row].minute
         finalSecond = tasks[indexPath.row].second
@@ -101,12 +132,14 @@ extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
         self.performSegue(withIdentifier: "ActiveTaskView", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // swiftlint:disable all
-        let vc = segue.destination as! CurrentTaskViewController
-        // swiftlint:enable all
-        vc.fHour = finalHour
-        vc.fMinute = finalMinute
-        vc.fSecond = finalSecond
-        vc.fTitle = finalTitle
+        if flag {
+            // swiftlint:disable all
+            let vc = segue.destination as! CurrentTaskViewController
+            // swiftlint:enable all
+            vc.fHour = finalHour
+            vc.fMinute = finalMinute
+            vc.fSecond = finalSecond
+            vc.fTitle = finalTitle
+        }
     }
 }
