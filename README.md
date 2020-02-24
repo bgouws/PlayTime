@@ -11,9 +11,15 @@ So if the user were to create a task such as "Running or gym" the application sh
 
 Whereas if the user selects a task called "Break" or "Rest" it should select a sub genre like "Soul"
 
+## Build Badges
+
+[![Build Status](https://app.bitrise.io/app/6b4ff5672b302e4b/status.svg?token=JBd3HJLJwh_ksHHACk0Ytg&branch=master)](https://app.bitrise.io/app/6b4ff5672b302e4b)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a4bc2d1ae3c47cf9c716e3def676866)](https://www.codacy.com/manual/bgouws/PlayTime?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bgouws/PlayTime&amp;utm_campaign=Badge_Grade)
+
 ## Screenshots
 ### Sign In
-![](Play%20Time/Images/SignIn.PNG)
+![](Play%20Time/Images/SignIn.PNG =250x250)
 
 ### Sign Up
 ![](Play%20Time/Images/SignUp.PNG)
@@ -24,7 +30,3 @@ Whereas if the user selects a task called "Break" or "Rest" it should select a s
 ### Task List
 ![](Play%20Time/Images/TaskList.PNG)
 
-
-[![Build Status](https://app.bitrise.io/app/6b4ff5672b302e4b/status.svg?token=JBd3HJLJwh_ksHHACk0Ytg&branch=master)](https://app.bitrise.io/app/6b4ff5672b302e4b)
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a4bc2d1ae3c47cf9c716e3def676866)](https://www.codacy.com/manual/bgouws/PlayTime?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bgouws/PlayTime&amp;utm_campaign=Badge_Grade)
