@@ -150,31 +150,16 @@
 		B6376DC723E97DE50033C48D /* Play Time */ = {
 			isa = PBXGroup;
 			children = (
+				B6F37DD82405383400D2B5FB /* Models */,
+				B6F37DD72405380800D2B5FB /* ViewModels */,
+				B6F37DD6240537C500D2B5FB /* Extensions */,
+				B6F37DD52405377600D2B5FB /* Views */,
 				B6376DC823E97DE50033C48D /* AppDelegate.swift */,
 				B6376DCA23E97DE50033C48D /* SceneDelegate.swift */,
-				B6376DCC23E97DE50033C48D /* ViewController.swift */,
-				B6376DCE23E97DE50033C48D /* Main.storyboard */,
-				B65568392401A7A8004E6CA2 /* Downloads */,
-				B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */,
+				B655683A2401A7D6004E6CA2 /* GoogleService-Info.plist */,
 				B6376DD123E97DE50033C48D /* Assets.xcassets */,
-				B6376DD323E97DE50033C48D /* LaunchScreen.storyboard */,
 				B6376DD623E97DE50033C48D /* Info.plist */,
 				B697B2C923FA4AED002D06C7 /* GoogleService-Info.plist */,
-				B6376DEA23E98D8E0033C48D /* CustomButton.swift */,
-				B6C9554923EA87700096213B /* UIButtonExtension.swift */,
-				B6C9554F23EAA2B20096213B /* SignViewController.swift */,
-				B6C9555123EAA37F0096213B /* SignInViewController.swift */,
-				B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */,
-				B6A0260223F4179800678393 /* ToDoViewController.swift */,
-				B60BA1AE23F6B48700F8A348 /* UITextViewExtension.swift */,
-				B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */,
-				B624CBC723FA5D5E0008F03B /* HomeViewController.swift */,
-				B63306A223FBA36300B1651E /* LaunchViewController.swift */,
-				B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */,
-				B602D7E323FBF79B006AD3C3 /* Task.swift */,
-				B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */,
-				B6F5A20123FEA54200C9918B /* Tracks.swift */,
-				B6E3504B23FEBB0300DB3110 /* apiCall.swift */,
 			);
 			path = "Play Time";
 			sourceTree = "<group>";
@@ -188,12 +173,51 @@
 			path = "Play TimeTests";
 			sourceTree = "<group>";
 		};
-		B65568392401A7A8004E6CA2 /* Downloads */ = {
+		B6F37DD52405377600D2B5FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B655683A2401A7D6004E6CA2 /* GoogleService-Info.plist */,
+				B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */,
+				B6376DCC23E97DE50033C48D /* ViewController.swift */,
+				B6C9554F23EAA2B20096213B /* SignViewController.swift */,
+				B6C9555123EAA37F0096213B /* SignInViewController.swift */,
+				B6A0260223F4179800678393 /* ToDoViewController.swift */,
+				B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */,
+				B624CBC723FA5D5E0008F03B /* HomeViewController.swift */,
+				B63306A223FBA36300B1651E /* LaunchViewController.swift */,
+				B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */,
+				B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */,
+				B6376DCE23E97DE50033C48D /* Main.storyboard */,
+				B6376DD323E97DE50033C48D /* LaunchScreen.storyboard */,
 			);
-			path = Downloads;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B6F37DD6240537C500D2B5FB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B6C9554923EA87700096213B /* UIButtonExtension.swift */,
+				B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */,
+				B60BA1AE23F6B48700F8A348 /* UITextViewExtension.swift */,
+				B6376DEA23E98D8E0033C48D /* CustomButton.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B6F37DD72405380800D2B5FB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B6E3504B23FEBB0300DB3110 /* apiCall.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B6F37DD82405383400D2B5FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B602D7E323FBF79B006AD3C3 /* Task.swift */,
+				B6F5A20123FEA54200C9918B /* Tracks.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

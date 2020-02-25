@@ -51,7 +51,8 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         let password = txtPassword.text
         let conPassword = txtComfirmPassword.text
         //validation
-        if PTBasic.ptValidationCheck(email: email!) && password != "" && conPassword != "" && conPassword == password {
+        if PTValidation.ptValidationCheck(email: email!) && password != "" &&
+                                         conPassword != "" && conPassword == password {
             creatUser(email: email!, password: password!)
         } else {
             clearFields()

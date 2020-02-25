@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let email = txtEmail.text
         let password = txtPassword.text
         //validation
-        if password != "" && PTBasic.ptValidationCheck(email: email!) {
+        if password != "" && PTValidation.ptValidationCheck(email: email!) {
             signUserIn(email: email!, password: password!)
         } else {
             clearFields()
