@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import PTFramework
+import AVFoundation
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -20,8 +22,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //This is the new update
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //Writing to console
-        print("View has loaded")
         //Styling Components
         txtEmail.customTextBox()
         txtPassword.customTextBox()
@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let email = txtEmail.text
         let password = txtPassword.text
         //validation
-        if password != "" && email?.isValidEmail(email!) ?? false {
+        if password != "" && PTBasic.ptValidationCheck(email: email!) {
             signUserIn(email: email!, password: password!)
         } else {
             clearFields()
@@ -98,5 +98,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }

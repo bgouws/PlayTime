@@ -27,7 +27,6 @@
 		B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */; };
 		B697B2CA23FA4AED002D06C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B697B2C923FA4AED002D06C7 /* GoogleService-Info.plist */; };
 		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
-		B6A0260123F4127E00678393 /* ValidationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260023F4127E00678393 /* ValidationExtension.swift */; };
 		B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260223F4179800678393 /* ToDoViewController.swift */; };
 		B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554923EA87700096213B /* UIButtonExtension.swift */; };
 		B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554F23EAA2B20096213B /* SignViewController.swift */; };
@@ -77,7 +76,6 @@
 		B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		B697B2C923FA4AED002D06C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		B6A0260023F4127E00678393 /* ValidationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationExtension.swift; sourceTree = "<group>"; };
 		B6A0260223F4179800678393 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		B6C9554923EA87700096213B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		B6C9554F23EAA2B20096213B /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				B6C9554F23EAA2B20096213B /* SignViewController.swift */,
 				B6C9555123EAA37F0096213B /* SignInViewController.swift */,
 				B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */,
-				B6A0260023F4127E00678393 /* ValidationExtension.swift */,
 				B6A0260223F4179800678393 /* ToDoViewController.swift */,
 				B60BA1AE23F6B48700F8A348 /* UITextViewExtension.swift */,
 				B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */,
@@ -371,7 +368,6 @@
 				B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */,
 				B602D7E223FBF5FC006AD3C3 /* TableViewCell.swift in Sources */,
 				B60BA1AF23F6B48700F8A348 /* UITextViewExtension.swift in Sources */,
-				B6A0260123F4127E00678393 /* ValidationExtension.swift in Sources */,
 				B6F5A20223FEA54200C9918B /* Tracks.swift in Sources */,
 				B6C9555223EAA37F0096213B /* SignInViewController.swift in Sources */,
 				B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */,

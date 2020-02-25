@@ -14,8 +14,8 @@ enum tracksError:Error {
 struct TrackRequest {
     let resourceURL: URL
     //let aPI_KEY = "//itunes.apple.com/search"
-    init() {
-        let apiQuery = "https://itunes.apple.com/search/media=music&entity=song&term=swift"
+    init(trackTitle: String, trackArtist: String) {
+        let apiQuery = "https://itunes.apple.com/search/media=music&entity=song&term=\(trackTitle)+\(trackArtist)"
         guard let resourceURL = URL(string: apiQuery) else {fatalError()}
         self.resourceURL = resourceURL
     }

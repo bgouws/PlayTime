@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import PTFramework
 
 class SignViewController: UIViewController, UITextFieldDelegate {
 
@@ -50,7 +51,7 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         let password = txtPassword.text
         let conPassword = txtComfirmPassword.text
         //validation
-        if email?.isValidEmail(email!) ?? false && password != "" && conPassword != "" && conPassword == password {
+        if PTBasic.ptValidationCheck(email: email!) && password != "" && conPassword != "" && conPassword == password {
             creatUser(email: email!, password: password!)
         } else {
             clearFields()
@@ -85,7 +86,8 @@ class SignViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             guard let uid = result?.user.uid else { return }
-            Database.database().reference().child("users").child(uid).updateChildValues(["email": email], withCompletionBlock: { error, ref in
+            Database.database().reference().child("users").child(uid).updateChildValues(
+                ["email": email], withCompletionBlock: { error, _ in
                 if let error = error {
                     print("Failed to update database values with error: ", error.localizedDescription)
                     return

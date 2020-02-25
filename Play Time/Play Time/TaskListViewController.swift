@@ -52,19 +52,43 @@ class TaskListViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     func createTask() -> [Task] { //Read text file here
+        //Test
+            //Creating textfile test
+            let fileName = "Tasks"
+            // swiftlint:disable all
+            let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask,
+                                                              appropriateFor: nil, create: true)
+            // swiftlint:enable all
+            let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+            print("File Path: \(fileURL.path)")
+            let writeString = "This is the data that I am writing the the text file"
+            do {
+                //Write to file
+                try writeString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+            } catch let error as NSError {
+                print("Failed to write to URL ")
+                print(error)
+            }
+            var readString = ""
+            do {
+                readString = try String(contentsOf: fileURL)
+            } catch let error as NSError {
+                print("Failed to read file")
+                print(error)
+            }
+            print("Contents of the file: \(readString)")
+        //Test
         var tempTask: [Task] = []
         let task1 = Task(title: "Cooking", hour: "01", minute: "00", second: "00")
         let task2 = Task(title: "Cleaning", hour: "00", minute: "30", second: "00")
         let task3 = Task(title: "Working", hour: "02", minute: "30", second: "00")
-        let task4 = Task(title: "Running", hour: "00", minute: "20", second: "00")
+        let task4 = Task(title: "Gyming", hour: "00", minute: "00", second: "10")
         let task5 = Task(title: "Shopping", hour: "00", minute: "45", second: "45")
-        let task6 = Task(title: "Test", hour: "00", minute: "00", second: "30")
         tempTask.append(task1)
         tempTask.append(task2)
         tempTask.append(task3)
         tempTask.append(task4)
         tempTask.append(task5)
-        tempTask.append(task6)
         return tempTask
     }
     func insetNewTask() {

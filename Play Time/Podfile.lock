@@ -89,11 +89,13 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
+  - PTFramework (1.0.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
+  - PTFramework (from `https://github.com/bgouws/PTPod.git`)
 
 SPEC REPOS:
   trunk:
@@ -116,6 +118,15 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
 
+EXTERNAL SOURCES:
+  PTFramework:
+    :git: https://github.com/bgouws/PTPod.git
+
+CHECKOUT OPTIONS:
+  PTFramework:
+    :commit: 5f7d5b07991568caf25a4a90c239452cc47dd53a
+    :git: https://github.com/bgouws/PTPod.git
+
 SPEC CHECKSUMS:
   Firebase: 2672e5636b42f977177716317e68346ae5e9de25
   FirebaseAnalytics: cf95d3aab897612783020fbd98401d5366f135ee
@@ -135,7 +146,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PTFramework: 77fc506ce0f173225a76981b624824907b7c302c
 
-PODFILE CHECKSUM: 1bb1cc9071c422d9ad19843898414d80237e6531
+PODFILE CHECKSUM: 8a2b04cab762b1fc00843cb3d798b0e985c63e73
 
 COCOAPODS: 1.8.4
