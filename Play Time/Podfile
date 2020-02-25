@@ -12,7 +12,8 @@ target 'Play Time' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   #pod 'PTFramework', :path => '/Users/bgouws/Desktop/PlayTimeRedux/PlayTime/Play Time/PTFramework'
-  pod 'PTFramework', :git => 'https://github.com/bgouws/PTPod.git'
+  #pod 'PTFramework', :git => 'https://github.com/bgouws/PTPod.git'
+  pod 'PTFramework', :path => '/Users/bgouws/Desktop/PTFramework/PTPod'
 
   target 'Play TimeTests' do
     inherit! :search_paths
