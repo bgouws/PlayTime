@@ -95,7 +95,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
-  - PTFramework (from `/Users/bgouws/Desktop/PTFramework/PTPod`)
+  - PTFramework (from `https://github.com/bgouws/PTPod.git`)
 
 SPEC REPOS:
   trunk:
@@ -120,7 +120,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   PTFramework:
-    :path: "/Users/bgouws/Desktop/PTFramework/PTPod"
+    :git: https://github.com/bgouws/PTPod.git
+
+CHECKOUT OPTIONS:
+  PTFramework:
+    :commit: c33be9de5888d9c97a6b47954aeb68fa7de958e2
+    :git: https://github.com/bgouws/PTPod.git
 
 SPEC CHECKSUMS:
   Firebase: 2672e5636b42f977177716317e68346ae5e9de25
@@ -143,6 +148,6 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   PTFramework: 77fc506ce0f173225a76981b624824907b7c302c
 
-PODFILE CHECKSUM: 9ebf31ea413ac1ba5a5a00efa9df123168073cc7
+PODFILE CHECKSUM: d5e7cfa1938e74b80ef11c2af6fda016f70c8d37
 
 COCOAPODS: 1.8.4
