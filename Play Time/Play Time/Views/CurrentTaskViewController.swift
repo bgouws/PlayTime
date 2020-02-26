@@ -76,7 +76,7 @@ class CurrentTaskViewController: UIViewController {
         let val = listOfTracks[0]
         print(val.artworkUrl100)
             finalURL = URL(string: val.artworkUrl100)!
-            self.imgArtWork.load(url: finalURL)
+            self.imgArtWork.loadImage(url: finalURL)
         }
         self.finalTitle = (self.player.nowPlayingItem?.title)!
         self.finalArtist = (self.player.nowPlayingItem?.artist)!
@@ -85,7 +85,7 @@ class CurrentTaskViewController: UIViewController {
                                          selector: #selector(runTimer), userInfo: nil, repeats: true)
             timerSetUp()
         }
-            imgArtWork.load(url: finalURL)
+            imgArtWork.loadImage(url: finalURL)
             populateTrack()
     }
     func populateTrack() {

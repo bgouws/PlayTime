@@ -8,8 +8,8 @@
 
 import UIKit
 import Firebase
-import PTFramework
 import AVFoundation
+import PTFramework
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
@@ -44,15 +44,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //variables
         let email = txtEmail.text
         let password = txtPassword.text
-        //validation
-        if password != "" && PTValidation.ptValidationCheck(email: email!) {
-            signUserIn(email: email!, password: password!)
+        //Sending Data to SignInVM
+        if PTValidation.ptValidationCheckSignIn(email: email!, password: password!) {
+            PTSignIn.ptSignUserIn(email: email!, password: password!)
+            self.performSegue(withIdentifier: "HomeView", sender: self)
         } else {
             clearFields()
-            let alertController = UIAlertController(title: "Sign In Unsuccessful", message: "Error Signing In.",
-                                                    preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-            self.present(alertController, animated: true, completion: nil)
+            displayError()
         }
     }
     // MARK: Functions
@@ -79,38 +77,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                  with coordinator: UIViewControllerTransitionCoordinator) {
         print(UIDevice.current.orientation.isLandscape)
     }
-    func signUserIn(email: String, password: String) {
-        // swiftlint:disable all
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            // swiftlint:enable all
-            if let error = error {
-                print("Failed to sign user in with error: ", error.localizedDescription)
-                self.clearFields()
-                self.displayError()
-                return
-            }
-            print("Successfully Logged user in.")
-            self.performSegue(withIdentifier: "HomeView", sender: self)
-        }
-    }
     func displayError() {
         let alertController = UIAlertController(title: "Sign In Unsuccessful", message: "Error Signing In.",
                                                 preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
         self.present(alertController, animated: true, completion: nil)
-    }
-}
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
     }
 }

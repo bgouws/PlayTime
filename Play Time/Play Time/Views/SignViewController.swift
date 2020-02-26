@@ -46,14 +46,16 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         self.performSegue(withIdentifier: "launchView", sender: self)
     }
     @IBAction func btnCreate(_ sender: Any) {
-        //variables
+        //Collecting data from the view
         let email = txtEmail.text
         let password = txtPassword.text
         let conPassword = txtComfirmPassword.text
-        //validation
-        if PTValidation.ptValidationCheck(email: email!) && password != "" &&
-                                         conPassword != "" && conPassword == password {
-            creatUser(email: email!, password: password!)
+        //Sending data to the VM to be validated
+        if PTValidation.ptValidationCheckSignUp(email: email!, password: password!, conPassword: conPassword!) {
+            print("PTValidation Check Successful")
+            print("Trying to create user - PTFramework")
+            PTCreateUser.ptCreateUser(email: email!, password: password!)
+            self.performSegue(withIdentifier: "styleView", sender: self)
         } else {
             clearFields()
             let alertController = UIAlertController(title: "Sign Up Unsuccessful",
