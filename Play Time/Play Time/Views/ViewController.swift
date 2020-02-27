@@ -18,6 +18,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var signIn: UIButton!
     @IBOutlet weak var signUp: UIButton!
+    @IBOutlet weak var btnAPI: UIButton!
+    @IBOutlet weak var imgTest: UIImageView!
+
     override func viewDidLoad() {
         //This is the new update
         super.viewDidLoad()
@@ -30,7 +33,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         txtPassword.delegate = self
         txtEmail.delegate = self
         //Hitting Api
-        PTPlayMusic.ptPrint()
+        //PTPlayMusic.ptPrint()
     }
     deinit {
         //Stop Listening for keyboard hide/show events
@@ -40,6 +43,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                                                   object: nil)
     }
     // MARK: Button Clicked Functions
+    @IBAction func btnAPI(_ sender: Any) {
+        print("Call API Pushed")
+        //let list = PTApiCall.ptPreparePlayList()
+    }
     @IBAction func btnSignIn(_ sender: UIButton) {
         sender.pulsate()
         hideKeyboard()

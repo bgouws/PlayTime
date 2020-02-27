@@ -90,6 +90,18 @@
                                     <constraint firstAttribute="bottom" secondItem="v0R-nP-qvf" secondAttribute="bottom" constant="-8" id="ufy-HG-vTc"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IiW-at-ThK">
+                                <rect key="frame" x="154" y="584" width="105" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="API CALL"/>
+                                <connections>
+                                    <action selector="btnAPI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZLb-E0-cXO"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1M-ES-Y77">
+                                <rect key="frame" x="86" y="659" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -104,6 +116,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="jXR-R7-lhf"/>
                     <connections>
+                        <outlet property="btnAPI" destination="IiW-at-ThK" id="UfU-hD-aLP"/>
+                        <outlet property="imgTest" destination="k1M-ES-Y77" id="Z33-fk-7hh"/>
                         <outlet property="signIn" destination="4WI-nK-YZH" id="qqg-4n-Hg0"/>
                         <outlet property="signUp" destination="v0R-nP-qvf" id="Y7Z-oZ-MXQ"/>
                         <outlet property="txtEmail" destination="PgJ-Qw-JHi" id="jCm-2f-tgE"/>
@@ -114,7 +128,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-667" y="-1008"/>
+            <point key="canvasLocation" x="-668.11594202898561" y="-1008.4821428571428"/>
         </scene>
         <!--Sign View Controller-->
         <scene sceneID="rMy-Vs-fvm">
