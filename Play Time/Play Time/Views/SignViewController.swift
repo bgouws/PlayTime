@@ -51,10 +51,7 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         let password = txtPassword.text
         let conPassword = txtComfirmPassword.text
         //Sending data to the VM to be validated
-        if PTValidation.ptValidationCheckSignUp(email: email!, password: password!, conPassword: conPassword!) {
-            print("PTValidation Check Successful")
-            print("Trying to create user - PTFramework")
-            PTCreateUser.ptCreateUser(email: email!, password: password!)
+        if PTAccountManagement.ptCreateUser(email: email!, password: password!, conPassword: conPassword!) {
             self.performSegue(withIdentifier: "styleView", sender: self)
         } else {
             clearFields()

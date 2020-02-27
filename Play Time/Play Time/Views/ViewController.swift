@@ -29,6 +29,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         signIn.customButton()
         txtPassword.delegate = self
         txtEmail.delegate = self
+        //Hitting Api
+        PTPlayMusic.ptPrint()
     }
     deinit {
         //Stop Listening for keyboard hide/show events
@@ -45,12 +47,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let email = txtEmail.text
         let password = txtPassword.text
         //Sending Data to SignInVM
-        if PTValidation.ptValidationCheckSignIn(email: email!, password: password!) {
-            PTSignIn.ptSignUserIn(email: email!, password: password!)
+        if PTAccountManagement.ptSignUserIn(email: email!, password: password!) {
             self.performSegue(withIdentifier: "HomeView", sender: self)
         } else {
             clearFields()
-            displayError()
+           // displayError()
         }
     }
     // MARK: Functions
