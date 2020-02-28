@@ -149,12 +149,12 @@
 		B6376DC723E97DE50033C48D /* Play Time */ = {
 			isa = PBXGroup;
 			children = (
-				B6E9A7832407D103002C6A9D /* GoogleService-Info.plist */,
 				B6F37DD82405383400D2B5FB /* Models */,
 				B6F37DD72405380800D2B5FB /* ViewModels */,
 				B6F37DD6240537C500D2B5FB /* Extensions */,
 				B6F37DD52405377600D2B5FB /* Views */,
 				B6376DC823E97DE50033C48D /* AppDelegate.swift */,
+				B6E9A7832407D103002C6A9D /* GoogleService-Info.plist */,
 				B6376DCA23E97DE50033C48D /* SceneDelegate.swift */,
 				B6376DD123E97DE50033C48D /* Assets.xcassets */,
 				B6376DD623E97DE50033C48D /* Info.plist */,
