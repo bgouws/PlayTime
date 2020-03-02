@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import PTFramework
 
 class TableViewCell: UITableViewCell {
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
-    func setTask(task: Task) {
+    func setTask(task: PTTask) {
         lblTitle.text = "\(task.title)\t\t\t\tDuration:\t \(task.hour):\(task.minute):\(task.second)"
     }
 }

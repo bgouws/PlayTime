@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import PTFramework
 
 class HomeViewController: UIViewController {
 
@@ -40,11 +41,7 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: "taskView", sender: self)
     }
     func signOut() {
-        do {
-            try Auth.auth().signOut()
-            self.performSegue(withIdentifier: "displayLoginView", sender: self)
-        } catch let error {
-            print("Failed to sign out with error: ", error.localizedDescription)
-        }
+        PTAccountManagement.ptSignOut()
+        self.performSegue(withIdentifier: "displayLoginView", sender: self)
     }
 }

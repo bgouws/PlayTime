@@ -34,6 +34,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         txtEmail.delegate = self
         //Hitting Api
         //PTPlayMusic.ptPrint()
+        //Calling API
     }
     deinit {
         //Stop Listening for keyboard hide/show events
@@ -44,8 +45,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     // MARK: Button Clicked Functions
     @IBAction func btnAPI(_ sender: Any) {
-        print("Call API Pushed")
-        //let list = PTApiCall.ptPreparePlayList()
     }
     @IBAction func btnSignIn(_ sender: UIButton) {
         sender.pulsate()

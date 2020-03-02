@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import PTFramework
 
 class TaskListViewController: UIViewController {
 
@@ -26,9 +27,12 @@ class TaskListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddSingleTask: UIButton!
     //@IBOutlet weak var btnAddNow: UIButton!
-    var tasks: [Task] = []
+    var tasks: [PTTask] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Calling Api")
+        //PTApiCall.ptPreparePlayList()
+        PTPlayMusic.readData()
         tasks = createTask()
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,7 +55,7 @@ class TaskListViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    func createTask() -> [Task] { //Read text file here
+    func createTask() -> [PTTask] { //Read text file here
         //Test
             //Creating textfile test
             let fileName = "Tasks"
@@ -78,12 +82,12 @@ class TaskListViewController: UIViewController {
             }
             print("Contents of the file: \(readString)")
         //Test
-        var tempTask: [Task] = []
-        let task1 = Task(title: "Cooking", hour: "01", minute: "00", second: "00")
-        let task2 = Task(title: "Cleaning", hour: "00", minute: "30", second: "00")
-        let task3 = Task(title: "Working", hour: "02", minute: "30", second: "00")
-        let task4 = Task(title: "Gyming", hour: "00", minute: "00", second: "10")
-        let task5 = Task(title: "Shopping", hour: "00", minute: "45", second: "45")
+        var tempTask: [PTTask] = []
+        let task1 = PTTask(title: "Cooking", hour: "01", minute: "00", second: "00")
+        let task2 = PTTask(title: "Cleaning", hour: "00", minute: "30", second: "00")
+        let task3 = PTTask(title: "Working", hour: "02", minute: "30", second: "00")
+        let task4 = PTTask(title: "Gyming", hour: "00", minute: "00", second: "10")
+        let task5 = PTTask(title: "Shopping", hour: "00", minute: "45", second: "45")
         tempTask.append(task1)
         tempTask.append(task2)
         tempTask.append(task3)
@@ -97,7 +101,7 @@ class TaskListViewController: UIViewController {
         finalMinute = (duration?[1])!
         finalSecond = (duration?[2])!
         finalTitle = txtTitle.text!
-        let newTask = Task(title: finalTitle, hour: finalHour, minute: finalMinute, second: finalSecond)
+        let newTask = PTTask(title: finalTitle, hour: finalHour, minute: finalMinute, second: finalSecond)
         tasks.append(newTask)
         let indexPath = IndexPath(row: tasks.count - 1, section: 0)
         tableView.beginUpdates()

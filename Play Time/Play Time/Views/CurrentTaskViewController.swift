@@ -7,7 +7,17 @@
 //
 
 import UIKit
-import MediaPlayer
+//import MediaPlayer
+import PTFramework
+import AVFoundation
+import CoreMedia
+
+//Creating Variable
+var ptTitle = ""
+var ptArtist = ""
+var ptArt = UIImage()
+var ptPreview = ""
+var count = 0
 
 class CurrentTaskViewController: UIViewController {
     @IBOutlet weak var lblSongTitle: UILabel!
@@ -19,9 +29,6 @@ class CurrentTaskViewController: UIViewController {
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var imgArtWork: UIImageView!
-    var finalTitle = "Default"
-    var finalArtist = "Default"
-    let player = MPMusicPlayerController.applicationQueuePlayer
     var timer = Timer()
     var isTimerRunning = false
     var counter = 0.0
@@ -37,71 +44,38 @@ class CurrentTaskViewController: UIViewController {
         btnBack.customButton()
         btnStop.isEnabled = false
         btnReset.isEnabled = false
+        //Getting data from the viewModel
+        let trackData = PTTimer.ptInitialLoad()
+        //Setting up first track
+        imgArtWork.image = trackData[2] as? UIImage
+        lblSongTitle.text = trackData[0] as? String
+        lblSongArtist.text = trackData[1] as? String
         txtHeaderTask.text = "Your Current Task: \(fTitle)"
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareNextTrack),
+        name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    @objc func prepareNextTrack() {
+        let trackData = PTTimer.ptInitialLoad()
+        imgArtWork.image = trackData[2] as? UIImage
+        lblSongTitle.text = trackData[0] as? String
+        lblSongArtist.text = trackData[1] as? String
+        PTTimer.setupTrack()
     }
     @IBAction func btnStart(_ sender: Any) {
-        var finalURL: URL = URL(string: "google.com")!
-        let query = MPMediaQuery.songs()
-        //Setting up query filter
-        let isPresent = MPMediaPropertyPredicate(value: "Rock", forProperty: MPMediaItemPropertyGenre,
-                                                 comparisonType: .equalTo)
-        //Adding the filter to the query
-        query.addFilterPredicate(isPresent)
-        guard let items = query.items else { return }
-        let sTitles = items.filter {
-            let titles = $0.genre
-            return titles == "Rock"
-        }
-        for titles in sTitles {
-            print("\(titles.artist!) : \(titles.albumTitle!) : \(titles.title!)")
-        }
-        let queue = MPMediaItemCollection(items: sTitles)
-        // Code for image
-        player.stop()
-        player.setQueue(with: queue)
-        player.play()
-        let nowPlayingTitle = player.nowPlayingItem?.title
-        let nowPlayingArtist = player.nowPlayingItem?.artist
-        let currentTrackTitle = nowPlayingTitle!.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
-        let currentTrackArtist = nowPlayingArtist!.replacingOccurrences(of: " ", with: "+",
-                                                                        options: .literal, range: nil)
-        var listOfTracks = [TrackDetails]()
-        let myRequest = TrackRequest.init(trackTitle: currentTrackTitle, trackArtist: currentTrackArtist)
-        myRequest.getData { result in
-            switch result {
-            case .failure(let error): print(error)
-            case .success(let actualData): listOfTracks = actualData
-            }
-        let val = listOfTracks[0]
-        print(val.artworkUrl100)
-            finalURL = URL(string: val.artworkUrl100)!
-            self.imgArtWork.loadImage(url: finalURL)
-        }
-        self.finalTitle = (self.player.nowPlayingItem?.title)!
-        self.finalArtist = (self.player.nowPlayingItem?.artist)!
-        if !isTimerRunning {
+        print("Start Button Selected")
+        if !PTTimer.isTimerRunning {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
                                          selector: #selector(runTimer), userInfo: nil, repeats: true)
-            timerSetUp()
         }
-            imgArtWork.loadImage(url: finalURL)
-            populateTrack()
-    }
-    func populateTrack() {
-        lblSongTitle.text = finalTitle
-        lblSongArtist.text = finalArtist
-    }
-    func timerSetUp() {
-        isTimerRunning = true
+        PTTimer.ptStart()
         btnStop.isEnabled = true
-        btnReset.isEnabled = true
         btnStart.isEnabled = false
-        timerLabel.textColor = UIColor.black
+        btnReset.isEnabled = true
     }
     // MARK: Helper Methods
     @objc
     func runTimer() {
+        //timerLabel.text = "\(hourString):\(minuteString):\(secondString)"
         counter += 0.1
         var minuteString = ""
         var secondString = ""
@@ -123,48 +97,36 @@ class CurrentTaskViewController: UIViewController {
             secondString = "0\(second)"
         }
         timerLabel.text = "\(hourString):\(minuteString):\(secondString)"
+        //print("\(CMTimeGetSeconds(player!.currentTime()))")
         if hourString == fHour && minuteString == fMinute && secondString == fSecond {
-            player.stop()
+            PTTimer.ptStopPlayback()
+            btnStop.isEnabled = false
             timerLabel.textColor = UIColor.systemGreen
-            isTimerRunning = false
+            PTTimer.isTimerRunning = false
             timer.invalidate()
         }
     }
     @IBAction func btnStop(_ sender: Any) {
-        timerLabel.textColor = UIColor.red
-        player.stop()
-        isTimerRunning = false
-        timer.invalidate()
+        PTTimer.ptStop()
         btnStart.isEnabled = true
         btnStop.isEnabled = false
+        PTTimer.isTimerRunning = false
+        timer.invalidate()
     }
     @IBAction func btnBack(_ sender: Any) {
-        player.stop()
+        PTTimer.ptBackToList()
+        timer.invalidate()
+        timerLabel.text = "00:00:00"
         self.performSegue(withIdentifier: "backListView", sender: self)
     }
     @IBAction func btnReset(_ sender: Any) {
-        player.stop()
-        timerLabel.textColor = UIColor.black
-        isTimerRunning = false
+        PTTimer.ptResetTimer()
         timer.invalidate()
         counter = 0.0
+        timerLabel.textColor = UIColor.black
         timerLabel.text = "00:00:00"
         btnStart.isEnabled = true
         btnReset.isEnabled = false
         btnStop.isEnabled = false
-    }
-}
-
-extension UIImageView {
-    func loadImage(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
     }
 }

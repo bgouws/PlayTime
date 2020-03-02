@@ -120,6 +120,8 @@ class MusicTasteViewController: UIViewController {
         btnJazz.backgroundColor = UIColor.lightGray
     }
     @IBAction func btnStart(_ sender: Any) {
+        //Calling MusicSelection ViewModel
+        PTTasteSelection.ptSaveMusicTaste(taste: list)
         self.performSegue(withIdentifier: "ShowList", sender: self)
     }
     func checkList(value: String) -> Bool {
