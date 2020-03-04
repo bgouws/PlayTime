@@ -45,9 +45,10 @@ class CurrentTaskViewController: UIViewController {
         btnStop.isEnabled = false
         btnReset.isEnabled = false
         //Getting data from the viewModel
-        let trackData = PTTimer.ptInitialLoad()
+        let trackData = PTTimer.ptInit()
         //Setting up first track
-        imgArtWork.image = trackData[2] as? UIImage
+        //imgArtWork.image = trackData[2] as? UIImage
+        imgArtWork.image = PTPlayMusic.getImage(count: count)
         lblSongTitle.text = trackData[0] as? String
         lblSongArtist.text = trackData[1] as? String
         txtHeaderTask.text = "Your Current Task: \(fTitle)"
@@ -55,8 +56,11 @@ class CurrentTaskViewController: UIViewController {
         name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
     @objc func prepareNextTrack() {
-        let trackData = PTTimer.ptInitialLoad()
-        imgArtWork.image = trackData[2] as? UIImage
+        let trackData = PTTimer.ptInit()
+        //imgArtWork.image = trackData[2] as? UIImage
+        count += 1
+        print("Prepare next track has been called")
+        imgArtWork.image = PTPlayMusic.getImage(count: count)
         lblSongTitle.text = trackData[0] as? String
         lblSongArtist.text = trackData[1] as? String
         PTTimer.setupTrack()
