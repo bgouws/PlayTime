@@ -51,15 +51,20 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         let password = txtPassword.text
         let conPassword = txtComfirmPassword.text
         //Sending data to the VM to be validated
-        if PTAccountManagement.ptCreateUser(email: email!, password: password!, conPassword: conPassword!) {
-            self.performSegue(withIdentifier: "styleView", sender: self)
-        } else {
-            clearFields()
-            let alertController = UIAlertController(title: "Sign Up Unsuccessful",
-                                                    message: "Error Signing Up.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-            self.present(alertController, animated: true, completion: nil)
+        PTAccountManagement.ptSignUp(email: email!, password: password!, conPassword: conPassword!) { (success) in
+            if success {
+                self.performSegue(withIdentifier: "styleView", sender: self)
+            }
         }
+//        if PTAccountManagement.ptCreateUser(email: email!, password: password!, conPassword: conPassword!) {
+//            self.performSegue(withIdentifier: "styleView", sender: self)
+//        } else {
+//            clearFields()
+//            let alertController = UIAlertController(title: "Sign Up Unsuccessful",
+//                                                    message: "Error Signing Up.", preferredStyle: .alert)
+//            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+//            self.present(alertController, animated: true, completion: nil)
+//        }
     }
     // MARK: - Functions
     //Clearing component

@@ -93,6 +93,7 @@ class TaskListViewController: UIViewController {
         tempTask.append(task3)
         tempTask.append(task4)
         tempTask.append(task5)
+        print("Music taste successfully saved - PTFramework")
         return tempTask
     }
     func insetNewTask() {
