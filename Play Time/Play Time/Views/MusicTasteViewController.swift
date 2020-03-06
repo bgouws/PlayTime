@@ -15,6 +15,7 @@ class MusicTasteViewController: UIViewController {
     var list: [String] = []
     var checker = true
     var count = 0
+    let myPTTasteSelection = PTTasteSelection()
     // MARK: Components
     @IBOutlet weak var btnRock: UIButton!
     @IBOutlet weak var btnPop: UIButton!
@@ -33,9 +34,9 @@ class MusicTasteViewController: UIViewController {
     @IBAction func btnRock(_ sender: UIButton) {
         sender.colorChange(checker: checker)
         changeCheck()
-        if PTTasteSelection.ptCheckList(value: "Rock", taste: list) && btnRock.backgroundColor != UIColor.lightGray {
+        if myPTTasteSelection.ptCheckList(value: "Rock", taste: list) && btnRock.backgroundColor != UIColor.lightGray {
             return
-        } else if PTTasteSelection.ptCheckList(value: "Rock", taste: list) &&
+        } else if myPTTasteSelection.ptCheckList(value: "Rock", taste: list) &&
                   btnRock.backgroundColor == UIColor.lightGray {
             list.remove(at: getIndex(value: "Rock"))
         } else {
@@ -45,9 +46,9 @@ class MusicTasteViewController: UIViewController {
     @IBAction func btnPop(_ sender: UIButton) {
         sender.colorChange(checker: checker)
         changeCheck()
-        if PTTasteSelection.ptCheckList(value: "Pop", taste: list) && btnPop.backgroundColor != UIColor.lightGray {
+        if myPTTasteSelection.ptCheckList(value: "Pop", taste: list) && btnPop.backgroundColor != UIColor.lightGray {
             return
-        } else if PTTasteSelection.ptCheckList(value: "Pop", taste: list) &&
+        } else if myPTTasteSelection.ptCheckList(value: "Pop", taste: list) &&
                   btnPop.backgroundColor == UIColor.lightGray {
             list.remove(at: getIndex(value: "Pop"))
         } else {
@@ -57,9 +58,9 @@ class MusicTasteViewController: UIViewController {
     @IBAction func btnIndie(_ sender: UIButton) {
         sender.colorChange(checker: checker)
         changeCheck()
-        if PTTasteSelection.ptCheckList(value: "Indie", taste: list) && btnIndie.backgroundColor != UIColor.lightGray {
+        if myPTTasteSelection.ptCheckList(value: "Indie", taste: list) && btnIndie.backgroundColor != UIColor.lightGray {
             return
-        } else if PTTasteSelection.ptCheckList(value: "Indie", taste: list) &&
+        } else if myPTTasteSelection.ptCheckList(value: "Indie", taste: list) &&
                   btnIndie.backgroundColor == UIColor.lightGray {
             list.remove(at: getIndex(value: "Indie"))
         } else {
@@ -69,10 +70,10 @@ class MusicTasteViewController: UIViewController {
     @IBAction func btnHipHop(_ sender: UIButton) {
         sender.colorChange(checker: checker)
         changeCheck()
-        if PTTasteSelection.ptCheckList(value: "HipHop", taste: list) &&
+        if myPTTasteSelection.ptCheckList(value: "HipHop", taste: list) &&
            btnHipHop.backgroundColor != UIColor.lightGray {
             return
-        } else if PTTasteSelection.ptCheckList(value: "HipHop", taste: list) &&
+        } else if myPTTasteSelection.ptCheckList(value: "HipHop", taste: list) &&
                   btnHipHop.backgroundColor == UIColor.lightGray {
             list.remove(at: getIndex(value: "HipHop"))
         } else {
@@ -82,10 +83,10 @@ class MusicTasteViewController: UIViewController {
     @IBAction func btnCountry(_ sender: UIButton) {
         sender.colorChange(checker: checker)
         changeCheck()
-        if PTTasteSelection.ptCheckList(value: "Country", taste: list) &&
+        if myPTTasteSelection.ptCheckList(value: "Country", taste: list) &&
            btnCountry.backgroundColor != UIColor.lightGray {
             return
-        } else if PTTasteSelection.ptCheckList(value: "Country", taste: list) &&
+        } else if myPTTasteSelection.ptCheckList(value: "Country", taste: list) &&
                   btnCountry.backgroundColor == UIColor.lightGray {
             list.remove(at: getIndex(value: "Country"))
         } else {
@@ -95,9 +96,9 @@ class MusicTasteViewController: UIViewController {
     @IBAction func btnJazz(_ sender: UIButton) {
         sender.colorChange(checker: checker)
         changeCheck()
-        if PTTasteSelection.ptCheckList(value: "Jazz", taste: list) && btnJazz.backgroundColor != UIColor.lightGray {
+        if myPTTasteSelection.ptCheckList(value: "Jazz", taste: list) && btnJazz.backgroundColor != UIColor.lightGray {
             return
-        } else if PTTasteSelection.ptCheckList(value: "Jazz", taste: list) &&
+        } else if myPTTasteSelection.ptCheckList(value: "Jazz", taste: list) &&
                   btnJazz.backgroundColor == UIColor.lightGray {
             list.remove(at: getIndex(value: "Jazz"))
         } else {
@@ -121,7 +122,7 @@ class MusicTasteViewController: UIViewController {
     }
     @IBAction func btnStart(_ sender: Any) {
         //Calling MusicSelection ViewModel
-        PTTasteSelection.ptSaveMusicTaste(taste: list)
+        myPTTasteSelection.ptSaveMusicTaste(taste: list)
         self.performSegue(withIdentifier: "ShowList", sender: self)
     }
     func checkList(value: String) -> Bool {

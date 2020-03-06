@@ -1,27 +1,29 @@
 //
-//  Play_TimeTests.swift
-//  Play TimeTests
+//  AccountManagement.swift
+//  Play Time
 //
-//  Created by Brandon Gouws on 2020/02/04.
+//  Created by Brandon Gouws on 2020/03/05.
 //  Copyright © 2020 Brandon Gouws. All rights reserved.
 //
 
+import Foundation
 import XCTest
 @testable import Play_Time
+@testable import PTFramework
 //swiftlint:disable all
-class Play_TimeTests: XCTestCase {
-//swiftlint:enable all
+class AccountManagement_Tests: XCTestCase {
+    var signOutUnderTest : PTAccountManagement!
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        signOutUnderTest = PTAccountManagement()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testUserSuccessfulLogout() {
+        signOutUnderTest.ptSignOut()
     }
 
     func testPerformanceExample() {
@@ -30,5 +32,4 @@ class Play_TimeTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

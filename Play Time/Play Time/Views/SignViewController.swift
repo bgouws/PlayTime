@@ -51,10 +51,11 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         let password = txtPassword.text
         let conPassword = txtComfirmPassword.text
         //Sending data to the VM to be validated
-        PTAccountManagement.ptSignUp(email: email!, password: password!, conPassword: conPassword!) { (success) in
-            if success {
-                self.performSegue(withIdentifier: "styleView", sender: self)
-            }
+        var myPTAccountManagement = PTAccountManagement()
+        myPTAccountManagement.ptSignUp(email: email!, password: password!, conPassword: conPassword!) { (success) in
+        if success {
+            self.performSegue(withIdentifier: "styleView", sender: self)
+        }
         }
 //        if PTAccountManagement.ptCreateUser(email: email!, password: password!, conPassword: conPassword!) {
 //            self.performSegue(withIdentifier: "styleView", sender: self)

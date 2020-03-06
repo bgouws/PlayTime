@@ -36,6 +36,8 @@ class CurrentTaskViewController: UIViewController {
     var fMinute = ""
     var fSecond = ""
     var fTitle = ""
+    let myPTTimer = PTTimer()
+    let myPTPlayMusic = PTPlayMusic()
     override func viewDidLoad() {
         super.viewDidLoad()
         btnStart.customButton()
@@ -45,7 +47,7 @@ class CurrentTaskViewController: UIViewController {
         btnStop.isEnabled = false
         btnReset.isEnabled = false
         //Getting data from the viewModel
-        let trackData = PTTimer.ptInit()
+        let trackData = myPTTimer.ptInit()
         //Setting up first track
         //imgArtWork.image = trackData[2] as? UIImage
         imgArtWork.image = PTPlayMusic.getImage(count: count)
@@ -56,22 +58,22 @@ class CurrentTaskViewController: UIViewController {
         name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
     @objc func prepareNextTrack() {
-        let trackData = PTTimer.ptInit()
+        let trackData = myPTTimer.ptInit()
         //imgArtWork.image = trackData[2] as? UIImage
         count += 1
         print("Prepare next track has been called")
         imgArtWork.image = PTPlayMusic.getImage(count: count)
         lblSongTitle.text = trackData[0] as? String
         lblSongArtist.text = trackData[1] as? String
-        PTTimer.setupTrack()
+        myPTTimer.setupTrack()
     }
     @IBAction func btnStart(_ sender: Any) {
         print("Start Button Selected")
-        if !PTTimer.isTimerRunning {
+        if !myPTTimer.isTimerRunning {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
                                          selector: #selector(runTimer), userInfo: nil, repeats: true)
         }
-        PTTimer.ptStart()
+        myPTTimer.ptStart()
         btnStop.isEnabled = true
         btnStart.isEnabled = false
         btnReset.isEnabled = true
@@ -103,28 +105,28 @@ class CurrentTaskViewController: UIViewController {
         timerLabel.text = "\(hourString):\(minuteString):\(secondString)"
         //print("\(CMTimeGetSeconds(player!.currentTime()))")
         if hourString == fHour && minuteString == fMinute && secondString == fSecond {
-            PTTimer.ptStopPlayback()
+            myPTTimer.ptStopPlayback()
             btnStop.isEnabled = false
             timerLabel.textColor = UIColor.systemGreen
-            PTTimer.isTimerRunning = false
+            myPTTimer.isTimerRunning = false
             timer.invalidate()
         }
     }
     @IBAction func btnStop(_ sender: Any) {
-        PTTimer.ptStop()
+        myPTTimer.ptStop()
         btnStart.isEnabled = true
         btnStop.isEnabled = false
-        PTTimer.isTimerRunning = false
+        myPTTimer.isTimerRunning = false
         timer.invalidate()
     }
     @IBAction func btnBack(_ sender: Any) {
-        PTTimer.ptBackToList()
+        myPTTimer.ptBackToList()
         timer.invalidate()
         timerLabel.text = "00:00:00"
         self.performSegue(withIdentifier: "backListView", sender: self)
     }
     @IBAction func btnReset(_ sender: Any) {
-        PTTimer.ptResetTimer()
+        myPTTimer.ptResetTimer()
         timer.invalidate()
         counter = 0.0
         timerLabel.textColor = UIColor.black

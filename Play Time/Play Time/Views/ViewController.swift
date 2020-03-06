@@ -53,7 +53,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let email = txtEmail.text
         let password = txtPassword.text
         //Sending Data to SignInVM
-        PTAccountManagement.ptSignIn(email: email!, password: password!) { (success) in
+        let myPTAccountManagement = PTAccountManagement()
+        myPTAccountManagement.ptSignIn(email: email!, password: password!) { (success) in
             if success {
                 self.performSegue(withIdentifier: "HomeView", sender: self)
             }

@@ -9,6 +9,24 @@
 			<key>orderHint</key>
 			<integer>20</integer>
 		</dict>
+		<key>Play TimeTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B6376DC423E97DE50033C48D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6376DDA23E97DE60033C48D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>

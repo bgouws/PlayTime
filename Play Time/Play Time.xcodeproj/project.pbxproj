@@ -21,9 +21,10 @@
 		B6376DD023E97DE50033C48D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6376DCE23E97DE50033C48D /* Main.storyboard */; };
 		B6376DD223E97DE50033C48D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6376DD123E97DE50033C48D /* Assets.xcassets */; };
 		B6376DD523E97DE50033C48D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6376DD323E97DE50033C48D /* LaunchScreen.storyboard */; };
-		B6376DE023E97DE60033C48D /* Play_TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DDF23E97DE60033C48D /* Play_TimeTests.swift */; };
+		B6376DE023E97DE60033C48D /* ValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DDF23E97DE60033C48D /* ValidationTest.swift */; };
 		B6376DEB23E98D8E0033C48D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DEA23E98D8E0033C48D /* CustomButton.swift */; };
 		B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */; };
+		B681C8CC24110CC000324034 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C8CA24110CC000324034 /* AccountManagement.swift */; };
 		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
 		B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260223F4179800678393 /* ToDoViewController.swift */; };
 		B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554923EA87700096213B /* UIButtonExtension.swift */; };
@@ -65,10 +66,11 @@
 		B6376DD423E97DE50033C48D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6376DD623E97DE50033C48D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6376DDB23E97DE60033C48D /* Play TimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Play TimeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6376DDF23E97DE60033C48D /* Play_TimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play_TimeTests.swift; sourceTree = "<group>"; };
+		B6376DDF23E97DE60033C48D /* ValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTest.swift; sourceTree = "<group>"; };
 		B6376DE123E97DE60033C48D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6376DEA23E98D8E0033C48D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		B681C8CA24110CC000324034 /* AccountManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagement.swift; sourceTree = "<group>"; };
 		B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B6A0260223F4179800678393 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		B6C9554923EA87700096213B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
@@ -157,8 +159,9 @@
 		B6376DDE23E97DE60033C48D /* Play TimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				B6376DDF23E97DE60033C48D /* Play_TimeTests.swift */,
+				B6376DDF23E97DE60033C48D /* ValidationTest.swift */,
 				B6376DE123E97DE60033C48D /* Info.plist */,
+				B681C8CA24110CC000324034 /* AccountManagement.swift */,
 			);
 			path = "Play TimeTests";
 			sourceTree = "<group>";
@@ -385,7 +388,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6376DE023E97DE60033C48D /* Play_TimeTests.swift in Sources */,
+				B681C8CC24110CC000324034 /* AccountManagement.swift in Sources */,
+				B6376DE023E97DE60033C48D /* ValidationTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,7 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87ZRJ8XRRM;
+				DEVELOPMENT_TEAM = GLK7J5PP82;
 				INFOPLIST_FILE = "Play Time/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,7 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87ZRJ8XRRM;
+				DEVELOPMENT_TEAM = GLK7J5PP82;
 				INFOPLIST_FILE = "Play Time/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,6 +582,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GLK7J5PP82;
 				INFOPLIST_FILE = "Play TimeTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -600,6 +605,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GLK7J5PP82;
 				INFOPLIST_FILE = "Play TimeTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

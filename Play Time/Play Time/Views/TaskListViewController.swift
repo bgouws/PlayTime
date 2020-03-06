@@ -32,7 +32,8 @@ class TaskListViewController: UIViewController {
         super.viewDidLoad()
         print("Calling Api")
         //PTApiCall.ptPreparePlayList()
-        PTPlayMusic.readData()
+        let myPTPlayMusic = PTPlayMusic()
+        myPTPlayMusic.readData()
         tasks = createTask()
         tableView.delegate = self
         tableView.dataSource = self

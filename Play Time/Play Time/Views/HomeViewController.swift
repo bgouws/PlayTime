@@ -41,7 +41,15 @@ class HomeViewController: UIViewController {
         self.performSegue(withIdentifier: "taskView", sender: self)
     }
     func signOut() {
-        PTAccountManagement.ptSignOut()
+        let myPTAccountManagement = PTAccountManagement()
+        myPTAccountManagement.ptSignOut()
         self.performSegue(withIdentifier: "displayLoginView", sender: self)
+    }
+    public func unit(name: String, surname: String) -> Bool {
+        if name == "Mike" && surname == "Smith" {
+            print("Name: \(name)  Surname: \(surname)")
+            return true
+        }
+        return false
     }
 }
