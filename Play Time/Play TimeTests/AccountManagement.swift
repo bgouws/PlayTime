@@ -12,10 +12,10 @@ import XCTest
 @testable import PTFramework
 //swiftlint:disable all
 class AccountManagement_Tests: XCTestCase {
-    var signOutUnderTest : PTAccountManagement!
+    var accountManagemntUnderTest : MockSignUp!
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        signOutUnderTest = PTAccountManagement()
+        accountManagemntUnderTest = MockSignUp()
     }
 
     override func tearDown() {
@@ -23,7 +23,24 @@ class AccountManagement_Tests: XCTestCase {
     }
 
     func testUserSuccessfulLogout() {
-        signOutUnderTest.ptSignOut()
+        //accountManagemntUnderTest.ptSignOut()
+    }
+    
+    func testUserSuccessfullyCallSignUp() {
+        accountManagemntUnderTest.ptSignUp(email: "Matty@gmail.com", password: "happydays", conPassword: "happydays") { (success, data) in
+//            guard let data = data else {
+//                XCTFail()
+//                return
+//            }
+            XCTAssertNotNil(data)
+        }
+    }
+    
+    func testUserUnsuccessfulSignUp() {
+        accountManagemntUnderTest.ptSignUp(email: "bademail", password: "bad", conPassword: "good") { (success, data) in
+        XCTAssertFalse(success)
+        XCTAssertNil(data)
+        }
     }
 
     func testPerformanceExample() {

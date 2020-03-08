@@ -12,6 +12,7 @@
 		B602D7E223FBF5FC006AD3C3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */; };
 		B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */; };
 		B60BA1AF23F6B48700F8A348 /* UITextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60BA1AE23F6B48700F8A348 /* UITextViewExtension.swift */; };
+		B60C6E91241556AD0052F41B /* SignUpMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C6E90241556AD0052F41B /* SignUpMock.swift */; };
 		B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */; };
 		B624CBC823FA5D5E0008F03B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B624CBC723FA5D5E0008F03B /* HomeViewController.swift */; };
 		B63306A323FBA36300B1651E /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63306A223FBA36300B1651E /* LaunchViewController.swift */; };
@@ -23,6 +24,7 @@
 		B6376DD523E97DE50033C48D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6376DD323E97DE50033C48D /* LaunchScreen.storyboard */; };
 		B6376DE023E97DE60033C48D /* ValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DDF23E97DE60033C48D /* ValidationTest.swift */; };
 		B6376DEB23E98D8E0033C48D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DEA23E98D8E0033C48D /* CustomButton.swift */; };
+		B65BBA062414D50D0052AD6F /* TasteSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BBA052414D50D0052AD6F /* TasteSelectionTest.swift */; };
 		B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */; };
 		B681C8CC24110CC000324034 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C8CA24110CC000324034 /* AccountManagement.swift */; };
 		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
@@ -54,6 +56,7 @@
 		B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		B60BA1AE23F6B48700F8A348 /* UITextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtension.swift; sourceTree = "<group>"; };
+		B60C6E90241556AD0052F41B /* SignUpMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMock.swift; sourceTree = "<group>"; };
 		B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskViewController.swift; sourceTree = "<group>"; };
 		B624CBC723FA5D5E0008F03B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B63306A223FBA36300B1651E /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		B6376DDF23E97DE60033C48D /* ValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTest.swift; sourceTree = "<group>"; };
 		B6376DE123E97DE60033C48D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6376DEA23E98D8E0033C48D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B65BBA052414D50D0052AD6F /* TasteSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteSelectionTest.swift; sourceTree = "<group>"; };
 		B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		B681C8CA24110CC000324034 /* AccountManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagement.swift; sourceTree = "<group>"; };
 		B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -162,6 +166,8 @@
 				B6376DDF23E97DE60033C48D /* ValidationTest.swift */,
 				B6376DE123E97DE60033C48D /* Info.plist */,
 				B681C8CA24110CC000324034 /* AccountManagement.swift */,
+				B65BBA052414D50D0052AD6F /* TasteSelectionTest.swift */,
+				B60C6E90241556AD0052F41B /* SignUpMock.swift */,
 			);
 			path = "Play TimeTests";
 			sourceTree = "<group>";
@@ -389,7 +395,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B681C8CC24110CC000324034 /* AccountManagement.swift in Sources */,
+				B65BBA062414D50D0052AD6F /* TasteSelectionTest.swift in Sources */,
 				B6376DE023E97DE60033C48D /* ValidationTest.swift in Sources */,
+				B60C6E91241556AD0052F41B /* SignUpMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
