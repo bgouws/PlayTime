@@ -23,11 +23,11 @@ class TasteSelectionTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSaveUserMusicTaste() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        tasteSelectionUnderTest.ptSaveMusicTaste(taste: ["data,data,data"])
-    }
+//    func testSaveUserMusicTaste() {
+//        // This is an example of a functional test case.
+//        // Use XCTAssert and related functions to verify your tests produce the correct results.
+//        tasteSelectionUnderTest.ptSaveMusicTaste(taste: ["data,data,data"])
+//    }
     func testCheckIfItemThatIsInListIsAlreadyThere() {
         let result = tasteSelectionUnderTest.ptCheckList(value: "Rock", taste: ["Rock", "Pop"])
         XCTAssert(result)
