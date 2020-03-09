@@ -13,6 +13,7 @@ import XCTest
 //swiftlint:disable all
 class AccountManagement_Tests: XCTestCase {
     var accountManagemntUnderTest : MockSignUp!
+    var variableAccess: MockSignUp!
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         accountManagemntUnderTest = MockSignUp()
@@ -28,10 +29,6 @@ class AccountManagement_Tests: XCTestCase {
     
     func testUserSuccessfullyCallSignUp() {
         accountManagemntUnderTest.ptSignUp(email: "Matty@gmail.com", password: "happydays", conPassword: "happydays") { (success, data) in
-//            guard let data = data else {
-//                XCTFail()
-//                return
-//            }
             XCTAssertNotNil(data)
         }
     }
@@ -42,11 +39,30 @@ class AccountManagement_Tests: XCTestCase {
         XCTAssertNil(data)
         }
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testUserSuccessfullySignedIn() {
+        accountManagemntUnderTest.ptSignIn(email: "brandongouws100@gmail.com", password: "happydays") { (success, data) in
+            XCTAssert(success)
+            XCTAssertNotNil(data)
         }
+    }
+    
+    func testUserUnsuccessfullySignedIn() {
+        accountManagemntUnderTest.ptSignIn(email: "brandongouws100gmail.com", password: "") { (success, data) in
+            XCTAssertFalse(success)
+            XCTAssertNil(data)
+        }
+    }
+    
+    func testUserSuccessfulSignOut() {
+        accountManagemntUnderTest.successfulLogout = true
+        let result = accountManagemntUnderTest.ptSignOut()
+        XCTAssert(result)
+    }
+    
+    func testUserUnsuccessfulSignOut() {
+        accountManagemntUnderTest.successfulLogout = false
+        let result = accountManagemntUnderTest.ptSignOut()
+        XCTAssertFalse(result)
     }
 }
