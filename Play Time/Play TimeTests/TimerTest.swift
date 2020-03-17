@@ -27,29 +27,29 @@ class TimerTest: XCTestCase {
         let audioItem = timerUnderTest.loadNextTrack()
         XCTAssertNotNil(audioItem)
     }
-    func testUnsuccessfullyLoadedNextTrack() {
-    }
-    func testStopedMusic() {
-        let result = timerUnderTest.ptStop()
-        XCTAssertFalse(result)
-    }
-    func testMusicStartedPlaying() {
-        _ = timerUnderTest.loadNextTrack()
-        let result = timerUnderTest.ptStart()
-        XCTAssert(result)
-    }
-    func testMusicPlayerReset() {
-        let result = timerUnderTest.ptResetTimer()
-        XCTAssertFalse(result)
-    }
-    func testUserNavigatesBackToList() {
-        _ = timerUnderTest.loadNextTrack()
-        _ = timerUnderTest.ptStart()
-        let result = timerUnderTest.ptBackToList()
-        XCTAssertFalse(result)
-    }
-    func testTimerIsRunningSuccessfully() {
-        let result = timerUnderTest.timerSetUp()
-        XCTAssert(result)
-    }
+//    func testUnsuccessfullyLoadedNextTrack() {
+//    }
+//    func testStopedMusic() {
+//        let result = timerUnderTest.ptStop()
+//        XCTAssertFalse(result)
+//    }
+//    func testMusicStartedPlaying() {
+//        _ = timerUnderTest.loadNextTrack()
+//        let result = timerUnderTest.ptStart()
+//        XCTAssert(result)
+//    }
+//    func testMusicPlayerReset() {
+//        let result = timerUnderTest.ptResetTimer()
+//        XCTAssertFalse(result)
+//    }
+//    func testUserNavigatesBackToList() {
+//        _ = timerUnderTest.loadNextTrack()
+//        _ = timerUnderTest.ptStart()
+//        let result = timerUnderTest.ptBackToList()
+//        XCTAssertFalse(result)
+//    }
+//    func testTimerIsRunningSuccessfully() {
+//        let result = timerUnderTest.timerSetUp()
+//        XCTAssert(result)
+//    }
 }

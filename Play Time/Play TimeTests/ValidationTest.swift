@@ -14,11 +14,9 @@ class Play_TimeTests: XCTestCase {
 //swiftlint:enable all
     var systemUnderTest: PTAccountManagement!
     var validationUnderTest: PTValidation!
-    var anotherTest: HomeViewController!
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         systemUnderTest = PTAccountManagement()
-        anotherTest = HomeViewController()
         validationUnderTest = PTValidation()
     }
 

@@ -125,12 +125,6 @@ class MusicTasteViewController: UIViewController {
         myPTTasteSelection.ptSaveMusicTaste(taste: list)
         self.performSegue(withIdentifier: "ShowList", sender: self)
     }
-    func checkList(value: String) -> Bool {
-        for genre in list where genre == value {
-            return true
-        }
-          return false
-    }
     func getIndex(value: String) -> Int {
         let index = list.firstIndex(of: value)
         print(index!)

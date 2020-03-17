@@ -34,13 +34,6 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         txtEmail.delegate = self
         txtComfirmPassword.delegate = self
     }
-    deinit {
-        //Stop Listening for keyboard hide/show events
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self,
-                                                  name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
     // MARK: - Button Clicked Functions
     @IBAction func btnBack(_ sender: UIButton) {
         self.performSegue(withIdentifier: "launchView", sender: self)
@@ -51,56 +44,22 @@ class SignViewController: UIViewController, UITextFieldDelegate {
         let password = txtPassword.text
         let conPassword = txtComfirmPassword.text
         //Sending data to the VM to be validated
-        var myPTAccountManagement = PTAccountManagement()
-        myPTAccountManagement.ptSignUp(email: email!, password: password!, conPassword: conPassword!) { (success, data)  in
+        let myPTAccountManagement = PTAccountManagement()
+        myPTAccountManagement.ptSignUp(email: email!, password: password!,
+                                       conPassword: conPassword!) { (success, data)  in
         if success {
             self.performSegue(withIdentifier: "styleView", sender: self)
+        } else {
+            self.showFailureAlert()
+            }
         }
-        }
-//        if PTAccountManagement.ptCreateUser(email: email!, password: password!, conPassword: conPassword!) {
-//            self.performSegue(withIdentifier: "styleView", sender: self)
-//        } else {
-//            clearFields()
-//            let alertController = UIAlertController(title: "Sign Up Unsuccessful",
-//                                                    message: "Error Signing Up.", preferredStyle: .alert)
-//            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-//            self.present(alertController, animated: true, completion: nil)
-//        }
     }
     // MARK: - Functions
-    //Clearing component
-    func clearFields() {
-        txtEmail.text = ""
-        txtPassword.text = ""
-        txtComfirmPassword.text = ""
-    }
-    //Hiding the keyboard
-    func hideKeyboard() {
-        txtEmail.resignFirstResponder()
-        txtPassword.resignFirstResponder()
-        txtComfirmPassword.resignFirstResponder()
-    }
-    //UITextFieldDelegate Methods
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        hideKeyboard()
-        return true
-    }
-    func creatUser(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            if let error = error {
-                print("Failed to create user ", error.localizedDescription)
-                return
-            }
-            guard let uid = result?.user.uid else { return }
-            Database.database().reference().child("users").child(uid).updateChildValues(
-                ["email": email], withCompletionBlock: { error, _ in
-                if let error = error {
-                    print("Failed to update database values with error: ", error.localizedDescription)
-                    return
-            }
-                print("Successful Sign Up")
-                self.performSegue(withIdentifier: "styleView", sender: self)
-            })
-        }
+    private func showFailureAlert() {
+        let alertController = UIAlertController(title: "Error", message:
+            "An error has occured", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+        self.present(alertController, animated: true, completion: nil)
     }
 }

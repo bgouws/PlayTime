@@ -21,46 +21,6 @@ extension UIButton {
         pulse.damping = 1.0
         layer.add(pulse, forKey: nil)
     }
-    func uxButton() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
-        layer.shadowRadius = 8
-        layer.shadowOpacity = 0.5
-        clipsToBounds = true
-        layer.masksToBounds = false
-        titleLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
-        layer.cornerRadius = layer.frame.height/2
-        layer.backgroundColor = UIColor.init(red: 52.0/255, green: 126.0/255, blue: 181.0/255, alpha: 1).cgColor
-        layer.borderWidth = 1.0
-        layer.masksToBounds = true
-        layer.borderColor = UIColor.darkGray.cgColor
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
-        layer.shadowRadius = 8
-        layer.shadowOpacity = 0.5
-        clipsToBounds = true
-        layer.masksToBounds = false
-    }
-    func uxButton2() {
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
-        layer.shadowRadius = 8
-        layer.shadowOpacity = 0.5
-        clipsToBounds = true
-        layer.masksToBounds = false
-        titleLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
-        layer.cornerRadius = layer.frame.height/2
-        layer.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        layer.borderWidth = 2.0
-        layer.masksToBounds = true
-        layer.borderColor = UIColor.systemRed.cgColor
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
-        layer.shadowRadius = 8
-        layer.shadowOpacity = 0.5
-        clipsToBounds = true
-        layer.masksToBounds = false
-    }
     func customButton() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
@@ -72,15 +32,6 @@ extension UIButton {
         layer.cornerRadius = 10
         layer.borderWidth = 3.0
         layer.borderColor = UIColor.darkGray.cgColor
-    }
-    func customSelectButton() {
-        backgroundColor = UIColor.gray
-        clipsToBounds = true
-        layer.masksToBounds = false
-        layer.cornerRadius = 10
-        layer.borderWidth = 3.0
-        layer.borderColor = UIColor.darkGray.cgColor
-        titleLabel!.font = UIFont(name: "AvenirNext-DemiBold", size: 10)
     }
     func colorChange(checker: Bool) {
         let greenColor = UIColor(red: 0.37, green: 0.58, blue: 0.33, alpha: 1.0)

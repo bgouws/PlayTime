@@ -36,16 +36,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //PTPlayMusic.ptPrint()
         //Calling API
     }
-    deinit {
-        //Stop Listening for keyboard hide/show events
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification,
-                                                  object: nil)
-    }
-    // MARK: Button Clicked Functions
-    @IBAction func btnAPI(_ sender: Any) {
-    }
     @IBAction func btnSignIn(_ sender: UIButton) {
         sender.pulsate()
         hideKeyboard()
@@ -57,6 +47,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         myPTAccountManagement.ptSignIn(email: email!, password: password!) { (success, data)  in
             if success {
                 self.performSegue(withIdentifier: "HomeView", sender: self)
+            } else {
+                self.showFailureAlert()
             }
         }
     }
@@ -65,29 +57,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         sender.pulsate()
         self.performSegue(withIdentifier: "SignView", sender: self)
     }
-    //Clearing component
-    func clearFields() {
-        txtEmail.text = ""
-        txtPassword.text = ""
-    }
     //Hiding the keyboard
     func hideKeyboard() {
         txtEmail.resignFirstResponder()
         txtPassword.resignFirstResponder()
     }
-    //UITextFieldDelegate Methods
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        hideKeyboard()
-        return true
-    }
-    override func willTransition(to newCollection: UITraitCollection,
-                                 with coordinator: UIViewControllerTransitionCoordinator) {
-        print(UIDevice.current.orientation.isLandscape)
-    }
-    func displayError() {
-        let alertController = UIAlertController(title: "Sign In Unsuccessful", message: "Error Signing In.",
-                                                preferredStyle: .alert)
+    private func showFailureAlert() {
+        let alertController = UIAlertController(title: "Error", message:
+            "An error has occured", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
         self.present(alertController, animated: true, completion: nil)
     }
 }

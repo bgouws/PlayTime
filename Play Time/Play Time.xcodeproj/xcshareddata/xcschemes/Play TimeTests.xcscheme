@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Play Time.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B672CEA9241EA0E300955BF6"
+               BuildableName = "PlayTimeUITests.xctest"
+               BlueprintName = "PlayTimeUITests"
+               ReferencedContainer = "container:Play Time.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
