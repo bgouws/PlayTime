@@ -21,35 +21,36 @@ class TimerTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSuccessfullyLoadNextTrack() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let audioItem = timerUnderTest.loadNextTrack()
-        XCTAssertNotNil(audioItem)
+//    func testSuccessfullyLoadNextTrack() {
+//        // This is an example of a functional test case.
+//        // Use XCTAssert and related functions to verify your tests produce the correct results.
+//        let audioItem = timerUnderTest.loadNextTrack()
+//        XCTAssertNotNil(audioItem)
+//    }
+    func testUnsuccessfullyLoadedNextTrack() {
     }
-//    func testUnsuccessfullyLoadedNextTrack() {
-//    }
-//    func testStopedMusic() {
-//        let result = timerUnderTest.ptStop()
-//        XCTAssertFalse(result)
-//    }
+    func testStopedMusic() {
+        let result = timerUnderTest.ptStop()
+        XCTAssertFalse(result)
+    }
 //    func testMusicStartedPlaying() {
+//        _ = timerUnderTest.ptInit()
 //        _ = timerUnderTest.loadNextTrack()
 //        let result = timerUnderTest.ptStart()
 //        XCTAssert(result)
 //    }
-//    func testMusicPlayerReset() {
-//        let result = timerUnderTest.ptResetTimer()
-//        XCTAssertFalse(result)
-//    }
+    func testMusicPlayerReset() {
+        let result = timerUnderTest.ptResetTimer()
+        XCTAssertFalse(result)
+    }
 //    func testUserNavigatesBackToList() {
 //        _ = timerUnderTest.loadNextTrack()
 //        _ = timerUnderTest.ptStart()
 //        let result = timerUnderTest.ptBackToList()
 //        XCTAssertFalse(result)
 //    }
-//    func testTimerIsRunningSuccessfully() {
-//        let result = timerUnderTest.timerSetUp()
-//        XCTAssert(result)
-//    }
+    func testTimerIsRunningSuccessfully() {
+        let result = timerUnderTest.timerSetUp()
+        XCTAssert(result)
+    }
 }

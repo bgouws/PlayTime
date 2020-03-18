@@ -24,75 +24,75 @@ class CurrentTaskScreenUITest: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-    func testUserCanStartAndStopTimer() {
-        let moreKey = application.keys["more"]
-        application.textFields["Email"].tap()
-        application.tapKeys(text: "brandongouws")
-        moreKey.tap()
-        application.keys["1"].tap()
-        application.keys["0"].tap()
-        application.keys["0"].tap()
-        application.keys["@"].tap()
-        application.keys["more"].tap()
-        application.tapKeys(text: "gmail")
-        moreKey.tap()
-        application.keys["."].tap()
-        moreKey.tap()
-        application.tapKeys(text: "com")
-        application.secureTextFields["Password"].tap()
-        application.tapKeys(text: "happydays")
-        application.buttons["Sign In"].tap()
-        sleep(2)
-        let app = XCUIApplication()
-        let tablesQuery = app.tables
-        // swiftlint:disable all
-        tablesQuery.staticTexts["Working\t\t\t\tDuration:\t 02:30:00"].tap()
-        // swiftlint:enable all
-        sleep(2)
-        let timer = XCUIApplication()
-        timer.buttons["Start"].tap()
-        sleep(2)
-        timer.buttons["Stop"].tap()
-        timer.buttons["Back"].tap()
-        application.buttons["Logout"].tap()
-        let elementsQuery = application.sheets.scrollViews.otherElements
-        elementsQuery.buttons["Sign Out"].tap()
-    }
-    func testUserCanResetTimer() {
-        let moreKey = application.keys["more"]
-        application.textFields["Email"].tap()
-        application.tapKeys(text: "brandongouws")
-        moreKey.tap()
-        application.keys["1"].tap()
-        application.keys["0"].tap()
-        application.keys["0"].tap()
-        application.keys["@"].tap()
-        application.keys["more"].tap()
-        application.tapKeys(text: "gmail")
-        moreKey.tap()
-        application.keys["."].tap()
-        moreKey.tap()
-        application.tapKeys(text: "com")
-        application.secureTextFields["Password"].tap()
-        application.tapKeys(text: "happydays")
-        application.buttons["Sign In"].tap()
-        sleep(2)
-        let app = XCUIApplication()
-        let tablesQuery = app.tables
-        // swiftlint:disable all
-        tablesQuery.staticTexts["Working\t\t\t\tDuration:\t 02:30:00"].tap()
-        // swiftlint:enable all
-        sleep(2)
-        let timer = XCUIApplication()
-        timer.buttons["Start"].tap()
-        sleep(2)
-        timer.buttons["Stop"].tap()
-        timer.buttons["Reset"].tap()
-        timer.buttons["Back"].tap()
-        application.buttons["Logout"].tap()
-        let elementsQuery = application.sheets.scrollViews.otherElements
-        elementsQuery.buttons["Sign Out"].tap()
-    }
+//    func testUserCanStartAndStopTimer() {
+//        let moreKey = application.keys["more"]
+//        application.textFields["Email"].tap()
+//        application.tapKeys(text: "brandongouws")
+//        moreKey.tap()
+//        application.keys["1"].tap()
+//        application.keys["0"].tap()
+//        application.keys["0"].tap()
+//        application.keys["@"].tap()
+//        application.keys["more"].tap()
+//        application.tapKeys(text: "gmail")
+//        moreKey.tap()
+//        application.keys["."].tap()
+//        moreKey.tap()
+//        application.tapKeys(text: "com")
+//        application.secureTextFields["Password"].tap()
+//        application.tapKeys(text: "happydays")
+//        application.buttons["Sign In"].tap()
+//        sleep(2)
+//        let app = XCUIApplication()
+//        let tablesQuery = app.tables
+//        // swiftlint:disable all
+//        tablesQuery.staticTexts["Working\t\t\t\tDuration:\t 02:30:00"].tap()
+//        // swiftlint:enable all
+//        sleep(2)
+//        let timer = XCUIApplication()
+//        timer.buttons["Start"].tap()
+//        sleep(2)
+//        timer.buttons["Stop"].tap()
+//        timer.buttons["Back"].tap()
+//        application.buttons["Logout"].tap()
+//        let elementsQuery = application.sheets.scrollViews.otherElements
+//        elementsQuery.buttons["Sign Out"].tap()
+//    }
+//    func testUserCanResetTimer() {
+//        let moreKey = application.keys["more"]
+//        application.textFields["Email"].tap()
+//        application.tapKeys(text: "brandongouws")
+//        moreKey.tap()
+//        application.keys["1"].tap()
+//        application.keys["0"].tap()
+//        application.keys["0"].tap()
+//        application.keys["@"].tap()
+//        application.keys["more"].tap()
+//        application.tapKeys(text: "gmail")
+//        moreKey.tap()
+//        application.keys["."].tap()
+//        moreKey.tap()
+//        application.tapKeys(text: "com")
+//        application.secureTextFields["Password"].tap()
+//        application.tapKeys(text: "happydays")
+//        application.buttons["Sign In"].tap()
+//        sleep(2)
+//        let app = XCUIApplication()
+//        let tablesQuery = app.tables
+//        // swiftlint:disable all
+//        tablesQuery.staticTexts["Working\t\t\t\tDuration:\t 02:30:00"].tap()
+//        // swiftlint:enable all
+//        sleep(2)
+//        let timer = XCUIApplication()
+//        timer.buttons["Start"].tap()
+//        sleep(2)
+//        timer.buttons["Stop"].tap()
+//        timer.buttons["Reset"].tap()
+//        timer.buttons["Back"].tap()
+//        application.buttons["Logout"].tap()
+//        let elementsQuery = application.sheets.scrollViews.otherElements
+//        elementsQuery.buttons["Sign Out"].tap()
+//    }
 //    func testTimerWillStopWhenItReachedCorrectInterval() {
 //        application.launch()
 //        let moreKey = application.keys["more"]
