@@ -26,14 +26,14 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0R-nP-qvf">
                                         <rect key="frame" x="49" y="319" width="300" height="40"/>
-                                        <color key="backgroundColor" red="0.43527477979660034" green="0.62347060441970825" blue="0.35979345440864563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.85856490370000005" blue="0.60395882040000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="4EF-Fy-0lr"/>
                                             <constraint firstAttribute="width" constant="300" id="OwD-M1-yzq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                         <state key="normal" title="Sign Up">
-                                            <color key="titleColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="btnSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Fu-DO-49n"/>
@@ -58,7 +58,7 @@
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                         <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Sign In">
-                                            <color key="titleColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         </state>
                                         <connections>
                                             <action selector="btnSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5do-mA-4Eg"/>
@@ -412,6 +412,76 @@
             </objects>
             <point key="canvasLocation" x="1771" y="-648"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="HK0-DZ-Tze">
+            <objects>
+                <viewController id="ceR-zB-M6x" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ash-mv-pLn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="C3U-of-2Dl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bs0-UP-UFm">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="IAr-NV-K5W">
+                                                <rect key="frame" x="8" y="8" width="398" height="80"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3s-mH-z6T">
+                                                <rect key="frame" x="57" y="96" width="300" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D3o-x0-iXl">
+                                                <rect key="frame" x="57" y="138" width="300" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="IAr-NV-K5W" secondAttribute="trailing" constant="8" id="QBn-cm-Zxp"/>
+                                            <constraint firstItem="IAr-NV-K5W" firstAttribute="leading" secondItem="bs0-UP-UFm" secondAttribute="leading" constant="8" id="XLl-JI-hK1"/>
+                                            <constraint firstItem="IAr-NV-K5W" firstAttribute="top" secondItem="bs0-UP-UFm" secondAttribute="top" constant="8" id="bYe-W4-HD2"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XBX-bB-F7d">
+                                        <rect key="frame" x="0.0" y="414" width="414" height="404"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="mQA-gF-sFo">
+                                                <rect key="frame" x="8" y="8" width="398" height="388"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="mQA-gF-sFo" secondAttribute="bottom" constant="8" id="0oq-s7-tQu"/>
+                                            <constraint firstAttribute="trailing" secondItem="mQA-gF-sFo" secondAttribute="trailing" constant="8" id="TUj-ka-IT8"/>
+                                            <constraint firstItem="mQA-gF-sFo" firstAttribute="leading" secondItem="XBX-bB-F7d" secondAttribute="leading" constant="8" id="c3W-6D-QmD"/>
+                                            <constraint firstItem="mQA-gF-sFo" firstAttribute="top" secondItem="XBX-bB-F7d" secondAttribute="top" constant="8" id="fZO-J9-8XP"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="C3U-of-2Dl" firstAttribute="trailing" secondItem="QmO-ZJ-3MI" secondAttribute="trailing" id="1V3-Iq-OqP"/>
+                            <constraint firstItem="C3U-of-2Dl" firstAttribute="bottom" secondItem="QmO-ZJ-3MI" secondAttribute="bottom" id="5T4-aa-v5e"/>
+                            <constraint firstItem="C3U-of-2Dl" firstAttribute="leading" secondItem="QmO-ZJ-3MI" secondAttribute="leading" id="UTb-QY-Giu"/>
+                            <constraint firstItem="C3U-of-2Dl" firstAttribute="top" secondItem="QmO-ZJ-3MI" secondAttribute="top" id="gWP-tn-oNw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QmO-ZJ-3MI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fk5-Qk-Ey5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2898.5507246376815" y="-648.21428571428567"/>
+        </scene>
         <!--Task List View Controller-->
         <scene sceneID="Mjz-8u-Sy6">
             <objects>
@@ -485,14 +555,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWR-aY-nDZ">
                                 <rect key="frame" x="288" y="57" width="106" height="40"/>
-                                <color key="backgroundColor" red="0.46566450599999998" green="0.64212161300000004" blue="0.39400985840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.85856490370000005" blue="0.60395882040000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NlU-xx-SHn"/>
                                     <constraint firstAttribute="width" constant="106" id="TTU-c8-5yy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <state key="normal" title="Logout">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="btnLogout:" destination="XeK-4m-IZC" eventType="touchUpInside" id="B18-rn-t5A"/>
@@ -702,12 +772,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="300" height="80"/>
         <image name="MainBackground" width="414" height="896"/>
         <image name="Music" width="500" height="500"/>
         <image name="Title" width="350" height="100"/>
+        <image name="launchLogo" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mRL-l8-Sth"/>
-        <segue reference="Mti-Ic-JM1"/>
+        <segue reference="0xF-up-f2V"/>
+        <segue reference="QDX-Yd-XKj"/>
     </inferredMetricsTieBreakers>
 </document>
