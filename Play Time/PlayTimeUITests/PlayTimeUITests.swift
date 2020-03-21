@@ -32,9 +32,10 @@ class LoginScreenUITest: XCTestCase {
     func testUserSignsUpWithCorrectCredentials() {
         application.launch()
         let moreKey = application.keys["more"]
+        sleep(2)
         application.buttons["Sign Up"].tap()
         application.textFields["Email"].tap()
-        application.tapKeys(text: "hh")
+        application.tapKeys(text: "testuser")
         moreKey.tap()
         application.keys["@"].tap()
         moreKey.tap()

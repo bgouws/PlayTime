@@ -34,7 +34,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func btnSignIn(_ sender: UIButton) {
         sender.pulsate()
-        hideKeyboard()
         //variables
         let email = txtEmail.text
         let password = txtPassword.text
@@ -52,11 +51,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btnSignUp(_ sender: UIButton) {
         sender.pulsate()
         self.performSegue(withIdentifier: "SignView", sender: self)
-    }
-    //Hiding the keyboard
-    func hideKeyboard() {
-        txtEmail.resignFirstResponder()
-        txtPassword.resignFirstResponder()
     }
     private func showFailureAlert() {
         let alertController = UIAlertController(title: "Error", message:
