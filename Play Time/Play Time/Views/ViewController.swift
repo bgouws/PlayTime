@@ -22,7 +22,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imgTest: UIImageView!
 
     override func viewDidLoad() {
-        //This is the new update
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //Styling Components
@@ -32,9 +31,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         signIn.customButton()
         txtPassword.delegate = self
         txtEmail.delegate = self
-        //Hitting Api
-        //PTPlayMusic.ptPrint()
-        //Calling API
     }
     @IBAction func btnSignIn(_ sender: UIButton) {
         sender.pulsate()
