@@ -752,7 +752,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
-            landmarkName = "testUserCanNavigateToAndFromSignUpScreen()"
+            landmarkName = "testUserSignsUpWithWrongCredentials()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
