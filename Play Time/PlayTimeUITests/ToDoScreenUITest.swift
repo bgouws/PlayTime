@@ -44,7 +44,7 @@ class ToDoScreenUITest: XCTestCase {
         app.keys["a"].tap()
         app.textFields["Duration - 00:00:00"].tap()
         sleep(2)
-        moreKeys.tap()
+        moreKeys.tap() 
         app.keys["0"].tap()
         app.keys["0"].tap()
         app.keys[":"].tap()

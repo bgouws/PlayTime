@@ -33,6 +33,18 @@ extension UIButton {
         layer.borderWidth = 3.0
         layer.borderColor = UIColor.darkGray.cgColor
     }
+    func nextTrack() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
+        layer.shadowRadius = 8
+        layer.shadowOpacity = 0.5
+        clipsToBounds = true
+        layer.masksToBounds = false
+        titleLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
+        layer.cornerRadius = 10
+        layer.borderWidth = 0.5
+        layer.borderColor = UIColor.darkGray.cgColor
+    }
     func colorChange(checker: Bool) {
         let greenColor = UIColor(red: 0.37, green: 0.58, blue: 0.33, alpha: 1.0)
         let yellowColor = UIColor(red: 0.95, green: 0.84, blue: 0.38, alpha: 1.0)

@@ -710,25 +710,94 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whb-6j-naB">
                                                 <rect key="frame" x="16" y="16" width="382" height="377"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="song Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="U5g-hB-wbG">
-                                                        <rect key="frame" x="116" y="138" width="258" height="43"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Up next:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eG-Zv-R8f">
+                                                        <rect key="frame" x="8" y="223" width="70" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81R-rW-cg5">
-                                                        <rect key="frame" x="116" y="189" width="258" height="29"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCa-Qh-GXz">
+                                                        <rect key="frame" x="16" y="16" width="350" height="104"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="song Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="U5g-hB-wbG">
+                                                                <rect key="frame" x="105" y="8" width="229" height="43"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Music" translatesAutoresizingMaskIntoConstraints="NO" id="eWl-98-6kg">
+                                                                <rect key="frame" x="8" y="12" width="80" height="80"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81R-rW-cg5">
+                                                                <rect key="frame" x="105" y="59" width="229" height="29"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="350" id="SXw-4E-XuH"/>
+                                                            <constraint firstAttribute="height" constant="104" id="dZe-Ge-r3c"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJh-CY-BNG">
+                                                        <rect key="frame" x="16" y="257" width="350" height="104"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xK6-nE-GE6">
+                                                                <rect key="frame" x="105" y="8" width="237" height="43"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Music" translatesAutoresizingMaskIntoConstraints="NO" id="UG5-Tc-gNI">
+                                                                <rect key="frame" x="8" y="12" width="80" height="80"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pm7-yp-pJ4">
+                                                                <rect key="frame" x="109" y="59" width="229" height="29"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="104" id="6n5-M8-f6K"/>
+                                                            <constraint firstAttribute="width" constant="350" id="NkC-fZ-N1F"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKf-gG-Jrm">
+                                                        <rect key="frame" x="41" y="168.5" width="300" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="300" id="ZDi-79-sXF"/>
+                                                            <constraint firstAttribute="height" constant="40" id="wcv-Vn-n1C"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Music" translatesAutoresizingMaskIntoConstraints="NO" id="eWl-98-6kg">
-                                                        <rect key="frame" x="8" y="138" width="100" height="100"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
+                                                        <state key="normal" title="Next Track">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnNexTrack:" destination="Qys-ga-rpf" eventType="touchUpInside" id="XmU-EN-tYu"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="RJh-CY-BNG" secondAttribute="trailing" constant="16" id="2ZW-kO-iaN"/>
+                                                    <constraint firstItem="mCa-Qh-GXz" firstAttribute="leading" secondItem="Whb-6j-naB" secondAttribute="leading" constant="16" id="6uH-J8-9kJ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="RJh-CY-BNG" secondAttribute="bottom" constant="16" id="PCg-ag-f2x"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mCa-Qh-GXz" secondAttribute="trailing" constant="16" id="Wfy-AJ-SPR"/>
+                                                    <constraint firstItem="iKf-gG-Jrm" firstAttribute="centerX" secondItem="Whb-6j-naB" secondAttribute="centerX" id="Xod-0q-B3u"/>
+                                                    <constraint firstItem="mCa-Qh-GXz" firstAttribute="top" secondItem="Whb-6j-naB" secondAttribute="top" constant="16" id="knB-qS-ano"/>
+                                                    <constraint firstItem="RJh-CY-BNG" firstAttribute="leading" secondItem="Whb-6j-naB" secondAttribute="leading" constant="16" id="lyl-jF-HGA"/>
+                                                    <constraint firstItem="iKf-gG-Jrm" firstAttribute="centerY" secondItem="Whb-6j-naB" secondAttribute="centerY" id="qTf-ue-nlh"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -755,14 +824,21 @@
                     <navigationItem key="navigationItem" id="NQ9-0a-uE2"/>
                     <connections>
                         <outlet property="btnBack" destination="drG-Zw-oc0" id="doZ-5p-2Rc"/>
+                        <outlet property="btnNextTrack" destination="iKf-gG-Jrm" id="sCt-5O-JFU"/>
                         <outlet property="btnReset" destination="16o-jd-lfn" id="Hqy-Dc-tvX"/>
                         <outlet property="btnStart" destination="V6f-g6-lIT" id="3EZ-xY-Eqe"/>
                         <outlet property="btnStop" destination="gWx-CV-PSY" id="nPI-7m-A6K"/>
                         <outlet property="imgArtWork" destination="eWl-98-6kg" id="Qri-Pr-kuH"/>
+                        <outlet property="imgUpNext" destination="UG5-Tc-gNI" id="4w4-D6-ZZS"/>
+                        <outlet property="lblArtistUpNext" destination="Pm7-yp-pJ4" id="nOH-ch-pV0"/>
                         <outlet property="lblSongArtist" destination="81R-rW-cg5" id="xSC-FK-h0d"/>
                         <outlet property="lblSongTitle" destination="U5g-hB-wbG" id="n0T-ys-75t"/>
+                        <outlet property="lblSongTitleUpNext" destination="xK6-nE-GE6" id="Ut2-dt-xg1"/>
+                        <outlet property="mainTrackView" destination="Whb-6j-naB" id="jRN-R7-Hon"/>
                         <outlet property="timerLabel" destination="v7a-hI-cpa" id="aO5-wN-REs"/>
                         <outlet property="txtHeaderTask" destination="5Qf-tB-64u" id="3wY-1U-2zs"/>
+                        <outlet property="viewCurrentTrack" destination="mCa-Qh-GXz" id="4gs-cY-h4l"/>
+                        <outlet property="viewNextUp" destination="RJh-CY-BNG" id="B3T-Kb-Oms"/>
                         <segue destination="XeK-4m-IZC" kind="show" identifier="backListView" id="r2o-ka-fk7"/>
                     </connections>
                 </viewController>
@@ -779,7 +855,7 @@
         <image name="launchLogo" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0xF-up-f2V"/>
+        <segue reference="r2o-ka-fk7"/>
         <segue reference="QDX-Yd-XKj"/>
     </inferredMetricsTieBreakers>
 </document>

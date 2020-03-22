@@ -20,6 +20,16 @@ var ptPreview = ""
 var count = 0
 
 class CurrentTaskViewController: UIViewController {
+    //UpNextComponents
+    @IBOutlet weak var lblArtistUpNext: UILabel!
+    @IBOutlet weak var lblSongTitleUpNext: UILabel!
+    @IBOutlet weak var imgUpNext: UIImageView!
+    @IBOutlet weak var btnNextTrack: UIButton!
+    //Views
+    @IBOutlet weak var viewCurrentTrack: UIView!
+    @IBOutlet weak var viewNextUp: UIView!
+    @IBOutlet weak var mainTrackView: UIView!
+    //Other Components
     @IBOutlet weak var lblSongTitle: UILabel!
     @IBOutlet weak var lblSongArtist: UILabel!
     @IBOutlet weak var txtHeaderTask: UILabel!
@@ -38,14 +48,24 @@ class CurrentTaskViewController: UIViewController {
     var fTitle = ""
     let myPTTimer = PTTimer()
     let myPTPlayMusic = PTPlayMusic()
+    let upNext = count
     override func viewDidLoad() {
         super.viewDidLoad()
         btnStart.customButton()
         btnStop.customButton()
         btnReset.customButton()
         btnBack.customButton()
+        //Styling 
+        viewCurrentTrack.trackLayers()
+        viewNextUp.trackLayers()
+        mainTrackView.mainView()
+        btnNextTrack.nextTrack()
+        imgArtWork.albumArtStyle()
+        imgUpNext.albumArtStyle()
+        //Setting Up Buttons
         btnStop.isEnabled = false
         btnReset.isEnabled = false
+        btnNextTrack.isEnabled = false
         //Getting data from the viewModel
         let trackData = myPTTimer.ptInit()
         //Setting up first track
@@ -54,6 +74,8 @@ class CurrentTaskViewController: UIViewController {
         lblSongTitle.text = trackData[0] as? String
         lblSongArtist.text = trackData[1] as? String
         txtHeaderTask.text = "Your Current Task: \(fTitle)"
+        //Loading Up Next
+        loadUpNext()
         NotificationCenter.default.addObserver(self, selector: #selector(prepareNextTrack),
         name: .AVPlayerItemDidPlayToEndTime, object: nil)
     }
@@ -66,6 +88,16 @@ class CurrentTaskViewController: UIViewController {
         lblSongTitle.text = trackData[0] as? String
         lblSongArtist.text = trackData[1] as? String
         myPTTimer.setupTrack()
+        //This is new
+        loadUpNext()
+    }
+    public func loadUpNext() {
+        let upNext = count + 1
+        lblSongTitleUpNext.text = PTPlayMusic.getTitle(count: upNext)
+        lblArtistUpNext.text = PTPlayMusic.getArtist(count: upNext)
+        PTPlayMusic.loadNextImage(nextImg: upNext, completion: { (image) in
+            self.imgUpNext.image = image
+        })
     }
     @IBAction func btnStart(_ sender: Any) {
         print("Start Button Selected")
@@ -77,6 +109,7 @@ class CurrentTaskViewController: UIViewController {
         btnStop.isEnabled = true
         btnStart.isEnabled = false
         btnReset.isEnabled = true
+        btnNextTrack.isEnabled = true
     }
     // MARK: Helper Methods
     @objc
@@ -116,6 +149,7 @@ class CurrentTaskViewController: UIViewController {
         myPTTimer.ptStop()
         btnStart.isEnabled = true
         btnStop.isEnabled = false
+        btnNextTrack.isEnabled = false
         myPTTimer.isTimerRunning = false
         timer.invalidate()
     }
@@ -127,6 +161,7 @@ class CurrentTaskViewController: UIViewController {
     }
     @IBAction func btnReset(_ sender: Any) {
         myPTTimer.ptResetTimer()
+        btnNextTrack.isEnabled = false
         timer.invalidate()
         counter = 0.0
         timerLabel.textColor = UIColor.black
@@ -134,5 +169,9 @@ class CurrentTaskViewController: UIViewController {
         btnStart.isEnabled = true
         btnReset.isEnabled = false
         btnStop.isEnabled = false
+    }
+    @IBAction func btnNexTrack(_ sender: Any) {
+        prepareNextTrack()
+        loadUpNext()
     }
 }

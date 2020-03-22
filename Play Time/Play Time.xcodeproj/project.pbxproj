@@ -24,6 +24,8 @@
 		B6376DE023E97DE60033C48D /* ValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DDF23E97DE60033C48D /* ValidationTest.swift */; };
 		B65BBA062414D50D0052AD6F /* TasteSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65BBA052414D50D0052AD6F /* TasteSelectionTest.swift */; };
 		B65F20AF2421FC600079A07E /* TaskUnitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F20AE2421FC600079A07E /* TaskUnitTest.swift */; };
+		B662BC192427C750001DAB07 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662BC182427C750001DAB07 /* UIViewExtension.swift */; };
+		B662BC1B2427CF26001DAB07 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B662BC1A2427CF26001DAB07 /* UIImageViewExtension.swift */; };
 		B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */; };
 		B66866D22420A3EB004A7E99 /* CurrentTaskScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66866D12420A3EB004A7E99 /* CurrentTaskScreenUITest.swift */; };
 		B66866D42420D876004A7E99 /* MusicTasteScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66866D32420D876004A7E99 /* MusicTasteScreenUITest.swift */; };
@@ -82,6 +84,8 @@
 		B6376DE123E97DE60033C48D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B65BBA052414D50D0052AD6F /* TasteSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasteSelectionTest.swift; sourceTree = "<group>"; };
 		B65F20AE2421FC600079A07E /* TaskUnitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUnitTest.swift; sourceTree = "<group>"; };
+		B662BC182427C750001DAB07 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		B662BC1A2427CF26001DAB07 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		B66866D12420A3EB004A7E99 /* CurrentTaskScreenUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskScreenUITest.swift; sourceTree = "<group>"; };
 		B66866D32420D876004A7E99 /* MusicTasteScreenUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTasteScreenUITest.swift; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 			children = (
 				B6C9554923EA87700096213B /* UIButtonExtension.swift */,
 				B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */,
+				B662BC182427C750001DAB07 /* UIViewExtension.swift */,
+				B662BC1A2427CF26001DAB07 /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,10 +448,12 @@
 				B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */,
 				B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */,
 				B601506F23F9CE7600ECB4E2 /* MusicTasteViewController.swift in Sources */,
+				B662BC192427C750001DAB07 /* UIViewExtension.swift in Sources */,
 				B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */,
 				B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */,
 				B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */,
 				B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */,
+				B662BC1B2427CF26001DAB07 /* UIImageViewExtension.swift in Sources */,
 				B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
