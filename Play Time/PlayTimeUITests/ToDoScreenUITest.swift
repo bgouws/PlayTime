@@ -13,9 +13,9 @@ class ToDoScreenUITest: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         application = XCUIApplication()
+        application.launch()
     }
     func testUserCanSuccessfullyAddAnItemToTheList() {
-        application.launch()
         let moreKey = application.keys["more"]
         application.textFields["Email"].tap()
         application.tapKeys(text: "brandongouws")
@@ -64,7 +64,6 @@ class ToDoScreenUITest: XCTestCase {
         elementsQuery.buttons["Sign Out"].tap()
     }
     func testUserCanDeleteAnItemFromList() {
-        application.launch()
         let moreKey = application.keys["more"]
         application.textFields["Email"].tap()
         application.tapKeys(text: "brandongouws")
