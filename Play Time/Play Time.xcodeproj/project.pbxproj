@@ -30,7 +30,6 @@
 		B66866D22420A3EB004A7E99 /* CurrentTaskScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66866D12420A3EB004A7E99 /* CurrentTaskScreenUITest.swift */; };
 		B66866D42420D876004A7E99 /* MusicTasteScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66866D32420D876004A7E99 /* MusicTasteScreenUITest.swift */; };
 		B672CEAD241EA0E300955BF6 /* PlayTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B672CEAC241EA0E300955BF6 /* PlayTimeUITests.swift */; };
-		B672CEB4241EA12000955BF6 /* keyboardExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B672CEA4241E9F7000955BF6 /* keyboardExt.swift */; };
 		B672CEB6241F44F400955BF6 /* ToDoScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B672CEB5241F44F400955BF6 /* ToDoScreenUITest.swift */; };
 		B681C8CC24110CC000324034 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C8CA24110CC000324034 /* AccountManagement.swift */; };
 		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
@@ -89,7 +88,6 @@
 		B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		B66866D12420A3EB004A7E99 /* CurrentTaskScreenUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskScreenUITest.swift; sourceTree = "<group>"; };
 		B66866D32420D876004A7E99 /* MusicTasteScreenUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTasteScreenUITest.swift; sourceTree = "<group>"; };
-		B672CEA4241E9F7000955BF6 /* keyboardExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboardExt.swift; sourceTree = "<group>"; };
 		B672CEAA241EA0E300955BF6 /* PlayTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B672CEAC241EA0E300955BF6 /* PlayTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTimeUITests.swift; sourceTree = "<group>"; };
 		B672CEAE241EA0E300955BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 		B672CEAB241EA0E300955BF6 /* PlayTimeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B672CEA4241E9F7000955BF6 /* keyboardExt.swift */,
 				B672CEAC241EA0E300955BF6 /* PlayTimeUITests.swift */,
 				B672CEAE241EA0E300955BF6 /* Info.plist */,
 				B672CEB5241F44F400955BF6 /* ToDoScreenUITest.swift */,
@@ -478,7 +475,6 @@
 			files = (
 				B66866D22420A3EB004A7E99 /* CurrentTaskScreenUITest.swift in Sources */,
 				B66866D42420D876004A7E99 /* MusicTasteScreenUITest.swift in Sources */,
-				B672CEB4241EA12000955BF6 /* keyboardExt.swift in Sources */,
 				B672CEAD241EA0E300955BF6 /* PlayTimeUITests.swift in Sources */,
 				B672CEB6241F44F400955BF6 /* ToDoScreenUITest.swift in Sources */,
 			);
