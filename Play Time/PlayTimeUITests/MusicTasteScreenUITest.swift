@@ -23,18 +23,11 @@ class MusicTasteScreenUITest: XCTestCase {
     func testUserCanSelectMusicTaste() {
         application.buttons["Sign Up"].tap()
         application.textFields["Email"].tap()
-        UIPasteboard.general.string = "testUser@gmail.com"
-        application.textFields["Email"].tap()
-        application.textFields["Email"].tap()
-        application.menuItems["Paste"].tap()
+        application.textFields["Email"].typeText("testUser@gmail.com")
         application.secureTextFields["Password"].tap()
-        UIPasteboard.general.string = "happydays"
-        application.secureTextFields["Password"].tap()
-        application.menuItems["Paste"].tap()
+        application.secureTextFields["Password"].typeText("happydays")
         application.secureTextFields["Confirm Password"].tap()
-        UIPasteboard.general.string = "happydays"
-        application.secureTextFields["Confirm Password"].tap()
-        application.menuItems["Paste"].tap()
+        application.secureTextFields["Confirm Password"].typeText("happydays")
         application.buttons["Create Account"].tap()
         sleep(4)
         application.buttons["Rock"].tap()
