@@ -727,22 +727,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74D35F3F-434A-4057-82E0-3A394152B29B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlayTimeUITests/PlayTimeUITests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "testUserSignsUpWithWrongCredentials()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "145C4B5C-A106-4082-A677-6802AEA98393"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -785,22 +769,6 @@
             startingLineNumber = "45"
             endingLineNumber = "45"
             landmarkName = "testUserCanSuccessfullyAddAnItemToTheList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BA9944B3-A8A1-4542-99AE-697351A54EDE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlayTimeUITests/PlayTimeUITests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "testUserLoginWithWrongCredentials()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
