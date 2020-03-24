@@ -34,6 +34,8 @@
 		B681C8CC24110CC000324034 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C8CA24110CC000324034 /* AccountManagement.swift */; };
 		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
 		B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260223F4179800678393 /* ToDoViewController.swift */; };
+		B6AA86A5242A176000B03788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA86A4242A176000B03788 /* LoginView.swift */; };
+		B6AA86A7242A253A00B03788 /* KeyBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA86A6242A253A00B03788 /* KeyBoardExtension.swift */; };
 		B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554923EA87700096213B /* UIButtonExtension.swift */; };
 		B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554F23EAA2B20096213B /* SignViewController.swift */; };
 		B6E9A7842407D103002C6A9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6E9A7832407D103002C6A9D /* GoogleService-Info.plist */; };
@@ -95,6 +97,8 @@
 		B681C8CA24110CC000324034 /* AccountManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagement.swift; sourceTree = "<group>"; };
 		B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B6A0260223F4179800678393 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
+		B6AA86A4242A176000B03788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B6AA86A6242A253A00B03788 /* KeyBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardExtension.swift; sourceTree = "<group>"; };
 		B6C9554923EA87700096213B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		B6C9554F23EAA2B20096213B /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		B6E9A7832407D103002C6A9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */,
 				B6376DCE23E97DE50033C48D /* Main.storyboard */,
 				B6376DD323E97DE50033C48D /* LaunchScreen.storyboard */,
+				B6AA86A4242A176000B03788 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				B664DA0223EAE6BA0064D455 /* UITextFieldExtension.swift */,
 				B662BC182427C750001DAB07 /* UIViewExtension.swift */,
 				B662BC1A2427CF26001DAB07 /* UIImageViewExtension.swift */,
+				B6AA86A6242A253A00B03788 /* KeyBoardExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 			files = (
 				B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */,
 				B602D7E223FBF5FC006AD3C3 /* TableViewCell.swift in Sources */,
+				B6AA86A5242A176000B03788 /* LoginView.swift in Sources */,
 				B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */,
 				B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */,
 				B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */,
@@ -452,6 +459,7 @@
 				B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */,
 				B662BC1B2427CF26001DAB07 /* UIImageViewExtension.swift in Sources */,
 				B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */,
+				B6AA86A7242A253A00B03788 /* KeyBoardExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

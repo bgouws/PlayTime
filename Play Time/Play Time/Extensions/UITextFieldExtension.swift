@@ -11,10 +11,9 @@ import UIKit
 
 extension UITextField {
     func customTextBox() {
-        layer.masksToBounds = true
-        layer.masksToBounds = true
-        layer.cornerRadius = 15.0
-        layer.borderWidth = 1.0
-        layer.borderColor = UIColor.black.cgColor
+        layer.cornerRadius = 8.0
+        layer.borderWidth = 0.5
+        layer.borderColor = UIColor.lightGray.cgColor
+        clipsToBounds = true
     }
 }

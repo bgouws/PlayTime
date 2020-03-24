@@ -21,6 +21,19 @@ extension UIButton {
         pulse.damping = 1.0
         layer.add(pulse, forKey: nil)
     }
+    func defaultButton() {
+        //Shadow set up
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.3
+        //General set up
+        let greenColor = UIColor(red: 0.37, green: 0.58, blue: 0.33, alpha: 1.00)
+        clipsToBounds = true
+        layer.masksToBounds = false
+        layer.cornerRadius = 8
+        layer.backgroundColor = greenColor.cgColor
+    }
     func customButton() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
@@ -30,7 +43,7 @@ extension UIButton {
         layer.masksToBounds = false
         titleLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 20)
         layer.cornerRadius = 10
-        layer.borderWidth = 3.0
+        layer.borderWidth = 0.5
         layer.borderColor = UIColor.darkGray.cgColor
     }
     func nextTrack() {
