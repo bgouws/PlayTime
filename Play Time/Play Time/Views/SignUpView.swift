@@ -1,49 +1,51 @@
 //
-//  loginView.swift
+//  SignUpView.swift
 //  Play Time
 //
-//  Created by Brandon Gouws on 2020/03/24.
+//  Created by Brandon Gouws on 2020/03/25.
 //  Copyright © 2020 Brandon Gouws. All rights reserved.
 //
 
 import UIKit
 import PTFramework
 
-class LoginView: UIViewController, UITextFieldDelegate {
-    //Components
+class SignUpView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
-    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var btnSignUp: UIButton!
+    @IBOutlet weak var btnBackToLogin: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setting up styling
-        btnLogin.defaultButton()
+        txtConfirmPassword.delegate = self
         txtPassword.delegate = self
         txtEmail.delegate = self
         txtEmail.customTextBox()
         txtPassword.customTextBox()
+        txtConfirmPassword.customTextBox()
+        btnSignUp.defaultButton()
         self.hideKeyboard()
     }
-    // MARK: Button Actions 
-    @IBAction func btnLoginTapped(_ sender: UIButton) {
-        sender.pulsate()
-        //variables
+    // MARK: Button Actions
+    @IBAction func btnSignUpTapped(_ sender: Any) {
         let email = txtEmail.text
         let password = txtPassword.text
-        //Sending Data to SignInVM
+        let conPassword = txtConfirmPassword.text
+        //Sending data to the VM to be validated
         let myPTAccountManagement = PTAccountManagement()
-        myPTAccountManagement.ptSignIn(email: email!, password: password!) { (success, data)  in
-            if success {
-                print(data)
-            } else {
-                self.showFailureAlert()
+        myPTAccountManagement.ptSignUp(email: email!, password: password!,
+                                       conPassword: conPassword!) { (success, data)  in
+        if success {
+            print(data)
+        } else {
+            self.showFailureAlert()
             }
         }
     }
-    @IBAction func btnSignUpTapped(_ sender: UIButton) {
+    @IBAction func btnBackToLoginTapped(_ sender: UIButton) {
         sender.pulsate()
-        self.performSegue(withIdentifier: "ToSignUpView", sender: self)
+        self.performSegue(withIdentifier: "ToLoginView", sender: self)
     }
     // MARK: Helper Functions
     private func showFailureAlert() {
