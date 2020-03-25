@@ -44,6 +44,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         myPTAccountManagement.ptSignIn(email: email!, password: password!) { (success, data)  in
             if success {
                 self.performSegue(withIdentifier: "HomeView", sender: self)
+                print(data)
             } else {
                 self.showFailureAlert()
             }

@@ -58,7 +58,8 @@ class MusicTasteViewController: UIViewController {
     @IBAction func btnIndie(_ sender: UIButton) {
         sender.colorChange(checker: checker)
         changeCheck()
-        if myPTTasteSelection.ptCheckList(value: "Indie", taste: list) && btnIndie.backgroundColor != UIColor.lightGray {
+        if myPTTasteSelection.ptCheckList(value: "Indie", taste: list)
+            && btnIndie.backgroundColor != UIColor.lightGray {
             return
         } else if myPTTasteSelection.ptCheckList(value: "Indie", taste: list) &&
                   btnIndie.backgroundColor == UIColor.lightGray {

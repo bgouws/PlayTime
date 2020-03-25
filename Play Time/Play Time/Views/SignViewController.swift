@@ -49,6 +49,7 @@ class SignViewController: UIViewController, UITextFieldDelegate {
                                        conPassword: conPassword!) { (success, data)  in
         if success {
             self.performSegue(withIdentifier: "styleView", sender: self)
+            print(data)
         } else {
             self.showFailureAlert()
             }
