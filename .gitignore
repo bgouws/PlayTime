@@ -1,5 +1,7 @@
-Play Time/*.DS_Store
+Play Time/.DS_Store
 Play Time/Pods/*
 Play Time/PTFramework
 *.DS_Store
 /PTFramework
+.DS_Store
+

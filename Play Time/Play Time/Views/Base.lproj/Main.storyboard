@@ -374,10 +374,10 @@
             </objects>
             <point key="canvasLocation" x="420" y="-314"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View-->
         <scene sceneID="wNH-dF-Axk">
             <objects>
-                <viewController id="SX8-s2-902" sceneMemberID="viewController">
+                <viewController id="SX8-s2-902" customClass="ProfileView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AFh-cF-LBH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
