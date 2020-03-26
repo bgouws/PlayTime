@@ -26,6 +26,7 @@ class TaskListViewController: UIViewController {
     @IBOutlet weak var txtDuration: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddSingleTask: UIButton!
+    @IBOutlet weak var btnProfile: UIButton!
     //@IBOutlet weak var btnAddNow: UIButton!
     var tasks: [PTTask] = []
     override func viewDidLoad() {
@@ -38,12 +39,13 @@ class TaskListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         authenticateUserAndConfigure()
+        btnProfile.profileButton()
         // Do any additional setup after loading the view.
     }
     func authenticateUserAndConfigure() {
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "SignOutView", sender: self)
+                self.performSegue(withIdentifier: "NotLoggedInView", sender: self)
             }
         }
     }
@@ -116,11 +118,14 @@ class TaskListViewController: UIViewController {
     @IBAction func btnAddSingleTask(_ sender: Any) {
         insetNewTask()
     }
+    @IBAction func btnProfileTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "ToProfileView", sender: self)
+    }
     func signOut(moveTo: String) {
         do {
             flag = false
             try Auth.auth().signOut()
-            self.performSegue(withIdentifier: moveTo, sender: self)
+            self.performSegue(withIdentifier: "NotLoggedInView", sender: self)
         } catch let error {
             print("Failed to sign out with error: ", error.localizedDescription)
         }

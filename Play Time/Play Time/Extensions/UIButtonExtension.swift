@@ -34,6 +34,13 @@ extension UIButton {
         layer.cornerRadius = 8
         layer.backgroundColor = greenColor.cgColor
     }
+    func profileButton() {
+        //clipsToBounds = true
+        layer.masksToBounds = true
+        layer.cornerRadius = frame.size.width / 2
+        layer.borderWidth = 0.5
+        layer.borderColor = UIColor.darkGray.cgColor
+    }
     func customButton() {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 6.0)

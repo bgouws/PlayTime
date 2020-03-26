@@ -8,6 +8,7 @@
 
 import UIKit
 import PTFramework
+import Firebase
 
 class LoginView: UIViewController, UITextFieldDelegate {
     //Components
@@ -17,6 +18,8 @@ class LoginView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btnSignUp: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Checking to see if user is logged in
+        authenticateUserAndConfigure()
         //Setting up styling
         btnLogin.defaultButton()
         txtPassword.delegate = self
@@ -24,6 +27,15 @@ class LoginView: UIViewController, UITextFieldDelegate {
         txtEmail.customTextBox()
         txtPassword.customTextBox()
         self.hideKeyboard()
+        //self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    func authenticateUserAndConfigure() {
+        let uid = Auth.auth().currentUser?.uid
+        if uid != nil {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "ToHomeScreen", sender: self)
+            }
+        }
     }
     // MARK: Button Actions 
     @IBAction func btnLoginTapped(_ sender: UIButton) {
@@ -36,6 +48,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         myPTAccountManagement.ptSignIn(email: email!, password: password!) { (success, data)  in
             if success {
                 print(data)
+                self.performSegue(withIdentifier: "ToHomeScreen", sender: self)
             } else {
                 self.showFailureAlert()
             }

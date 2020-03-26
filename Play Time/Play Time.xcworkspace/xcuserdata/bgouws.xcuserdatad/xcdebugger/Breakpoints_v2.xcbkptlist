@@ -128,8 +128,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ptPreparePlayList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -144,8 +144,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ptPreparePlayList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -208,8 +208,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ptPreparePlayList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -224,8 +224,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
             endingLineNumber = "92"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ptPreparePlayList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -240,8 +240,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ptPreparePlayList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -254,8 +254,8 @@
             filePath = "Play Time/Views/TaskListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -432,8 +432,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ptPreparePlayList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -448,8 +448,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ptPreparePlayList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -464,8 +464,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ptPreparePlayList()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -952,7 +952,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E9BD8A9B-152F-464F-8A6E-62CFCBDB7C6D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Login/SignInModel.swift"
@@ -965,7 +965,7 @@
             <Locations>
                <Location
                   uuid = "E9BD8A9B-152F-464F-8A6E-62CFCBDB7C6D - 1c828fb806d5a0b4"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PTFramework.PTSignIn.ptSignIn(_: Swift.String, _: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
@@ -980,7 +980,7 @@
                </Location>
                <Location
                   uuid = "E9BD8A9B-152F-464F-8A6E-62CFCBDB7C6D - cee2c31daaa27bc4"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.String, Swift.String, Swift.String) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PTFramework.PTSignIn.ptSignIn(_: Swift.String, _: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
@@ -1000,7 +1000,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6F231FE4-4C07-4991-BDC7-C8870E768F98"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.h"
@@ -1010,6 +1010,102 @@
             endingLineNumber = "15"
             landmarkName = "-readData:"
             landmarkType = "6">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "827F455F-F76C-484D-AA23-1FFC575D798A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Play Time/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5A113B32-D2DF-4D7C-9D6F-A8DB361060C5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Play Time/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "authenticateUserAndConfigure()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1A66A53C-6A03-41D6-8321-4336394DAD0D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Play Time/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "authenticateUserAndConfigure()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1A66A53C-6A03-41D6-8321-4336394DAD0D - a925e5f34a9dd64c"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Play_Time.LoginView.authenticateUserAndConfigure() -&gt; ()"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PlayTimeRedux/PlayTime/Play%20Time/Play%20Time/Views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "558">
+               </Location>
+               <Location
+                  uuid = "1A66A53C-6A03-41D6-8321-4336394DAD0D - 3f1daa8b174f4558"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Play_Time.LoginView.authenticateUserAndConfigure() -&gt; ()"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PlayTimeRedux/PlayTime/Play%20Time/Play%20Time/Views/LoginView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FC01C47-AC15-438D-A129-808236AF520C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Play Time/Views/LoginView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "authenticateUserAndConfigure()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
