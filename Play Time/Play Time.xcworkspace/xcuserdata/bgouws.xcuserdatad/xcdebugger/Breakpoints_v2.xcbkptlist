@@ -848,8 +848,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "ptSignIn(_:_:completion:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -864,8 +864,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "ptSignIn(_:_:completion:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -946,70 +946,6 @@
             endingLineNumber = "57"
             landmarkName = "loadNextImage(nextImg:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E9BD8A9B-152F-464F-8A6E-62CFCBDB7C6D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Login/SignInModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "ptSignIn(_:_:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E9BD8A9B-152F-464F-8A6E-62CFCBDB7C6D - 1c828fb806d5a0b4"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PTFramework.PTSignIn.ptSignIn(_: Swift.String, _: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Play Time"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Login/SignInModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "362">
-               </Location>
-               <Location
-                  uuid = "E9BD8A9B-152F-464F-8A6E-62CFCBDB7C6D - cee2c31daaa27bc4"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String, Swift.String, Swift.String) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PTFramework.PTSignIn.ptSignIn(_: Swift.String, _: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Play Time"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Login/SignInModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "67">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6F231FE4-4C07-4991-BDC7-C8870E768F98"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.h"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "-readData:"
-            landmarkType = "6">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1118,9 +1054,9 @@
             filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-updateData:::"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-updateData::::"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1143,17 +1079,417 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3B0657C3-7123-4285-8789-F100F8A670B6"
+            uuid = "06BB63B6-90E3-4F9C-8FA7-2E77ADF793F7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-updateData::::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8C505C2-429D-4EDE-827F-531060CCBE0C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-updateData::::"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B8C505C2-429D-4EDE-827F-531060CCBE0C - 6e03623cb36141b6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ProfileViewModel updateData::::]"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Objc%20/ProfileViewModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "B8C505C2-429D-4EDE-827F-531060CCBE0C - 96a6323f57a2344f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__34-[ProfileViewModel updateData::::]_block_invoke"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Objc%20/ProfileViewModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D4C3CF2-29C4-46A3-BB2A-30071789BF82"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-btnUpdateTapped:"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "ProfileView"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AA3905DE-8A25-4466-A2F6-B951F5FFB483"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEDC0CFD-AFFA-4F3E-9753-DE633CA30C29"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "-readData:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CEDC0CFD-AFFA-4F3E-9753-DE633CA30C29 - 974d21a542661ea3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__25-[ProfileModel readData:]_block_invoke"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Objc%20/ProfileModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "CEDC0CFD-AFFA-4F3E-9753-DE633CA30C29 - 115de83be38ff856"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__25-[ProfileModel readData:]_block_invoke_2"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Objc%20/ProfileModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93AAA3E9-B18F-4EDC-99B1-843D54127588"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-readData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7646FCFF-DD97-4D4F-89D5-DB696A29998B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-readData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58BCBFA5-14D8-41DC-AB41-6FC42B0C1A82"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B7CD780-C616-4B9B-AC55-9B953C320410"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3F2079A5-B41A-4F6E-B7DA-C2947D4CEA3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DD00C69-00C2-443E-B721-5E2EC8024883"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-setdata:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EA6CE76-4FDC-4F7B-BA37-30D3AD6272E1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8EA6CE76-4FDC-4F7B-BA37-30D3AD6272E1 - 856d8e5b35c20366"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ProfileView viewDidLoad]"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Objc%20/ProfileView.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1996">
+               </Location>
+               <Location
+                  uuid = "8EA6CE76-4FDC-4F7B-BA37-30D3AD6272E1 - cd0560bc2b22ffd2"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__26-[ProfileView viewDidLoad]_block_invoke"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Objc%20/ProfileView.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC08E0C1-89FA-4FB6-9763-79A30C6C6C77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-setdata:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07429744-D150-41E4-8C43-B7131F7A114A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "-readData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77A02BCD-CBE3-44FE-A265-16549E4EEE7F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-getProfileImage::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "296B6E6E-1E3D-4320-AF7B-C82F96471832"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-getProfileImage::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A1EF895-AF96-4ABA-9780-1360B3025D50"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-getProfileImage::"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B80A237-DA6C-42F8-9FE0-8DC17934BC2A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../PTFramework/PTPod/PTFramework/Classes/Objc /ProfileModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-getProfileImage::"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4B80A237-DA6C-42F8-9FE0-8DC17934BC2A - e18d3d7d9c3f93e8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ProfileModel getProfileImage::]"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Objc%20/ProfileModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "4B80A237-DA6C-42F8-9FE0-8DC17934BC2A - 530aa5b4c62a43c2"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[ProfileModel getProfileImage::]_block_invoke"
+                  moduleName = "Play Time"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bgouws/Desktop/PTFramework/PTPod/PTFramework/Classes/Objc%20/ProfileModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

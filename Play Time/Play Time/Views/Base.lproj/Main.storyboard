@@ -1108,12 +1108,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nx5-9H-PPY">
                                                 <rect key="frame" x="8" y="8" width="398" height="360"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="ohD-zX-DQ5">
-                                                        <rect key="frame" x="129" y="0.0" width="140" height="140"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="140" id="YVb-aC-514"/>
-                                                        </constraints>
-                                                    </imageView>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Loading..." placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXv-rv-RRy">
                                                         <rect key="frame" x="74" y="148" width="250" height="40"/>
                                                         <constraints>
@@ -1132,21 +1126,32 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCL-Fa-rtB">
+                                                        <rect key="frame" x="129" y="0.0" width="140" height="140"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="140" id="DiV-Ln-ijX"/>
+                                                            <constraint firstAttribute="height" constant="140" id="bZp-xL-FiO"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button" image="DefaultUser"/>
+                                                        <connections>
+                                                            <action selector="btnProfilePicTapped:" destination="Ycv-nU-R88" eventType="touchUpInside" id="6bs-o3-5m8"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="AXv-rv-RRy" firstAttribute="top" secondItem="ohD-zX-DQ5" secondAttribute="bottom" constant="8" id="4he-iF-vRC"/>
                                                     <constraint firstItem="AXv-rv-RRy" firstAttribute="centerX" secondItem="Nx5-9H-PPY" secondAttribute="centerX" id="5tZ-8M-a9P"/>
                                                     <constraint firstAttribute="trailing" secondItem="VvR-wB-x0B" secondAttribute="trailing" constant="74" id="PRa-8S-hiQ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ohD-zX-DQ5" secondAttribute="trailing" constant="129" id="TRi-Oi-rn4"/>
+                                                    <constraint firstItem="BCL-Fa-rtB" firstAttribute="leading" secondItem="Nx5-9H-PPY" secondAttribute="leading" constant="129" id="S8f-sF-aIk"/>
                                                     <constraint firstItem="VvR-wB-x0B" firstAttribute="top" secondItem="AXv-rv-RRy" secondAttribute="bottom" constant="8" id="VuO-Pb-hPh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BCL-Fa-rtB" secondAttribute="trailing" constant="129" id="WNt-3b-J8h"/>
+                                                    <constraint firstItem="BCL-Fa-rtB" firstAttribute="top" secondItem="Nx5-9H-PPY" secondAttribute="top" id="YTb-G8-Pxt"/>
+                                                    <constraint firstItem="AXv-rv-RRy" firstAttribute="top" secondItem="BCL-Fa-rtB" secondAttribute="bottom" constant="8" id="bbN-PF-JmC"/>
+                                                    <constraint firstItem="BCL-Fa-rtB" firstAttribute="centerX" secondItem="Nx5-9H-PPY" secondAttribute="centerX" id="iUT-6L-7D3"/>
                                                     <constraint firstItem="AXv-rv-RRy" firstAttribute="leading" secondItem="Nx5-9H-PPY" secondAttribute="leading" constant="74" id="n2q-dW-WWd"/>
                                                     <constraint firstItem="VvR-wB-x0B" firstAttribute="centerX" secondItem="Nx5-9H-PPY" secondAttribute="centerX" id="ptS-mn-SMp"/>
-                                                    <constraint firstItem="ohD-zX-DQ5" firstAttribute="leading" secondItem="Nx5-9H-PPY" secondAttribute="leading" constant="129" id="rWT-Zl-NUB"/>
                                                     <constraint firstItem="VvR-wB-x0B" firstAttribute="leading" secondItem="Nx5-9H-PPY" secondAttribute="leading" constant="74" id="tl6-iH-GPf"/>
                                                     <constraint firstAttribute="trailing" secondItem="AXv-rv-RRy" secondAttribute="trailing" constant="74" id="v2d-dx-XBg"/>
-                                                    <constraint firstItem="ohD-zX-DQ5" firstAttribute="centerX" secondItem="Nx5-9H-PPY" secondAttribute="centerX" id="yK5-tg-Sbv"/>
-                                                    <constraint firstItem="ohD-zX-DQ5" firstAttribute="top" secondItem="Nx5-9H-PPY" secondAttribute="top" id="yXJ-LW-G9T"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1211,8 +1216,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="5Ao-eX-PnU"/>
                     <connections>
+                        <outlet property="btnProfilePic" destination="BCL-Fa-rtB" id="SbP-Yy-2so"/>
                         <outlet property="btnUpdate" destination="lAu-S5-cmS" id="YH9-Qc-6QZ"/>
-                        <outlet property="imgProfile" destination="ohD-zX-DQ5" id="PeS-zM-7Q1"/>
                         <outlet property="txtBio" destination="MXA-7e-vQ0" id="oFK-W2-0XB"/>
                         <outlet property="txtLastName" destination="VvR-wB-x0B" id="Dgx-9e-ksN"/>
                         <outlet property="txtName" destination="AXv-rv-RRy" id="grM-K6-KqI"/>
@@ -1243,6 +1248,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DefaultUser" width="140" height="140"/>
         <image name="MainBackground" width="414" height="896"/>
         <image name="Music" width="500" height="500"/>
         <image name="Title" width="350" height="100"/>
