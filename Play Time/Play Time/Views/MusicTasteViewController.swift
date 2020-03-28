@@ -27,7 +27,7 @@ class MusicTasteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        btnStart.customButton()
+        btnStart.defaultButton()
         setButton()
     }
     // MARK: Button Action Functions
@@ -124,7 +124,7 @@ class MusicTasteViewController: UIViewController {
     @IBAction func btnStart(_ sender: Any) {
         //Calling MusicSelection ViewModel
         myPTTasteSelection.ptSaveMusicTaste(taste: list)
-        self.performSegue(withIdentifier: "ShowList", sender: self)
+        self.performSegue(withIdentifier: "ToListView", sender: self)
     }
     func getIndex(value: String) -> Int {
         let index = list.firstIndex(of: value)

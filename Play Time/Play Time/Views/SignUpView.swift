@@ -38,6 +38,7 @@ class SignUpView: UIViewController, UITextFieldDelegate {
                                        conPassword: conPassword!) { (success, data)  in
         if success {
             print(data)
+            self.performSegue(withIdentifier: "ToMusicTaste", sender: self)
         } else {
             self.showFailureAlert()
             }
