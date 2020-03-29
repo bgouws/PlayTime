@@ -33,6 +33,7 @@
 		B672CEAD241EA0E300955BF6 /* PlayTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B672CEAC241EA0E300955BF6 /* PlayTimeUITests.swift */; };
 		B672CEB6241F44F400955BF6 /* ToDoScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B672CEB5241F44F400955BF6 /* ToDoScreenUITest.swift */; };
 		B681C8CC24110CC000324034 /* AccountManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C8CA24110CC000324034 /* AccountManagement.swift */; };
+		B68913932430F801009FB23D /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68913922430F801009FB23D /* AddTaskView.swift */; };
 		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
 		B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260223F4179800678393 /* ToDoViewController.swift */; };
 		B6AA86A5242A176000B03788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA86A4242A176000B03788 /* LoginView.swift */; };
@@ -97,6 +98,7 @@
 		B672CEAE241EA0E300955BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B672CEB5241F44F400955BF6 /* ToDoScreenUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoScreenUITest.swift; sourceTree = "<group>"; };
 		B681C8CA24110CC000324034 /* AccountManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagement.swift; sourceTree = "<group>"; };
+		B68913922430F801009FB23D /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B6A0260223F4179800678393 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		B6AA86A4242A176000B03788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				B6376DD323E97DE50033C48D /* LaunchScreen.storyboard */,
 				B6AA86A4242A176000B03788 /* LoginView.swift */,
 				B613C88D242B259300F4FE60 /* SignUpView.swift */,
+				B68913922430F801009FB23D /* AddTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */,
 				B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */,
 				B613C88E242B259300F4FE60 /* SignUpView.swift in Sources */,
+				B68913932430F801009FB23D /* AddTaskView.swift in Sources */,
 				B662BC1B2427CF26001DAB07 /* UIImageViewExtension.swift in Sources */,
 				B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */,
 				B6AA86A7242A253A00B03788 /* KeyBoardExtension.swift in Sources */,
