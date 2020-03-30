@@ -15,6 +15,7 @@ class SignUpView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var btnBackToLogin: UIButton!
+    let mySignUpAnalytics = SignUpAnalytics()
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setting up styling
@@ -38,8 +39,10 @@ class SignUpView: UIViewController, UITextFieldDelegate {
                                        conPassword: conPassword!) { (success, data)  in
         if success {
             print(data)
+            self.mySignUpAnalytics.successfulSignUp()
             self.performSegue(withIdentifier: "ToMusicTaste", sender: self)
         } else {
+            self.mySignUpAnalytics.unsuccessfulSignUp()
             self.showFailureAlert()
             }
         }

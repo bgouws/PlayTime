@@ -16,6 +16,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
+    let myLoginAnalytics = LoginAnalytics()
     override func viewDidLoad() {
         super.viewDidLoad()
         //Checking to see if user is logged in
@@ -27,7 +28,6 @@ class LoginView: UIViewController, UITextFieldDelegate {
         txtEmail.customTextBox()
         txtPassword.customTextBox()
         self.hideKeyboard()
-        //self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     func authenticateUserAndConfigure() {
         let uid = Auth.auth().currentUser?.uid
@@ -48,8 +48,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
         myPTAccountManagement.ptSignIn(email: email!, password: password!) { (success, data)  in
             if success {
                 print(data)
+                self.myLoginAnalytics.successfulLogin()
                 self.performSegue(withIdentifier: "ToHomeScreen", sender: self)
             } else {
+                self.myLoginAnalytics.unsuccessfulLogin()
                 self.showFailureAlert()
             }
         }

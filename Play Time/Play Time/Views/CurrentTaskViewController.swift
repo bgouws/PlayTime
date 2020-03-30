@@ -39,6 +39,7 @@ class CurrentTaskViewController: UIViewController {
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var imgArtWork: UIImageView!
+    let myCurrentTaskAnalytics = CurrentTaskAnalytics()
     var timer = Timer()
     var isTimerRunning = false
     var counter = 0.0
@@ -100,6 +101,7 @@ class CurrentTaskViewController: UIViewController {
         })
     }
     @IBAction func btnStart(_ sender: Any) {
+        myCurrentTaskAnalytics.musicStart()
         print("Start Button Selected")
         if !myPTTimer.isTimerRunning {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
@@ -146,6 +148,7 @@ class CurrentTaskViewController: UIViewController {
         }
     }
     @IBAction func btnStop(_ sender: Any) {
+        myCurrentTaskAnalytics.musicPause()
         myPTTimer.ptStop()
         btnStart.isEnabled = true
         btnStop.isEnabled = false
@@ -154,12 +157,14 @@ class CurrentTaskViewController: UIViewController {
         timer.invalidate()
     }
     @IBAction func btnBack(_ sender: Any) {
+        myCurrentTaskAnalytics.musicBackToList()
         myPTTimer.ptBackToList()
         timer.invalidate()
         timerLabel.text = "00:00:00"
         self.performSegue(withIdentifier: "backListView", sender: self)
     }
     @IBAction func btnReset(_ sender: Any) {
+        myCurrentTaskAnalytics.musicReset()
         myPTTimer.ptResetTimer()
         btnNextTrack.isEnabled = false
         timer.invalidate()
@@ -171,6 +176,7 @@ class CurrentTaskViewController: UIViewController {
         btnStop.isEnabled = false
     }
     @IBAction func btnNexTrack(_ sender: Any) {
+        myCurrentTaskAnalytics.nextTrack()
         prepareNextTrack()
         loadUpNext()
     }

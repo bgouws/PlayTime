@@ -183,7 +183,6 @@
 		B6376DC723E97DE50033C48D /* Play Time */ = {
 			isa = PBXGroup;
 			children = (
-				B678D7D7242C8A48008185DE /* ObjC Views */,
 				B6F37DD6240537C500D2B5FB /* Extensions */,
 				B6F37DD52405377600D2B5FB /* Views */,
 				B6376DC823E97DE50033C48D /* AppDelegate.swift */,
@@ -220,13 +219,6 @@
 				B66866D32420D876004A7E99 /* MusicTasteScreenUITest.swift */,
 			);
 			path = PlayTimeUITests;
-			sourceTree = "<group>";
-		};
-		B678D7D7242C8A48008185DE /* ObjC Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "ObjC Views";
 			sourceTree = "<group>";
 		};
 		B6F37DD52405377600D2B5FB /* Views */ = {

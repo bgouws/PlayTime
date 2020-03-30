@@ -11,7 +11,6 @@ import Firebase
 import PTFramework
 
 class TaskListViewController: UIViewController {
-
     var finalHour = ""
     var finalMinute = ""
     var finalSecond = ""
@@ -20,6 +19,8 @@ class TaskListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddSingleTask: UIButton!
     @IBOutlet weak var btnProfile: UIButton!
+    let myProfileAnalytics = ProfileAnalytics()
+    let myTaskListViewAnalytics = TaskListViewAnalytics()
     var tasks: [PTTask] = []
     let getTasks = TasksViewModel()
     override func viewDidLoad() {
@@ -52,6 +53,7 @@ class TaskListViewController: UIViewController {
         self.performSegue(withIdentifier: "ToCreateTask", sender: self)
     }
     @IBAction func btnProfileTapped(_ sender: Any) {
+        myProfileAnalytics.profileTapped()
         self.performSegue(withIdentifier: "ToProfileView", sender: self)
     }
 }
@@ -72,6 +74,7 @@ extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
+        myTaskListViewAnalytics.taskDeleted()
         if editingStyle == .delete {
             tasks.remove(at: indexPath.row)
             tableView.beginUpdates()
@@ -81,6 +84,7 @@ extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You selected cell number: \(indexPath.row)!")
+        myTaskListViewAnalytics.taskSelected()
         flag = true
         finalHour = tasks[indexPath.row].hour
         finalMinute = tasks[indexPath.row].minute

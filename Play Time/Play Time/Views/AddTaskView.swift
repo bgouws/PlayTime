@@ -68,6 +68,7 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
                              second: secondSelected) { (success) in
             if success {
                 actIndicator.isHidden = true
+                myAddNewTaskAnalytics.addNewTask()
             } else {
                 actIndicator.isHidden = true
                 //call alert
@@ -85,11 +86,13 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
             print("Second: \(seconds[row])")
             secondSelected = seconds[row]
         }
+        myAddNewTaskAnalytics.pickerTimeSet()
     }
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var btnCreateTask: UIButton!
     @IBOutlet weak var txtTaskTitle: UITextField!
     @IBOutlet weak var actIndicator: UIActivityIndicatorView!
+    let myAddNewTaskAnalytics = AddNewTaskAnalytics()
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.delegate = self
