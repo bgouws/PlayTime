@@ -1,27 +1,26 @@
 //
-//  TasteSelectionTest.swift
+//  MusicTasteSelectionTest.swift
 //  Play TimeTests
 //
-//  Created by Brandon Gouws on 2020/03/08.
+//  Created by Brandon Gouws on 2020/03/30.
 //  Copyright © 2020 Brandon Gouws. All rights reserved.
 //
 
-import Foundation
 import XCTest
 @testable import Play_Time
 @testable import PTFramework
 
-class TasteSelectionTest: XCTestCase {
+class MusicTasteSelectionTest: XCTestCase {
     var tasteSelectionUnderTest: PTTasteSelection!
-
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         tasteSelectionUnderTest = PTTasteSelection()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+
     func testCheckIfItemThatIsInListIsAlreadyThere() {
         let result = tasteSelectionUnderTest.ptCheckList(value: "Rock", taste: ["Rock", "Pop"])
         XCTAssert(result)

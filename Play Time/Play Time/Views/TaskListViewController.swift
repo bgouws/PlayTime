@@ -19,6 +19,7 @@ class TaskListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddSingleTask: UIButton!
     @IBOutlet weak var btnProfile: UIButton!
+    @IBOutlet weak var btnLogout: UIButton!
     let myProfileAnalytics = ProfileAnalytics()
     let myTaskListViewAnalytics = TaskListViewAnalytics()
     var tasks: [PTTask] = []
@@ -51,6 +52,24 @@ class TaskListViewController: UIViewController {
     }
     @IBAction func btnAddSingleTask(_ sender: Any) {
         self.performSegue(withIdentifier: "ToCreateTask", sender: self)
+    }
+    @IBAction func btnLogout(_ sender: Any) {
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?",
+                                                preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive,
+                                                handler: {(_) in self.signOut(moveTo: "ToLogout")
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    func signOut(moveTo: String) {
+        do {
+            flag = false
+            try Auth.auth().signOut()
+            self.performSegue(withIdentifier: moveTo, sender: self)
+        } catch let error {
+            print("Failed to sign out with error: ", error.localizedDescription)
+        }
     }
     @IBAction func btnProfileTapped(_ sender: Any) {
         myProfileAnalytics.profileTapped()

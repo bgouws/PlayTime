@@ -2,55 +2,95 @@
 //  TimerTest.swift
 //  Play TimeTests
 //
-//  Created by Brandon Gouws on 2020/03/09.
+//  Created by Brandon Gouws on 2020/03/30.
 //  Copyright © 2020 Brandon Gouws. All rights reserved.
 //
 
 import XCTest
+@testable import Play_Time
 @testable import PTFramework
 
 class TimerTest: XCTestCase {
     var timerUnderTest: PTTimer!
-
+    var playMusicSetUp: PTPlayMusic!
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         timerUnderTest = PTTimer()
+        playMusicSetUp = PTPlayMusic()
+        PTPlayMusic.setData(artist: ["data", "data", "data", "data",
+                                     "data", "data", "data", "data",
+                                     "data", "data", "data", "data",
+                                     "data"],
+                            title: ["data", "data", "data", "data",
+                                    "data", "data", "data", "data",
+                                    "data", "data", "data", "data",
+                                    "data", "data", "data", "data"],
+                            previewURL: ["data", "data", "data", "data",
+                                         "data", "data", "data", "data",
+                                         "data", "data", "data", "data",
+                                         "data", "data", "data"],
+                            artString: ["data", "data", "data",
+                                        "data", "data", "data",
+                                        "data", "data", "data",
+                                        "data", "data", "data",
+                                        "data", "data", "data"])
     }
-
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-//    func testSuccessfullyLoadNextTrack() {
-//        // This is an example of a functional test case.
-//        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//        let audioItem = timerUnderTest.loadNextTrack()
-//        XCTAssertNotNil(audioItem)
-//    }
-    func testUnsuccessfullyLoadedNextTrack() {
+    func testCanPerformInitialLoad() {
+        let outPutArray = timerUnderTest.ptInit()
+        sleep(10)
+        XCTAssertNotNil(outPutArray)
+        timerUnderTest.ptInitialLoad()
+        sleep(10)
     }
-    func testStopedMusic() {
-        let result = timerUnderTest.ptStop()
-        XCTAssertFalse(result)
+    func testUserCanPlayMusicUsingStart() {
+        let outPutArray = timerUnderTest.ptInit()
+        XCTAssertNotNil(outPutArray)
+        timerUnderTest.ptInitialLoad()
+        sleep(10)
+        let output = timerUnderTest.ptStart()
+        XCTAssert(output)
     }
-//    func testMusicStartedPlaying() {
-//        _ = timerUnderTest.ptInit()
-//        _ = timerUnderTest.loadNextTrack()
-//        let result = timerUnderTest.ptStart()
-//        XCTAssert(result)
-//    }
-    func testMusicPlayerReset() {
-        let result = timerUnderTest.ptResetTimer()
-        XCTAssertFalse(result)
+    func testUserCanPausePlayback() {
+        let outPutArray = timerUnderTest.ptInit()
+        XCTAssertNotNil(outPutArray)
+        timerUnderTest.ptInitialLoad()
+        sleep(10)
+        let output = timerUnderTest.ptStop()
+        XCTAssertFalse(output)
     }
-//    func testUserNavigatesBackToList() {
-//        _ = timerUnderTest.loadNextTrack()
-//        _ = timerUnderTest.ptStart()
-//        let result = timerUnderTest.ptBackToList()
-//        XCTAssertFalse(result)
-//    }
-    func testTimerIsRunningSuccessfully() {
-        let result = timerUnderTest.timerSetUp()
-        XCTAssert(result)
+    func testPlayBackCanBePaused() {
+        let outPutArray = timerUnderTest.ptInit()
+        XCTAssertNotNil(outPutArray)
+        timerUnderTest.ptInitialLoad()
+        sleep(10)
+        timerUnderTest.ptStopPlayback()
+    }
+    func testTimerSetUpSuccessfully() {
+        let timerRunning = timerUnderTest.timerSetUp()
+        XCTAssert(timerRunning)
+    }
+    func testTrackSetUp() {
+        let outPutArray = timerUnderTest.ptInit()
+        XCTAssertNotNil(outPutArray)
+        timerUnderTest.ptInitialLoad()
+        sleep(10)
+        timerUnderTest.setupTrack()
+    }
+    func testMusicStopsWhenUserNavigatesBackToList() {
+        let outPutArray = timerUnderTest.ptInit()
+        XCTAssertNotNil(outPutArray)
+        timerUnderTest.ptInitialLoad()
+        sleep(10)
+        let timerState = timerUnderTest.ptBackToList()
+        XCTAssertFalse(timerState)
+    }
+    func testTimerStopsWhenTimerIsReset() {
+        let outPutArray = timerUnderTest.ptInit()
+        XCTAssertNotNil(outPutArray)
+        timerUnderTest.ptInitialLoad()
+        sleep(10)
+        let timerState = timerUnderTest.ptResetTimer()
+        XCTAssertFalse(timerState)
     }
 }

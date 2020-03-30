@@ -82,14 +82,12 @@ class CurrentTaskViewController: UIViewController {
     }
     @objc func prepareNextTrack() {
         let trackData = myPTTimer.ptInit()
-        //imgArtWork.image = trackData[2] as? UIImage
         count += 1
         print("Prepare next track has been called")
         imgArtWork.image = PTPlayMusic.getImage(count: count)
         lblSongTitle.text = trackData[0] as? String
         lblSongArtist.text = trackData[1] as? String
         myPTTimer.setupTrack()
-        //This is new
         loadUpNext()
     }
     public func loadUpNext() {
@@ -107,7 +105,8 @@ class CurrentTaskViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
                                          selector: #selector(runTimer), userInfo: nil, repeats: true)
         }
-        myPTTimer.ptStart()
+        let output = myPTTimer.ptStart()
+        print(output)
         btnStop.isEnabled = true
         btnStart.isEnabled = false
         btnReset.isEnabled = true
@@ -116,7 +115,6 @@ class CurrentTaskViewController: UIViewController {
     // MARK: Helper Methods
     @objc
     func runTimer() {
-        //timerLabel.text = "\(hourString):\(minuteString):\(secondString)"
         counter += 0.1
         var minuteString = ""
         var secondString = ""
@@ -149,7 +147,8 @@ class CurrentTaskViewController: UIViewController {
     }
     @IBAction func btnStop(_ sender: Any) {
         myCurrentTaskAnalytics.musicPause()
-        myPTTimer.ptStop()
+        let output = myPTTimer.ptStop()
+        print(output)
         btnStart.isEnabled = true
         btnStop.isEnabled = false
         btnNextTrack.isEnabled = false
@@ -158,14 +157,16 @@ class CurrentTaskViewController: UIViewController {
     }
     @IBAction func btnBack(_ sender: Any) {
         myCurrentTaskAnalytics.musicBackToList()
-        myPTTimer.ptBackToList()
+        let output = myPTTimer.ptBackToList()
+        print(output)
         timer.invalidate()
         timerLabel.text = "00:00:00"
         self.performSegue(withIdentifier: "backListView", sender: self)
     }
     @IBAction func btnReset(_ sender: Any) {
         myCurrentTaskAnalytics.musicReset()
-        myPTTimer.ptResetTimer()
+        let output = myPTTimer.ptResetTimer()
+        print(output)
         btnNextTrack.isEnabled = false
         timer.invalidate()
         counter = 0.0

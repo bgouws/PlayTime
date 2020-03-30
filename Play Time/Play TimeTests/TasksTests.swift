@@ -1,5 +1,5 @@
 //
-//  PlayMusicTest.swift
+//  TasksTests.swift
 //  Play TimeTests
 //
 //  Created by Brandon Gouws on 2020/03/30.
@@ -10,15 +10,18 @@ import XCTest
 @testable import Play_Time
 @testable import PTFramework
 
-class PlayMusicTest: XCTestCase {
-    var playMusicUnderTest: PTPlayMusic!
+class TasksTests: XCTestCase {
+    var tasksUnderTest: TasksViewModel!
     override func setUp() {
-        playMusicUnderTest = PTPlayMusic()
+        tasksUnderTest = TasksViewModel()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    func testCanSetData() {
-    }
+
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+
+    func testCanInsertNewTask() {
+        
     }
 }
