@@ -1,19 +1,19 @@
 //
-//  ToDoScreenUITest.swift
+//  ProfileUITest.swift
 //  PlayTimeUITests
 //
-//  Created by Brandon Gouws on 2020/03/16.
+//  Created by Brandon Gouws on 2020/03/30.
 //  Copyright © 2020 Brandon Gouws. All rights reserved.
 //
 
 import XCTest
 
-class ToDoScreenUITest: XCTestCase {
+class ProfileUITest: XCTestCase {
     var application: XCUIApplication!
     override func setUp() {
         continueAfterFailure = false
         application = XCUIApplication()
-        application.launch()
+        XCUIApplication().launch()
     }
     func login() {
         application.textFields["Email"].tap()
@@ -30,31 +30,13 @@ class ToDoScreenUITest: XCTestCase {
         elementsQuery.buttons["Sign Out"].tap()
         sleep(2)
     }
-    func testUserCanRemoveTask() {
-        login()
-        let tablesQuery = application.tables
-        sleep(10)
-        // swiftlint:disable all
-        tablesQuery.staticTexts["Sample\t\t\t\tDuration:\t 00:01:30"].swipeLeft()
-        // swiftlint:enable all
-        tablesQuery.buttons["Delete"].tap()
-        XCTAssertFalse(tablesQuery.staticTexts["Sample\t\t\t\tDuration:\t 00:01:30"].exists)
-        logout()
-    }
-    func testUserCanAddTask() {
+    func testUserNavigatesToProfile() {
         login()
         sleep(1)
-        application.buttons["Add Task"].tap()
-        sleep(1)
-        application.textFields["Task Title"].tap()
-        application.textFields["Task Title"].typeText("Test")
-        sleep(1)
-        application.buttons["Return"].tap()
-        sleep(1)
-        application.buttons["Create Task"].tap()
+        application.buttons["Profile"].tap()
         sleep(1)
         application.buttons["Back"].tap()
-        sleep(2)
+        sleep(1)
         logout()
     }
 }
