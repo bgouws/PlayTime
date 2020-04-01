@@ -44,6 +44,11 @@ class TaskListViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         let myData = TasksViewModel()
+        let myImage = ProfileViewModel()
+        myImage.setdata { (_, _, _, img) in
+            self.btnProfile.setImage(img, for: .normal)
+        }
+        self.title = "Task List"
         myData.getListOfTasks { (listOfTasks) in
             self.tasks = listOfTasks
             print("\(self.tasks[0].title) \(self.tasks[0].minute) \(self.tasks[0].second)")
@@ -72,6 +77,7 @@ class TaskListViewController: UIViewController {
         }
     }
     @IBAction func btnProfileTapped(_ sender: Any) {
+        flag = false
         myProfileAnalytics.profileTapped()
         self.performSegue(withIdentifier: "ToProfileView", sender: self)
     }

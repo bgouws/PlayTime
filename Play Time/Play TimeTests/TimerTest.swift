@@ -19,20 +19,20 @@ class TimerTest: XCTestCase {
         PTPlayMusic.setData(artist: ["data", "data", "data", "data",
                                      "data", "data", "data", "data",
                                      "data", "data", "data", "data",
-                                     "data"],
+                                     "data", "data"],
                             title: ["data", "data", "data", "data",
                                     "data", "data", "data", "data",
                                     "data", "data", "data", "data",
-                                    "data", "data", "data", "data"],
+                                    "data", "data", "data", "data", "data"],
                             previewURL: ["data", "data", "data", "data",
                                          "data", "data", "data", "data",
                                          "data", "data", "data", "data",
-                                         "data", "data", "data"],
+                                         "data", "data", "data", "data"],
                             artString: ["data", "data", "data",
                                         "data", "data", "data",
                                         "data", "data", "data",
                                         "data", "data", "data",
-                                        "data", "data", "data"])
+                                        "data", "data", "data", "data"])
     }
     override func tearDown() {
     }

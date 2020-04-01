@@ -53,7 +53,7 @@ class ToDoScreenUITest: XCTestCase {
         sleep(1)
         application.buttons["Create Task"].tap()
         sleep(1)
-        application.buttons["Back"].tap()
+        application.buttons["Task List"].tap()
         sleep(2)
         logout()
     }

@@ -42,7 +42,7 @@ class CurrentTaskScreenUITest: XCTestCase {
         timer.buttons["Start"].tap()
         sleep(2)
         timer.buttons["Stop"].tap()
-        timer.buttons["Back"].tap()
+        timer.buttons["Task List"].tap()
         sleep(2)
         logout()
     }
@@ -58,7 +58,7 @@ class CurrentTaskScreenUITest: XCTestCase {
         timer.buttons["Start"].tap()
         sleep(2)
         timer.buttons["Reset"].tap()
-        timer.buttons["Back"].tap()
+        timer.buttons["Task List"].tap()
         sleep(2)
         logout()
     }
@@ -75,7 +75,7 @@ class CurrentTaskScreenUITest: XCTestCase {
         sleep(2)
         timer.buttons["Next Track"].tap()
         sleep(4)
-        timer.buttons["Back"].tap()
+        timer.buttons["Task List"].tap()
         sleep(2)
         logout()
     }
@@ -90,7 +90,7 @@ class CurrentTaskScreenUITest: XCTestCase {
         let timer = XCUIApplication()
         timer.buttons["Start"].tap()
         sleep(100)
-        timer.buttons["Back"].tap()
+        timer.buttons["Task List"].tap()
         sleep(2)
         logout()
     }

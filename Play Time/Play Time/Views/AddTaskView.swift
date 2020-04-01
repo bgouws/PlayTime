@@ -102,6 +102,9 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         actIndicator.isHidden = true
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "Add Task"
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true

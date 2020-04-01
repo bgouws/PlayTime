@@ -52,15 +52,16 @@ class CurrentTaskViewController: UIViewController {
     let upNext = count
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnStart.customButton()
-        btnStop.customButton()
-        btnReset.customButton()
-        btnBack.customButton()
+        btnStart.defaultButton()
+        btnStop.defaultButton()
+        btnReset.defaultButton()
+        btnBack.defaultButton()
+        btnBack.isHidden = true
         //Styling 
         viewCurrentTrack.trackLayers()
         viewNextUp.trackLayers()
-        mainTrackView.mainView()
-        btnNextTrack.nextTrack()
+        //mainTrackView.mainView()
+        btnNextTrack.defaultButton()
         imgArtWork.albumArtStyle()
         imgUpNext.albumArtStyle()
         //Setting Up Buttons
@@ -79,6 +80,9 @@ class CurrentTaskViewController: UIViewController {
         loadUpNext()
         NotificationCenter.default.addObserver(self, selector: #selector(prepareNextTrack),
         name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "Timer View"
     }
     @objc func prepareNextTrack() {
         let trackData = myPTTimer.ptInit()

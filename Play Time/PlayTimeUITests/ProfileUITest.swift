@@ -35,7 +35,7 @@ class ProfileUITest: XCTestCase {
         sleep(1)
         application.buttons["Profile"].tap()
         sleep(1)
-        application.buttons["Back"].tap()
+        application.buttons["Task List"].tap()
         sleep(1)
         logout()
     }
