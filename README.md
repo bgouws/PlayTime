@@ -18,15 +18,27 @@ Whereas if the user selects a task called "Break" or "Rest" it should select a s
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6a4bc2d1ae3c47cf9c716e3def676866)](https://www.codacy.com/manual/bgouws/PlayTime?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bgouws/PlayTime&amp;utm_campaign=Badge_Grade)
 
 ## Screenshots
-### Sign In
-![](Play%20Time/Images/SignIn.PNG)
+### Sign In View
+![](Play%20Time/Images/LoginPlayTime.png)
 
-### Sign Up
-![](Play%20Time/Images/SignUp.PNG)
+### Sign Up View
+![](Play%20Time/Images/SignUpPlayTime.png)
 
-### Music Taste Selection
-![](Play%20Time/Images/SelectTaste.PNG)
+### Music Taste Selection View
+![](Play%20Time/Images/MusicTasteScreen2.png)
 
-### Task List
-![](Play%20Time/Images/TaskList.PNG)
+### Task List View
+![](Play%20Time/Images/TaskViewPlayTime.png)
+
+### Add Task View
+![](Play%20Time/Images/AddTaskView.png)
+
+### Profile View
+![](Play%20Time/Images/ProfileView.png)
+
+### Timer View
+![](Play%20Time/Images/TimerView.png)
+
+### Logout View
+![](Play%20Time/Images/Logout.png)
 
