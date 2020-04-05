@@ -6,12 +6,14 @@ target 'Play Time' do
   #use_frameworks!
   use_modular_headers!
   
-
   # Pods for Play Time
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
-  #pod 'PTFramework', :path => '/Users/bgouws/Desktop/PlayTimeRedux/PlayTime/Play Time/PTFramework'
+  pod 'Crashlytics'
+  pod 'Fabric'
+  pod 'Firebase/Performance'
+
   pod 'PTFramework', :git => 'https://github.com/bgouws/PTPod.git'
   #pod 'PTFramework', :path => '/Users/bgouws/Desktop/PTFramework/PTPod'
 

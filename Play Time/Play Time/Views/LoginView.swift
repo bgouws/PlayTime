@@ -16,6 +16,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
+    @IBOutlet weak var crash: UIButton!
     let myLoginAnalytics = LoginAnalytics()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,9 @@ class LoginView: UIViewController, UITextFieldDelegate {
                 self.showFailureAlert()
             }
         }
+    }
+    @IBAction func btnCrash(_ sender: Any) {
+        assert(false)
     }
     @IBAction func btnSignUpTapped(_ sender: UIButton) {
         sender.pulsate()

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10F0714C20B10A4AC6D5ABE7 /* libPods-Play Time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EC22279EE55E902D901655 /* libPods-Play Time.a */; };
+		47D5A65DA5F343F15240ECCD /* libPods-Play TimeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7DE87B93103AC6979BE067 /* libPods-Play TimeTests.a */; };
+		9DAD997CA62EB8684ADBB6A3 /* libPods-Play Time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7601AB5532AA1D7A3D7C6DBB /* libPods-Play Time.a */; };
 		B601506F23F9CE7600ECB4E2 /* MusicTasteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */; };
 		B602D7E223FBF5FC006AD3C3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */; };
 		B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */; };
@@ -42,10 +43,8 @@
 		B6FC6CCF24320A1800723C03 /* MusicTasteSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CCE24320A1800723C03 /* MusicTasteSelectionTest.swift */; };
 		B6FC6CD124320BB900723C03 /* TasksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD024320BB900723C03 /* TasksTests.swift */; };
 		B6FC6CD324320D3E00723C03 /* PlayMusicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD224320D3E00723C03 /* PlayMusicTest.swift */; };
-		B6FC6CD52432121B00723C03 /* TestAllAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD42432121B00723C03 /* TestAllAnalytics.swift */; };
 		B6FC6CD7243222E100723C03 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD6243222E100723C03 /* LoginUITest.swift */; };
 		B6FC6CD9243226DF00723C03 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD8243226DF00723C03 /* LogoutView.swift */; };
-		C7A9406898F6CE0692B3A054 /* libPods-Play TimeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5CDCAA377F5CF0AFC6133E /* libPods-Play TimeTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,11 +65,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		46336A59F201E6984DDD26C1 /* Pods-Play Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play Time.release.xcconfig"; path = "Target Support Files/Pods-Play Time/Pods-Play Time.release.xcconfig"; sourceTree = "<group>"; };
-		58EC22279EE55E902D901655 /* libPods-Play Time.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play Time.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A5CDCAA377F5CF0AFC6133E /* libPods-Play TimeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play TimeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		789FC8C72ECD963F64C2EE32 /* Pods-Play Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play Time.debug.xcconfig"; path = "Target Support Files/Pods-Play Time/Pods-Play Time.debug.xcconfig"; sourceTree = "<group>"; };
-		7B3FAD244DC6C582D673F3FB /* Pods-Play TimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play TimeTests.release.xcconfig"; path = "Target Support Files/Pods-Play TimeTests/Pods-Play TimeTests.release.xcconfig"; sourceTree = "<group>"; };
+		0A7DE87B93103AC6979BE067 /* libPods-Play TimeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play TimeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4919F6251A1F994675EBE0C4 /* Pods-Play TimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play TimeTests.debug.xcconfig"; path = "Target Support Files/Pods-Play TimeTests/Pods-Play TimeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5AF81211CDAF3949B7B170AD /* Pods-Play Time.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play Time.release.xcconfig"; path = "Target Support Files/Pods-Play Time/Pods-Play Time.release.xcconfig"; sourceTree = "<group>"; };
+		7601AB5532AA1D7A3D7C6DBB /* libPods-Play Time.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play Time.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A9FDD077EE23E192B8FE40 /* Pods-Play Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play Time.debug.xcconfig"; path = "Target Support Files/Pods-Play Time/Pods-Play Time.debug.xcconfig"; sourceTree = "<group>"; };
+		9AED42646D984CBE7CDAF26F /* Pods-Play TimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play TimeTests.release.xcconfig"; path = "Target Support Files/Pods-Play TimeTests/Pods-Play TimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTasteViewController.swift; sourceTree = "<group>"; };
 		B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
@@ -111,10 +111,8 @@
 		B6FC6CCE24320A1800723C03 /* MusicTasteSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTasteSelectionTest.swift; sourceTree = "<group>"; };
 		B6FC6CD024320BB900723C03 /* TasksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTests.swift; sourceTree = "<group>"; };
 		B6FC6CD224320D3E00723C03 /* PlayMusicTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicTest.swift; sourceTree = "<group>"; };
-		B6FC6CD42432121B00723C03 /* TestAllAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAllAnalytics.swift; sourceTree = "<group>"; };
 		B6FC6CD6243222E100723C03 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
 		B6FC6CD8243226DF00723C03 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
-		D776A3E5DB862B0DBEA6C720 /* Pods-Play TimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play TimeTests.debug.xcconfig"; path = "Target Support Files/Pods-Play TimeTests/Pods-Play TimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */,
-				10F0714C20B10A4AC6D5ABE7 /* libPods-Play Time.a in Frameworks */,
+				9DAD997CA62EB8684ADBB6A3 /* libPods-Play Time.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7A9406898F6CE0692B3A054 /* libPods-Play TimeTests.a in Frameworks */,
+				47D5A65DA5F343F15240ECCD /* libPods-Play TimeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,10 +146,10 @@
 		23D6DC6CF290B717DF602985 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				789FC8C72ECD963F64C2EE32 /* Pods-Play Time.debug.xcconfig */,
-				46336A59F201E6984DDD26C1 /* Pods-Play Time.release.xcconfig */,
-				D776A3E5DB862B0DBEA6C720 /* Pods-Play TimeTests.debug.xcconfig */,
-				7B3FAD244DC6C582D673F3FB /* Pods-Play TimeTests.release.xcconfig */,
+				76A9FDD077EE23E192B8FE40 /* Pods-Play Time.debug.xcconfig */,
+				5AF81211CDAF3949B7B170AD /* Pods-Play Time.release.xcconfig */,
+				4919F6251A1F994675EBE0C4 /* Pods-Play TimeTests.debug.xcconfig */,
+				9AED42646D984CBE7CDAF26F /* Pods-Play TimeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -160,8 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */,
-				58EC22279EE55E902D901655 /* libPods-Play Time.a */,
-				6A5CDCAA377F5CF0AFC6133E /* libPods-Play TimeTests.a */,
+				7601AB5532AA1D7A3D7C6DBB /* libPods-Play Time.a */,
+				0A7DE87B93103AC6979BE067 /* libPods-Play TimeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -211,7 +209,6 @@
 				B6FC6CD024320BB900723C03 /* TasksTests.swift */,
 				B6376DE123E97DE60033C48D /* Info.plist */,
 				B6FC6CD224320D3E00723C03 /* PlayMusicTest.swift */,
-				B6FC6CD42432121B00723C03 /* TestAllAnalytics.swift */,
 				B6628557243267AB00287672 /* ProfileTest.swift */,
 				B6628559243269D200287672 /* ValidationTest.swift */,
 			);
@@ -271,11 +268,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6376DE423E97DE60033C48D /* Build configuration list for PBXNativeTarget "Play Time" */;
 			buildPhases = (
-				BBFBE4CC4D259CF8ECD644B0 /* [CP] Check Pods Manifest.lock */,
+				DFD34DA25B7F47974A1370C3 /* [CP] Check Pods Manifest.lock */,
 				B6376DC123E97DE50033C48D /* Sources */,
 				B6376DC223E97DE50033C48D /* Frameworks */,
 				B6376DC323E97DE50033C48D /* Resources */,
 				B676DBA123F3D9DC00493E2E /* ShellScript */,
+				B6F1A3F02439C0DF000B9A03 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -290,7 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6376DE723E97DE60033C48D /* Build configuration list for PBXNativeTarget "Play TimeTests" */;
 			buildPhases = (
-				C5CBD542FD9EBB8A20476A26 /* [CP] Check Pods Manifest.lock */,
+				2D2CB1A6F37EDBA289EE0A7E /* [CP] Check Pods Manifest.lock */,
 				B6376DD723E97DE60033C48D /* Sources */,
 				B6376DD823E97DE60033C48D /* Frameworks */,
 				B6376DD923E97DE60033C48D /* Resources */,
@@ -395,6 +393,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2D2CB1A6F37EDBA289EE0A7E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Play TimeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B676DBA123F3D9DC00493E2E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,7 +432,24 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		BBFBE4CC4D259CF8ECD644B0 /* [CP] Check Pods Manifest.lock */ = {
+		B6F1A3F02439C0DF000B9A03 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		DFD34DA25B7F47974A1370C3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -428,28 +465,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Play Time-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5CBD542FD9EBB8A20476A26 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Play TimeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -494,7 +509,6 @@
 				B6FC6CCD2432050700723C03 /* TimerTest.swift in Sources */,
 				B6628558243267AB00287672 /* ProfileTest.swift in Sources */,
 				B6FC6CCB2431F12100723C03 /* UserAccountTest.swift in Sources */,
-				B6FC6CD52432121B00723C03 /* TestAllAnalytics.swift in Sources */,
 				B6FC6CD124320BB900723C03 /* TasksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,7 +594,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -663,7 +677,7 @@
 		};
 		B6376DE523E97DE60033C48D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 789FC8C72ECD963F64C2EE32 /* Pods-Play Time.debug.xcconfig */;
+			baseConfigurationReference = 76A9FDD077EE23E192B8FE40 /* Pods-Play Time.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -682,7 +696,7 @@
 		};
 		B6376DE623E97DE60033C48D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46336A59F201E6984DDD26C1 /* Pods-Play Time.release.xcconfig */;
+			baseConfigurationReference = 5AF81211CDAF3949B7B170AD /* Pods-Play Time.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -701,7 +715,7 @@
 		};
 		B6376DE823E97DE60033C48D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D776A3E5DB862B0DBEA6C720 /* Pods-Play TimeTests.debug.xcconfig */;
+			baseConfigurationReference = 4919F6251A1F994675EBE0C4 /* Pods-Play TimeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -724,7 +738,7 @@
 		};
 		B6376DE923E97DE60033C48D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B3FAD244DC6C582D673F3FB /* Pods-Play TimeTests.release.xcconfig */;
+			baseConfigurationReference = 9AED42646D984CBE7CDAF26F /* Pods-Play TimeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
