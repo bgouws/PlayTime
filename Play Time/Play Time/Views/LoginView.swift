@@ -10,16 +10,20 @@ import UIKit
 import PTFramework
 import Firebase
 
-class LoginView: UIViewController, UITextFieldDelegate {
+class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     //Components
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
-    @IBOutlet weak var crash: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pageControl: UIPageControl!
     let myLoginAnalytics = LoginAnalytics()
+    var allQuotes = [Quote]()
+    var qCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         //Checking to see if user is logged in
         authenticateUserAndConfigure()
         //Setting up styling
@@ -29,6 +33,20 @@ class LoginView: UIViewController, UITextFieldDelegate {
         txtEmail.customTextBox()
         txtPassword.customTextBox()
         self.hideKeyboard()
+        //Slides
+        let myPTAPIViewModel = PTAPIViewModel()
+        myPTAPIViewModel.getAllQuotes { (listOfQuotes) in
+            self.allQuotes = listOfQuotes
+            DispatchQueue.main.async {
+                self.loadQuotes(count: listOfQuotes.count, list: listOfQuotes)
+            }
+        }
+    }
+    func loadQuotes(count: Int, list: [Quote]) {
+        let allSlides = createSlides(count: count, quotes: list)
+        setUpSlideScrollView(slides: allSlides)
+        pageControl.numberOfPages = allSlides.count
+        pageControl.currentPage = 0
     }
     func authenticateUserAndConfigure() {
         let uid = Auth.auth().currentUser?.uid
@@ -38,7 +56,32 @@ class LoginView: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    // MARK: Button Actions 
+    func createSlides(count: Int, quotes: [Quote]) -> [Slide] {
+        var allSlides = [Slide]()
+        for quotesCount in 0...count-1 {
+            // swiftlint:disable all
+            let slide:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+            // swiftlint:enable all
+            slide.lblQuote.text = quotes[quotesCount].quote
+            allSlides.append(slide)
+        }
+        return allSlides
+    }
+    func setUpSlideScrollView(slides: [Slide]) {
+        scrollView.frame = CGRect(x: 57, y: 102, width: 300, height: 200)
+        scrollView.contentSize = CGSize(width: 300 * CGFloat(slides.count), height: 200)
+        for noSlide in 0 ... slides.count-1 {
+            slides[noSlide].frame = CGRect(x: 300 * CGFloat(noSlide), y: 0, width: 300, height: 200)
+            scrollView.addSubview(slides[noSlide])
+        }
+        scrollView.isPagingEnabled = true
+        scrollView.isScrollEnabled = true
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/300)
+        pageControl.currentPage = Int(pageIndex)
+    }
+    // MARK: Button Actions
     @IBAction func btnLoginTapped(_ sender: UIButton) {
         sender.pulsate()
         //variables
@@ -56,9 +99,6 @@ class LoginView: UIViewController, UITextFieldDelegate {
                 self.showFailureAlert()
             }
         }
-    }
-    @IBAction func btnCrash(_ sender: Any) {
-        assert(false)
     }
     @IBAction func btnSignUpTapped(_ sender: UIButton) {
         sender.pulsate()

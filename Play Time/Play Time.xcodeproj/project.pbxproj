@@ -31,6 +31,9 @@
 		B672CEAD241EA0E300955BF6 /* UserAccountUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B672CEAC241EA0E300955BF6 /* UserAccountUITest.swift */; };
 		B672CEB6241F44F400955BF6 /* ToDoScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B672CEB5241F44F400955BF6 /* ToDoScreenUITest.swift */; };
 		B68913932430F801009FB23D /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68913922430F801009FB23D /* AddTaskView.swift */; };
+		B6953BD9243A48F600DA3F22 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6953BD8243A48F600DA3F22 /* Slide.xib */; };
+		B6953BDB243A496C00DA3F22 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6953BDA243A496C00DA3F22 /* Slide.swift */; };
+		B6953BDD243A5ADE00DA3F22 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6953BDC243A5ADE00DA3F22 /* QuotesView.swift */; };
 		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
 		B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260223F4179800678393 /* ToDoViewController.swift */; };
 		B6AA86A5242A176000B03788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA86A4242A176000B03788 /* LoginView.swift */; };
@@ -99,6 +102,9 @@
 		B672CEAE241EA0E300955BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B672CEB5241F44F400955BF6 /* ToDoScreenUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoScreenUITest.swift; sourceTree = "<group>"; };
 		B68913922430F801009FB23D /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		B6953BD8243A48F600DA3F22 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		B6953BDA243A496C00DA3F22 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		B6953BDC243A5ADE00DA3F22 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B6A0260223F4179800678393 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		B6AA86A4242A176000B03788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 		B6376DC723E97DE50033C48D /* Play Time */ = {
 			isa = PBXGroup;
 			children = (
+				B6953BD7243A48DC00DA3F22 /* CustomView */,
 				B6F37DD6240537C500D2B5FB /* Extensions */,
 				B6F37DD52405377600D2B5FB /* Views */,
 				B6376DC823E97DE50033C48D /* AppDelegate.swift */,
@@ -229,6 +236,15 @@
 			path = PlayTimeUITests;
 			sourceTree = "<group>";
 		};
+		B6953BD7243A48DC00DA3F22 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				B6953BD8243A48F600DA3F22 /* Slide.xib */,
+				B6953BDA243A496C00DA3F22 /* Slide.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		B6F37DD52405377600D2B5FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +261,7 @@
 				B613C88D242B259300F4FE60 /* SignUpView.swift */,
 				B68913922430F801009FB23D /* AddTaskView.swift */,
 				B6FC6CD8243226DF00723C03 /* LogoutView.swift */,
+				B6953BDC243A5ADE00DA3F22 /* QuotesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,6 +389,7 @@
 				B6376DD523E97DE50033C48D /* LaunchScreen.storyboard in Resources */,
 				B6E9A7842407D103002C6A9D /* GoogleService-Info.plist in Resources */,
 				B6376DD223E97DE50033C48D /* Assets.xcassets in Resources */,
+				B6953BD9243A48F600DA3F22 /* Slide.xib in Resources */,
 				B6376DD023E97DE50033C48D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +505,7 @@
 				B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */,
 				B601506F23F9CE7600ECB4E2 /* MusicTasteViewController.swift in Sources */,
 				B662BC192427C750001DAB07 /* UIViewExtension.swift in Sources */,
+				B6953BDB243A496C00DA3F22 /* Slide.swift in Sources */,
 				B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */,
 				B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */,
 				B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */,
@@ -496,6 +515,7 @@
 				B662BC1B2427CF26001DAB07 /* UIImageViewExtension.swift in Sources */,
 				B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */,
 				B6AA86A7242A253A00B03788 /* KeyBoardExtension.swift in Sources */,
+				B6953BDD243A5ADE00DA3F22 /* QuotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
