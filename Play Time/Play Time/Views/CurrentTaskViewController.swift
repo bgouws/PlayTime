@@ -166,7 +166,7 @@ class CurrentTaskViewController: UIViewController {
         btnLike.pulsate()
         let myPTAccountManagement = PTAccountManagement()
         let uid = myPTAccountManagement.getUID()
-        let myPost = postViewModel(id: uid, trackTitle: lblSongTitle.text!, trackArtist: lblSongArtist.text!)
+        let myPost = PostViewModel(id: uid, trackTitle: lblSongTitle.text!, trackArtist: lblSongArtist.text!)
         myPost.setFavourite()
         showFavAlert()
     }

@@ -22,6 +22,5 @@ class TasksTests: XCTestCase {
     }
 
     func testCanInsertNewTask() {
-        
     }
 }

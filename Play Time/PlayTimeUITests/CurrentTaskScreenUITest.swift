@@ -73,7 +73,7 @@ class CurrentTaskScreenUITest: XCTestCase {
         let timer = XCUIApplication()
         timer.buttons["Start"].tap()
         sleep(2)
-        timer.buttons["Next Track"].tap()
+        timer.buttons["Next"].tap()
         sleep(4)
         timer.buttons["Task List"].tap()
         sleep(2)
