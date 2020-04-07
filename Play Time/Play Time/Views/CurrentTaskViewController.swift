@@ -39,6 +39,7 @@ class CurrentTaskViewController: UIViewController {
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var imgArtWork: UIImageView!
+    @IBOutlet weak var btnLike: UIButton!
     let myCurrentTaskAnalytics = CurrentTaskAnalytics()
     var timer = Timer()
     var isTimerRunning = false
@@ -57,6 +58,8 @@ class CurrentTaskViewController: UIViewController {
         btnReset.defaultButton()
         btnBack.defaultButton()
         btnBack.isHidden = true
+        btnLike.defaultButton()
+        btnLike.isEnabled = true
         //Styling 
         viewCurrentTrack.trackLayers()
         viewNextUp.trackLayers()
@@ -159,6 +162,14 @@ class CurrentTaskViewController: UIViewController {
         myPTTimer.isTimerRunning = false
         timer.invalidate()
     }
+    @IBAction func btnLikeTapped(_ sender: UIButton) {
+        btnLike.pulsate()
+        let myPTAccountManagement = PTAccountManagement()
+        let uid = myPTAccountManagement.getUID()
+        let myPost = postViewModel(id: uid, trackTitle: lblSongTitle.text!, trackArtist: lblSongArtist.text!)
+        myPost.setFavourite()
+        showFavAlert()
+    }
     @IBAction func btnBack(_ sender: Any) {
         myCurrentTaskAnalytics.musicBackToList()
         let output = myPTTimer.ptBackToList()
@@ -184,5 +195,12 @@ class CurrentTaskViewController: UIViewController {
         myCurrentTaskAnalytics.nextTrack()
         prepareNextTrack()
         loadUpNext()
+    }
+    private func showFavAlert() {
+        let alertController = UIAlertController(title: "Added to favourites", message:
+            "Track has been added to favourites", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Done", style: .default))
+
+        self.present(alertController, animated: true, completion: nil)
     }
 }
