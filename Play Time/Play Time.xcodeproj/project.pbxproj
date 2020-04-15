@@ -33,7 +33,6 @@
 		B68913932430F801009FB23D /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68913922430F801009FB23D /* AddTaskView.swift */; };
 		B6953BD9243A48F600DA3F22 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6953BD8243A48F600DA3F22 /* Slide.xib */; };
 		B6953BDB243A496C00DA3F22 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6953BDA243A496C00DA3F22 /* Slide.swift */; };
-		B6953BDD243A5ADE00DA3F22 /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6953BDC243A5ADE00DA3F22 /* QuotesView.swift */; };
 		B69E839F23FF975300E7A6D6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */; };
 		B6A0260323F4179800678393 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A0260223F4179800678393 /* ToDoViewController.swift */; };
 		B6AA86A5242A176000B03788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA86A4242A176000B03788 /* LoginView.swift */; };
@@ -104,7 +103,6 @@
 		B68913922430F801009FB23D /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		B6953BD8243A48F600DA3F22 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		B6953BDA243A496C00DA3F22 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
-		B6953BDC243A5ADE00DA3F22 /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
 		B69E839E23FF975300E7A6D6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		B6A0260223F4179800678393 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		B6AA86A4242A176000B03788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 				B613C88D242B259300F4FE60 /* SignUpView.swift */,
 				B68913922430F801009FB23D /* AddTaskView.swift */,
 				B6FC6CD8243226DF00723C03 /* LogoutView.swift */,
-				B6953BDC243A5ADE00DA3F22 /* QuotesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -515,7 +512,6 @@
 				B662BC1B2427CF26001DAB07 /* UIImageViewExtension.swift in Sources */,
 				B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */,
 				B6AA86A7242A253A00B03788 /* KeyBoardExtension.swift in Sources */,
-				B6953BDD243A5ADE00DA3F22 /* QuotesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

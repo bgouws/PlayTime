@@ -34,6 +34,7 @@ class TaskListViewController: UIViewController {
         tableView.dataSource = self
         authenticateUserAndConfigure()
         btnProfile.profileButton()
+        btnAddSingleTask.customButton()
     }
     func authenticateUserAndConfigure() {
         if Auth.auth().currentUser == nil {

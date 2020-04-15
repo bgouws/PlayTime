@@ -100,6 +100,7 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         txtTaskTitle.customTextBox()
         txtTaskTitle.delegate = self
         actIndicator.isHidden = true
+        btnCreateTask.customButton()
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
