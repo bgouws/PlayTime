@@ -60,10 +60,14 @@ class TaskListViewController: UIViewController {
         self.performSegue(withIdentifier: "ToCreateTask", sender: self)
     }
     @IBAction func btnLogout(_ sender: Any) {
+        let accManagement = AccountManagementViewModel()
+        accManagement.accountManagementView = self
+        accManagement.accountManagementRepo = AccountManagementModel()
+        flag = false
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?",
                                                 preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive,
-                                                handler: {(_) in self.signOut(moveTo: "ToLogout")
+                                                handler: {(_) in accManagement.signOut()
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
@@ -128,5 +132,17 @@ extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
             vc.fSecond = finalSecond
             vc.fTitle = finalTitle
         }
+    }
+}
+
+extension TaskListViewController: AccountManagementViewType {
+    func readyForNavigation() {
+        print("Ready to navigate")
+    }
+    func navigate() {
+        self.performSegue(withIdentifier: "ToLogout", sender: self)
+    }
+    func displayError(error: String) {
+        print(error)
     }
 }

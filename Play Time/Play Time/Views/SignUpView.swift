@@ -15,10 +15,12 @@ class SignUpView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var btnBackToLogin: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let mySignUpAnalytics = SignUpAnalytics()
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setting up styling
+        activityIndicator.isHidden = true
         txtConfirmPassword.delegate = self
         txtPassword.delegate = self
         txtEmail.delegate = self
@@ -32,30 +34,23 @@ class SignUpView: UIViewController, UITextFieldDelegate {
     @IBAction func btnSignUpTapped(_ sender: Any) {
         let email = txtEmail.text
         let password = txtPassword.text
-        let conPassword = txtConfirmPassword.text
-        //Sending data to the VM to be validated
-        let myPTAccountManagement = PTAccountManagement()
-        myPTAccountManagement.ptSignUp(email: email!, password: password!,
-                                       conPassword: conPassword!) { (success, data)  in
-        if success {
-            print(data)
-            self.mySignUpAnalytics.successfulSignUp()
-            self.performSegue(withIdentifier: "ToMusicTaste", sender: self)
-        } else {
-            self.mySignUpAnalytics.unsuccessfulSignUp()
-            self.showFailureAlert()
-            }
-        }
+        let accManagement = AccountManagementViewModel()
+        activityIndicator.isHidden = false
+        accManagement.accountManagementView = self
+        accManagement.accountManagementRepo = AccountManagementModel()
+        accManagement.signUp(email: email!, password: password!)
     }
     @IBAction func btnBackToLoginTapped(_ sender: UIButton) {
         sender.pulsate()
         self.performSegue(withIdentifier: "ToLoginView", sender: self)
     }
     // MARK: Helper Functions
-    private func showFailureAlert() {
+    private func showFailureAlert(error: String) {
         reset()
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         let alertController = UIAlertController(title: "Error", message:
-            "An error has occured", preferredStyle: .alert)
+            "\(error)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
         self.present(alertController, animated: true, completion: nil)
@@ -63,9 +58,24 @@ class SignUpView: UIViewController, UITextFieldDelegate {
     private func reset() {
         txtEmail.text = ""
         txtPassword.text = ""
+        txtConfirmPassword.text = ""
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
+    }
+}
+
+extension SignUpView: AccountManagementViewType {
+    func readyForNavigation() {
+        print("Ready to navigate")
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+    }
+    func navigate() {
+        self.performSegue(withIdentifier: "ToMusicTaste", sender: self)
+    }
+    func displayError(error: String) {
+        showFailureAlert(error: error)
     }
 }

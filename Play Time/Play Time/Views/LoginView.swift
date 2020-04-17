@@ -18,6 +18,7 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let myLoginAnalytics = LoginAnalytics()
     var allQuotes = [Quote]()
     var qCount = 0
@@ -32,6 +33,7 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
         txtEmail.delegate = self
         txtEmail.customTextBox()
         txtPassword.customTextBox()
+        activityIndicator.isHidden = true
         self.hideKeyboard()
         //Slides
         let myPTAPIViewModel = PTAPIViewModel()
@@ -85,30 +87,26 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     @IBAction func btnLoginTapped(_ sender: UIButton) {
         sender.pulsate()
         //variables
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
         let email = txtEmail.text
         let password = txtPassword.text
-        //Sending Data to SignInVM
-        let myPTAccountManagement = PTAccountManagement()
-        myPTAccountManagement.ptSignIn(email: email!, password: password!) { (success, data)  in
-            if success {
-                print(data)
-                self.myLoginAnalytics.successfulLogin()
-                self.performSegue(withIdentifier: "ToHomeScreen", sender: self)
-            } else {
-                self.myLoginAnalytics.unsuccessfulLogin()
-                self.showFailureAlert()
-            }
-        }
+        let accManagement = AccountManagementViewModel()
+        accManagement.accountManagementView = self
+        accManagement.accountManagementRepo = AccountManagementModel()
+        accManagement.login(email: email!, password: password!)
     }
     @IBAction func btnSignUpTapped(_ sender: UIButton) {
         sender.pulsate()
         self.performSegue(withIdentifier: "ToSignUpView", sender: self)
     }
     // MARK: Helper Functions
-    private func showFailureAlert() {
+    private func showFailureAlert(error: String) {
         reset()
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
         let alertController = UIAlertController(title: "Error", message:
-            "An error has occured", preferredStyle: .alert)
+            "\(error)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
         self.present(alertController, animated: true, completion: nil)
@@ -120,5 +118,19 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
+    }
+}
+
+extension LoginView: AccountManagementViewType {
+    func readyForNavigation() {
+        print("Ready to navigate")
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+    }
+    func navigate() {
+        self.performSegue(withIdentifier: "ToHomeScreen", sender: self)
+    }
+    func displayError(error: String) {
+        showFailureAlert(error: error)
     }
 }
