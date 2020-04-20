@@ -7,6 +7,7 @@ Play Time/PTFramework
 /PTFramework
 .DS_Store
 xcuserdata/
+"Play Time/fastlane/screenshots"
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore

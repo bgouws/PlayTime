@@ -13,6 +13,7 @@ class ProfileUITest: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         application = XCUIApplication()
+        setupSnapshot(application)
         XCUIApplication().launch()
     }
     func login() {
@@ -28,6 +29,7 @@ class ProfileUITest: XCTestCase {
         application.buttons["Logout"].tap()
         let elementsQuery = application.sheets.scrollViews.otherElements
         elementsQuery.buttons["Sign Out"].tap()
+        snapshot("LoggedOutScreen")
         sleep(2)
     }
     func testUserNavigatesToProfile() {
@@ -35,6 +37,7 @@ class ProfileUITest: XCTestCase {
         sleep(1)
         application.buttons["Profile"].tap()
         sleep(1)
+        snapshot("ProfileScreen")
         application.buttons["Task List"].tap()
         sleep(1)
         logout()

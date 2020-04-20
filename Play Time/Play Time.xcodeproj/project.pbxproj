@@ -14,6 +14,7 @@
 		B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */; };
 		B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */; };
 		B613C88E242B259300F4FE60 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B613C88D242B259300F4FE60 /* SignUpView.swift */; };
+		B631A2B7244C6735007AF290 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B631A2B6244C6735007AF290 /* SnapshotHelper.swift */; };
 		B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DC823E97DE50033C48D /* AppDelegate.swift */; };
 		B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DCA23E97DE50033C48D /* SceneDelegate.swift */; };
 		B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DCC23E97DE50033C48D /* ViewController.swift */; };
@@ -78,6 +79,7 @@
 		B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskViewController.swift; sourceTree = "<group>"; };
 		B613C88D242B259300F4FE60 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		B631A2B6244C6735007AF290 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		B6376DC523E97DE50033C48D /* Play Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6376DC823E97DE50033C48D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6376DCA23E97DE50033C48D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		B6376DC723E97DE50033C48D /* Play Time */ = {
 			isa = PBXGroup;
 			children = (
+				B631A2B6244C6735007AF290 /* SnapshotHelper.swift */,
 				B6953BD7243A48DC00DA3F22 /* CustomView */,
 				B6F37DD6240537C500D2B5FB /* Extensions */,
 				B6F37DD52405377600D2B5FB /* Views */,
@@ -535,6 +538,7 @@
 			files = (
 				B66866D22420A3EB004A7E99 /* CurrentTaskScreenUITest.swift in Sources */,
 				B66866D42420D876004A7E99 /* MusicTasteScreenUITest.swift in Sources */,
+				B631A2B7244C6735007AF290 /* SnapshotHelper.swift in Sources */,
 				B672CEAD241EA0E300955BF6 /* UserAccountUITest.swift in Sources */,
 				B6FC6CD7243222E100723C03 /* LoginUITest.swift in Sources */,
 				B672CEB6241F44F400955BF6 /* ToDoScreenUITest.swift in Sources */,

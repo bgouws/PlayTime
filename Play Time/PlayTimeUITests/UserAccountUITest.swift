@@ -18,6 +18,7 @@ class LoginScreenUITest: XCTestCase {
         // UI tests must launch the application that they test.
         // Doing this in setup will make sure it happens for each test method.
         application = XCUIApplication()
+        setupSnapshot(application)
     }
     func testUserLoginWithWrongCredentials() {
         application.launch()
@@ -34,7 +35,9 @@ class LoginScreenUITest: XCTestCase {
     }
     func testUserCanNavigateToAndFromSignUpScreen() {
         application.launch()
+        snapshot("LoginScreen")
         application.buttons["Sign Up"].tap()
+        snapshot("SignUpScreen")
         XCTAssert(application.staticTexts["Login"].exists)
         application.buttons["Login"].tap()
         XCTAssert(application.staticTexts["Login"].exists)
@@ -49,6 +52,7 @@ class LoginScreenUITest: XCTestCase {
         login()
         sleep(4)
         XCTAssert(application.staticTexts["Logout"].exists)
+        snapshot("TaskListScreen")
         sleep(2)
         logout()
     }
@@ -85,6 +89,7 @@ class LoginScreenUITest: XCTestCase {
         application.buttons["Logout"].tap()
         let elementsQuery = application.sheets.scrollViews.otherElements
         elementsQuery.buttons["Sign Out"].tap()
+        snapshot("LoggedOutScreen")
         sleep(2)
     }
     func musicSelection() {
@@ -96,6 +101,7 @@ class LoginScreenUITest: XCTestCase {
         application.buttons["Indie"].tap()
         sleep(1)
         application.buttons["Hip Hop"].tap()
+        snapshot("MusicSelectionScreen")
         sleep(1)
         application.buttons["Country"].tap()
         sleep(1)

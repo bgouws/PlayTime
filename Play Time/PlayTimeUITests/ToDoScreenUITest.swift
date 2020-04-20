@@ -13,6 +13,7 @@ class ToDoScreenUITest: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         application = XCUIApplication()
+        setupSnapshot(application)
         application.launch()
     }
     func login() {
@@ -28,6 +29,7 @@ class ToDoScreenUITest: XCTestCase {
         application.buttons["Logout"].tap()
         let elementsQuery = application.sheets.scrollViews.otherElements
         elementsQuery.buttons["Sign Out"].tap()
+        snapshot("LoggedOutScreen")
         sleep(2)
     }
     func testUserCanRemoveTask() {
@@ -47,10 +49,11 @@ class ToDoScreenUITest: XCTestCase {
         application.buttons["Add Task"].tap()
         sleep(1)
         application.textFields["Task Title"].tap()
-        application.textFields["Task Title"].typeText("Test")
+        application.textFields["Task Title"].typeText("Running")
         sleep(1)
         application.buttons["Return"].tap()
         sleep(1)
+        snapshot("CreateTaskScreen")
         application.buttons["Create Task"].tap()
         sleep(1)
         application.buttons["Task List"].tap()

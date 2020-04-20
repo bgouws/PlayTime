@@ -13,12 +13,13 @@ class CurrentTaskScreenUITest: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         application = XCUIApplication()
+        setupSnapshot(application)
         XCUIApplication().launch()
     }
     func login() {
         application.textFields["Email"].tap()
         application.textFields["Email"].typeText("saddays@gmail.com")
-        sleep(1)
+        sleep(2)
         application.secureTextFields["Password"].tap()
         application.secureTextFields["Password"].typeText("happydays")
         application.buttons["Login"].tap()
@@ -28,17 +29,19 @@ class CurrentTaskScreenUITest: XCTestCase {
         application.buttons["Logout"].tap()
         let elementsQuery = application.sheets.scrollViews.otherElements
         elementsQuery.buttons["Sign Out"].tap()
+        snapshot("LoggedOutScreen")
         sleep(2)
     }
     func testUserCanStartAndStopTimer() {
         login()
         let tablesQuery = application.tables
-        sleep(8)
+        sleep(10)
         // swiftlint:disable all
         tablesQuery.staticTexts["Sample\t\t\t\tDuration:\t 00:01:30"].tap()
         // swiftlint:enable all
         sleep(4)
         let timer = XCUIApplication()
+        snapshot("CurrentTaskScreen")
         timer.buttons["Start"].tap()
         sleep(2)
         timer.buttons["Stop"].tap()
@@ -49,7 +52,7 @@ class CurrentTaskScreenUITest: XCTestCase {
     func testUserCanResetTimer() {
         login()
         let tablesQuery = application.tables
-        sleep(8)
+        sleep(10)
         // swiftlint:disable all
         tablesQuery.staticTexts["Sample\t\t\t\tDuration:\t 00:01:30"].tap()
         // swiftlint:enable all
@@ -65,7 +68,7 @@ class CurrentTaskScreenUITest: XCTestCase {
     func testUserCanGoToNextTrack() {
         login()
         let tablesQuery = application.tables
-        sleep(8)
+        sleep(10)
         // swiftlint:disable all
         tablesQuery.staticTexts["Sample\t\t\t\tDuration:\t 00:01:30"].tap()
         // swiftlint:enable all
@@ -82,7 +85,7 @@ class CurrentTaskScreenUITest: XCTestCase {
     func testTimerWillStopWhenItReachedCorrectInterval() {
         login()
         let tablesQuery = application.tables
-        sleep(8)
+        sleep(10)
         // swiftlint:disable all
         tablesQuery.staticTexts["Sample\t\t\t\tDuration:\t 00:01:30"].tap()
         // swiftlint:enable all
@@ -90,6 +93,7 @@ class CurrentTaskScreenUITest: XCTestCase {
         let timer = XCUIApplication()
         timer.buttons["Start"].tap()
         sleep(100)
+        snapshot("TimerCompleteScreen")
         timer.buttons["Task List"].tap()
         sleep(2)
         logout()
