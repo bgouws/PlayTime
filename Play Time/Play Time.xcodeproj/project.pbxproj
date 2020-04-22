@@ -17,7 +17,6 @@
 		B631A2B7244C6735007AF290 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B631A2B6244C6735007AF290 /* SnapshotHelper.swift */; };
 		B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DC823E97DE50033C48D /* AppDelegate.swift */; };
 		B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DCA23E97DE50033C48D /* SceneDelegate.swift */; };
-		B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6376DCC23E97DE50033C48D /* ViewController.swift */; };
 		B6376DD023E97DE50033C48D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6376DCE23E97DE50033C48D /* Main.storyboard */; };
 		B6376DD223E97DE50033C48D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6376DD123E97DE50033C48D /* Assets.xcassets */; };
 		B6376DD523E97DE50033C48D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6376DD323E97DE50033C48D /* LaunchScreen.storyboard */; };
@@ -39,13 +38,9 @@
 		B6AA86A5242A176000B03788 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA86A4242A176000B03788 /* LoginView.swift */; };
 		B6AA86A7242A253A00B03788 /* KeyBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA86A6242A253A00B03788 /* KeyBoardExtension.swift */; };
 		B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554923EA87700096213B /* UIButtonExtension.swift */; };
-		B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C9554F23EAA2B20096213B /* SignViewController.swift */; };
 		B6E9A7842407D103002C6A9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6E9A7832407D103002C6A9D /* GoogleService-Info.plist */; };
-		B6FC6CCB2431F12100723C03 /* UserAccountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CCA2431F12100723C03 /* UserAccountTest.swift */; };
-		B6FC6CCD2432050700723C03 /* TimerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CCC2432050700723C03 /* TimerTest.swift */; };
 		B6FC6CCF24320A1800723C03 /* MusicTasteSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CCE24320A1800723C03 /* MusicTasteSelectionTest.swift */; };
 		B6FC6CD124320BB900723C03 /* TasksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD024320BB900723C03 /* TasksTests.swift */; };
-		B6FC6CD324320D3E00723C03 /* PlayMusicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD224320D3E00723C03 /* PlayMusicTest.swift */; };
 		B6FC6CD7243222E100723C03 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD6243222E100723C03 /* LoginUITest.swift */; };
 		B6FC6CD9243226DF00723C03 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FC6CD8243226DF00723C03 /* LogoutView.swift */; };
 /* End PBXBuildFile section */
@@ -83,7 +78,6 @@
 		B6376DC523E97DE50033C48D /* Play Time.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play Time.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6376DC823E97DE50033C48D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6376DCA23E97DE50033C48D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B6376DCC23E97DE50033C48D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6376DCF23E97DE50033C48D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6376DD123E97DE50033C48D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6376DD423E97DE50033C48D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,13 +104,9 @@
 		B6AA86A4242A176000B03788 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B6AA86A6242A253A00B03788 /* KeyBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardExtension.swift; sourceTree = "<group>"; };
 		B6C9554923EA87700096213B /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		B6C9554F23EAA2B20096213B /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		B6E9A7832407D103002C6A9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B6FC6CCA2431F12100723C03 /* UserAccountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountTest.swift; sourceTree = "<group>"; };
-		B6FC6CCC2432050700723C03 /* TimerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTest.swift; sourceTree = "<group>"; };
 		B6FC6CCE24320A1800723C03 /* MusicTasteSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTasteSelectionTest.swift; sourceTree = "<group>"; };
 		B6FC6CD024320BB900723C03 /* TasksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTests.swift; sourceTree = "<group>"; };
-		B6FC6CD224320D3E00723C03 /* PlayMusicTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicTest.swift; sourceTree = "<group>"; };
 		B6FC6CD6243222E100723C03 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
 		B6FC6CD8243226DF00723C03 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,12 +201,9 @@
 		B6376DDE23E97DE60033C48D /* Play TimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				B6FC6CCA2431F12100723C03 /* UserAccountTest.swift */,
-				B6FC6CCC2432050700723C03 /* TimerTest.swift */,
 				B6FC6CCE24320A1800723C03 /* MusicTasteSelectionTest.swift */,
 				B6FC6CD024320BB900723C03 /* TasksTests.swift */,
 				B6376DE123E97DE60033C48D /* Info.plist */,
-				B6FC6CD224320D3E00723C03 /* PlayMusicTest.swift */,
 				B6628557243267AB00287672 /* ProfileTest.swift */,
 				B6628559243269D200287672 /* ValidationTest.swift */,
 			);
@@ -250,8 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */,
-				B6376DCC23E97DE50033C48D /* ViewController.swift */,
-				B6C9554F23EAA2B20096213B /* SignViewController.swift */,
 				B6A0260223F4179800678393 /* ToDoViewController.swift */,
 				B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */,
 				B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */,
@@ -502,11 +487,9 @@
 				B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */,
 				B6FC6CD9243226DF00723C03 /* LogoutView.swift in Sources */,
 				B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */,
-				B6376DCD23E97DE50033C48D /* ViewController.swift in Sources */,
 				B601506F23F9CE7600ECB4E2 /* MusicTasteViewController.swift in Sources */,
 				B662BC192427C750001DAB07 /* UIViewExtension.swift in Sources */,
 				B6953BDB243A496C00DA3F22 /* Slide.swift in Sources */,
-				B6C9555023EAA2B20096213B /* SignViewController.swift in Sources */,
 				B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */,
 				B6376DC923E97DE50033C48D /* AppDelegate.swift in Sources */,
 				B6376DCB23E97DE50033C48D /* SceneDelegate.swift in Sources */,
@@ -522,12 +505,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6FC6CD324320D3E00723C03 /* PlayMusicTest.swift in Sources */,
 				B6FC6CCF24320A1800723C03 /* MusicTasteSelectionTest.swift in Sources */,
 				B662855A243269D200287672 /* ValidationTest.swift in Sources */,
-				B6FC6CCD2432050700723C03 /* TimerTest.swift in Sources */,
 				B6628558243267AB00287672 /* ProfileTest.swift in Sources */,
-				B6FC6CCB2431F12100723C03 /* UserAccountTest.swift in Sources */,
 				B6FC6CD124320BB900723C03 /* TasksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,8 +27,6 @@ class TaskListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Calling Api")
-        let myPTPlayMusic = PTPlayMusic()
-        myPTPlayMusic.readData()
         tableView.reloadData()
         tableView.delegate = self
         tableView.dataSource = self
