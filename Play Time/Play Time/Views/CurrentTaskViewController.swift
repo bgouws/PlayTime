@@ -7,126 +7,132 @@
 //
 
 import UIKit
-//import MediaPlayer
 import PTFramework
 import AVFoundation
-import CoreMedia
-
-//Creating Variable
-var ptTitle = ""
-var ptArtist = ""
-var ptArt = UIImage()
-var ptPreview = ""
-var count = 0
 
 class CurrentTaskViewController: UIViewController {
-    //UpNextComponents
+    //Components
     @IBOutlet weak var lblArtistUpNext: UILabel!
     @IBOutlet weak var lblSongTitleUpNext: UILabel!
     @IBOutlet weak var imgUpNext: UIImageView!
     @IBOutlet weak var btnNextTrack: UIButton!
-    //Views
     @IBOutlet weak var viewCurrentTrack: UIView!
     @IBOutlet weak var viewNextUp: UIView!
-    @IBOutlet weak var mainTrackView: UIView!
-    //Other Components
     @IBOutlet weak var lblSongTitle: UILabel!
     @IBOutlet weak var lblSongArtist: UILabel!
     @IBOutlet weak var txtHeaderTask: UILabel!
     @IBOutlet weak var btnReset: UIButton!
-    @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnStart: UIButton!
     @IBOutlet weak var btnStop: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var imgArtWork: UIImageView!
     @IBOutlet weak var btnLike: UIButton!
+    @IBOutlet weak var actInCurrentTrack: UIActivityIndicatorView!
+    @IBOutlet weak var actInNextTrack: UIActivityIndicatorView!
+    //Objects
     let myCurrentTaskAnalytics = CurrentTaskAnalytics()
+    var musicListViewModel = MusicListViewModel()
+    //Variables
+    var taskHour = ""
+    var taskMinute = ""
+    var taskSecond = ""
+    var taskTitle = ""
+    var isTimerRunning: Bool = false
+    var trackIndex: Int = 0
+    var timerCounter: Float = 0
+    //AVPlayer
+    var player: AVPlayer?
+    var playerItem: AVPlayerItem?
+    //Timer
     var timer = Timer()
-    var isTimerRunning = false
-    var counter = 0.0
-    var fHour = ""
-    var fMinute = ""
-    var fSecond = ""
-    var fTitle = ""
-    let myPTTimer = PTTimer()
-    let myPTPlayMusic = PTPlayMusic()
-    let upNext = count
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Styling and preparing view
+        styleView()
+        styleTimerOff()
+        startLoadingIndicators()
+        txtHeaderTask.text = "Your Current Task: \(taskTitle)"
+        self.musicListViewModel.view = self
+        self.musicListViewModel.repo = MusicListRepo()
+        self.musicListViewModel.getListOfTracks(index: trackIndex, indexUpNext: trackIndex + 1)
+        NotificationCenter.default.addObserver(self, selector: #selector(nextTrack),
+        name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    // MARK: Style functions
+    private func styleView() {
         btnStart.defaultButton()
         btnStop.defaultButton()
         btnReset.defaultButton()
-        btnBack.defaultButton()
-        btnBack.isHidden = true
-        btnLike.defaultButton()
-        btnLike.isEnabled = true
-        //Styling 
         viewCurrentTrack.trackLayers()
         viewNextUp.trackLayers()
-        //mainTrackView.mainView()
         btnNextTrack.defaultButton()
         imgArtWork.albumArtStyle()
         imgUpNext.albumArtStyle()
-        //Setting Up Buttons
+        btnLike.defaultButton()
+    }
+    private func styleTimerOff() {
+        btnStart.isEnabled = true
         btnStop.isEnabled = false
         btnReset.isEnabled = false
         btnNextTrack.isEnabled = false
-        //Getting data from the viewModel
-        let trackData = myPTTimer.ptInit()
-        //Setting up first track
-        //imgArtWork.image = trackData[2] as? UIImage
-        imgArtWork.image = PTPlayMusic.getImage(count: count)
-        lblSongTitle.text = trackData[0] as? String
-        lblSongArtist.text = trackData[1] as? String
-        txtHeaderTask.text = "Your Current Task: \(fTitle)"
-        //Loading Up Next
-        loadUpNext()
-        NotificationCenter.default.addObserver(self, selector: #selector(prepareNextTrack),
-        name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        timerLabel.textColor = UIColor.black
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = "Timer View"
+    private func styleTimerPaused() {
+        btnStart.isEnabled = true
+        btnNextTrack.isEnabled = false
+        btnStop.isEnabled = false
     }
-    @objc func prepareNextTrack() {
-        let trackData = myPTTimer.ptInit()
-        count += 1
-        print("Prepare next track has been called")
-        imgArtWork.image = PTPlayMusic.getImage(count: count)
-        lblSongTitle.text = trackData[0] as? String
-        lblSongArtist.text = trackData[1] as? String
-        myPTTimer.setupTrack()
-        loadUpNext()
-    }
-    public func loadUpNext() {
-        let upNext = count + 1
-        lblSongTitleUpNext.text = PTPlayMusic.getTitle(count: upNext)
-        lblArtistUpNext.text = PTPlayMusic.getArtist(count: upNext)
-        PTPlayMusic.loadNextImage(nextImg: upNext, completion: { (image) in
-            self.imgUpNext.image = image
-        })
-    }
-    @IBAction func btnStart(_ sender: Any) {
-        myCurrentTaskAnalytics.musicStart()
-        print("Start Button Selected")
-        if !myPTTimer.isTimerRunning {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
-                                         selector: #selector(runTimer), userInfo: nil, repeats: true)
-        }
-        let output = myPTTimer.ptStart()
-        print(output)
+    private func styleTimerOn() {
         btnStop.isEnabled = true
         btnStart.isEnabled = false
         btnReset.isEnabled = true
         btnNextTrack.isEnabled = true
     }
+    private func styleTaskComplete() {
+        btnStop.isEnabled = false
+        btnStart.isEnabled = false
+        btnReset.isEnabled = true
+        btnNextTrack.isEnabled = false
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "Timer View"
+    }
+    // MARK: Button IBActions
+    @IBAction func btnStart(_ sender: Any) {
+        myCurrentTaskAnalytics.musicStart()
+        styleTimerOn()
+        player?.play()
+        toggleTimers()
+    }
+    @IBAction func btnStop(_ sender: Any) {
+        styleTimerPaused()
+        myCurrentTaskAnalytics.musicPause()
+        player?.pause()
+        toggleTimers()
+    }
+    @IBAction func btnReset(_ sender: Any) {
+        styleTimerOff()
+        player?.pause()
+        timerLabel.text = "00:00:00"
+        isTimerRunning = false
+        timer.invalidate()
+        trackIndex = -1
+        timerCounter = 0
+        nextTrack()
+    }
+    @IBAction func btnNexTrack(_ sender: Any) {
+        nextTrack()
+    }
+    @IBAction func btnLikeTapped(_ sender: UIButton) {
+    }
     // MARK: Helper Methods
     @objc
     func runTimer() {
-        counter += 0.1
+        timerCounter += 0.1
         var minuteString = ""
         var secondString = ""
         var hourString = ""
-        let flooredCounter = Int(floor(counter))
+        let flooredCounter = Int(floor(timerCounter))
         let hour = flooredCounter / 3600
         let minute = (flooredCounter % 36000) / 60
         hourString = "\(hour)"
@@ -143,64 +149,95 @@ class CurrentTaskViewController: UIViewController {
             secondString = "0\(second)"
         }
         timerLabel.text = "\(hourString):\(minuteString):\(secondString)"
-        //print("\(CMTimeGetSeconds(player!.currentTime()))")
-        if hourString == fHour && minuteString == fMinute && secondString == fSecond {
-            myPTTimer.ptStopPlayback()
-            btnStop.isEnabled = false
-            timerLabel.textColor = UIColor.systemGreen
-            myPTTimer.isTimerRunning = false
+        if hourString == taskHour && minuteString == taskMinute && secondString == taskSecond {
+            timerLabel.textColor = UIColor.green
+            player?.pause()
+            toggleTimers()
+            styleTaskComplete()
+        }
+    }
+    private func showAlert(title: String, desc: String) {
+        let alertController = UIAlertController(title: title, message:
+            desc, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Done", style: .default))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    private func setCurrentTrack(currentTitle: String, currentArtist: String, currentAlbumArt: UIImage) {
+        lblSongTitle.text = currentTitle
+        lblSongArtist.text = currentArtist
+        imgArtWork.image = currentAlbumArt
+    }
+    private func setNextTrack(nextTitle: String, nextArtist: String, nextAlbumArt: UIImage) {
+        lblSongTitleUpNext.text = nextTitle
+        lblArtistUpNext.text = nextArtist
+        imgUpNext.image = nextAlbumArt
+    }
+    private func stopLoadingIndicators() {
+        actInCurrentTrack.stopAnimating()
+        actInNextTrack.stopAnimating()
+        actInCurrentTrack.isHidden = true
+        actInNextTrack.isHidden = true
+    }
+    private func startLoadingIndicators() {
+        actInCurrentTrack.startAnimating()
+        actInNextTrack.startAnimating()
+        actInCurrentTrack.isHidden = false
+        actInNextTrack.isHidden = false
+        lblSongTitle.text = "Loading..."
+        lblSongArtist.text = "Loading..."
+        lblSongTitleUpNext.text = "Loading..."
+        lblArtistUpNext.text = "Loading..."
+    }
+    func manageTimer() {
+        if isTimerRunning {
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self,
+            selector: #selector(runTimer), userInfo: nil, repeats: true)
+        } else {
             timer.invalidate()
         }
     }
-    @IBAction func btnStop(_ sender: Any) {
-        myCurrentTaskAnalytics.musicPause()
-        let output = myPTTimer.ptStop()
-        print(output)
-        btnStart.isEnabled = true
-        btnStop.isEnabled = false
-        btnNextTrack.isEnabled = false
-        myPTTimer.isTimerRunning = false
-        timer.invalidate()
+    @objc
+    public func nextTrack() {
+        trackIndex += 1
+        self.musicListViewModel.getListOfTracks(index: trackIndex, indexUpNext: trackIndex + 1)
     }
-    @IBAction func btnLikeTapped(_ sender: UIButton) {
-        btnLike.pulsate()
-        let myPTAccountManagement = PTAccountManagement()
-        let uid = myPTAccountManagement.getUID()
-        let myPost = PostViewModel(id: uid, trackTitle: lblSongTitle.text!, trackArtist: lblSongArtist.text!)
-        myPost.setFavourite()
-        showFavAlert()
+    func toggleTimers() {
+        isTimerRunning = !isTimerRunning
+        manageTimer()
     }
-    @IBAction func btnBack(_ sender: Any) {
-        myCurrentTaskAnalytics.musicBackToList()
-        let output = myPTTimer.ptBackToList()
-        print(output)
-        timer.invalidate()
-        timerLabel.text = "00:00:00"
-        self.performSegue(withIdentifier: "backListView", sender: self)
+}
+extension CurrentTaskViewController: MusicListViewType {
+    func loadCurrentTrack(currentTrack: TrackDetails) {
+        if let image = UIImage(urlString: currentTrack.artworkUrl100) {
+            DispatchQueue.main.async {
+                self.setCurrentTrack(currentTitle: currentTrack.trackName,
+                                     currentArtist: currentTrack.artistName, currentAlbumArt: image)
+                 self.stopLoadingIndicators()
+             }
+        }
+        player = AVPlayer(playerItem: AVPlayerItem(url: URL(string: currentTrack.previewUrl)!))
+        if isTimerRunning {
+            player?.play()
+        }
     }
-    @IBAction func btnReset(_ sender: Any) {
-        myCurrentTaskAnalytics.musicReset()
-        let output = myPTTimer.ptResetTimer()
-        print(output)
-        btnNextTrack.isEnabled = false
-        timer.invalidate()
-        counter = 0.0
-        timerLabel.textColor = UIColor.black
-        timerLabel.text = "00:00:00"
-        btnStart.isEnabled = true
-        btnReset.isEnabled = false
-        btnStop.isEnabled = false
+    func loadNextTrack(nextTrack: TrackDetails) {
+        if let image = UIImage(urlString: nextTrack.artworkUrl100) {
+            DispatchQueue.main.async {
+                self.setNextTrack(nextTitle: nextTrack.trackName,
+                                  nextArtist: nextTrack.artistName, nextAlbumArt: image)
+                 self.stopLoadingIndicators()
+             }
+        }
     }
-    @IBAction func btnNexTrack(_ sender: Any) {
-        myCurrentTaskAnalytics.nextTrack()
-        prepareNextTrack()
-        loadUpNext()
+    func displayError(error: String) {
+        showAlert(title: "An error has occured", desc: error)
     }
-    private func showFavAlert() {
-        let alertController = UIAlertController(title: "Added to favourites", message:
-            "Track has been added to favourites", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Done", style: .default))
-
-        self.present(alertController, animated: true, completion: nil)
+}
+extension UIImage {
+    convenience init?(urlString: String) {
+        guard let url = URL(string: urlString),
+            let data = try? Data(contentsOf: url)
+         else { return nil }
+        self.init(data: data)
     }
 }

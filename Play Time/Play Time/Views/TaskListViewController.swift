@@ -127,10 +127,10 @@ extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
             // swiftlint:disable all
             let vc = segue.destination as! CurrentTaskViewController
             // swiftlint:enable all
-            vc.fHour = finalHour
-            vc.fMinute = finalMinute
-            vc.fSecond = finalSecond
-            vc.fTitle = finalTitle
+            vc.taskHour = finalHour
+            vc.taskMinute = finalMinute
+            vc.taskSecond = finalSecond
+            vc.taskTitle = finalTitle
         }
     }
 }

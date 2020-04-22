@@ -305,21 +305,6 @@
             </objects>
             <point key="canvasLocation" x="-1117.3913043478262" y="-1750.4464285714284"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="1d8-bj-iky">
-            <objects>
-                <viewController id="b3y-ys-eEx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5Cd-y4-dje">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="bui-mZ-0MY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kMk-h7-1Mt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-678" y="-1031"/>
-        </scene>
         <!--Sign Up View-->
         <scene sceneID="9eN-ky-WXK">
             <objects>
@@ -717,17 +702,6 @@
                                                             <action selector="btnReset:" destination="Qys-ga-rpf" eventType="touchUpInside" id="58N-bJ-lkz"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drG-Zw-oc0">
-                                                        <rect key="frame" x="44" y="140" width="250" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" red="0.46566450599999998" green="0.64212161300000004" blue="0.39400985840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="20"/>
-                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Backx"/>
-                                                        <connections>
-                                                            <action selector="btnBack:" destination="Qys-ga-rpf" eventType="touchUpInside" id="J3W-Hw-CYf"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
@@ -865,6 +839,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Npy-J7-z7V">
+                                                <rect key="frame" x="197" y="53" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </activityIndicatorView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="T4u-YS-AOq">
+                                                <rect key="frame" x="197" y="302" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -899,7 +881,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="NQ9-0a-uE2"/>
                     <connections>
-                        <outlet property="btnBack" destination="drG-Zw-oc0" id="doZ-5p-2Rc"/>
+                        <outlet property="actInCurrentTrack" destination="Npy-J7-z7V" id="pMN-1O-sK3"/>
+                        <outlet property="actInNextTrack" destination="T4u-YS-AOq" id="JVd-qZ-tqC"/>
                         <outlet property="btnLike" destination="Fg4-yS-E9l" id="sw9-kg-lyT"/>
                         <outlet property="btnNextTrack" destination="iKf-gG-Jrm" id="sCt-5O-JFU"/>
                         <outlet property="btnReset" destination="16o-jd-lfn" id="Hqy-Dc-tvX"/>
@@ -1206,6 +1189,6 @@
         <image name="profilePicture" width="1170" height="1170"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ltz-25-8hR"/>
+        <segue reference="r2o-ka-fk7"/>
     </inferredMetricsTieBreakers>
 </document>
