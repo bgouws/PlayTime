@@ -15,53 +15,50 @@ class TaskListViewController: UIViewController {
     var finalMinute = ""
     var finalSecond = ""
     var finalTitle = ""
-    var flag = false
+    var navigatingToCurrentTask = false
+    @IBOutlet weak var actIn: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnAddSingleTask: UIButton!
     @IBOutlet weak var btnProfile: UIButton!
     @IBOutlet weak var btnLogout: UIButton!
     let myProfileAnalytics = ProfileAnalytics()
     let myTaskListViewAnalytics = TaskListViewAnalytics()
-    var tasks: [PTTask] = []
-    let getTasks = TasksViewModel()
+    var list: [Task] = []
+    let myTaskViewModel = TaskListViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Calling Api")
-        tableView.reloadData()
+        prepareView()
+        myTaskViewModel.view = self
+        myTaskViewModel.repo = TaskListRepo()
+        myTaskViewModel.getListOfTasks()
+        showLoadingIndicator()
+    }
+    private func prepareView() {
+        btnProfile.profileButton()
+        btnAddSingleTask.defaultButton()
         tableView.delegate = self
         tableView.dataSource = self
-        authenticateUserAndConfigure()
-        btnProfile.profileButton()
-        btnAddSingleTask.customButton()
     }
-    func authenticateUserAndConfigure() {
-        if Auth.auth().currentUser == nil {
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "NotLoggedInView", sender: self)
-            }
-        }
+    private func showLoadingIndicator() {
+        actIn.startAnimating()
+        actIn.isHidden = false
+    }
+    private func hideLoadingIndicator() {
+        actIn.stopAnimating()
+        actIn.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
-        let myData = TasksViewModel()
-        let myImage = ProfileViewModel()
-        myImage.setdata { (_, _, _, img) in
-            self.btnProfile.setImage(img, for: .normal)
-        }
+        myTaskViewModel.getListOfTasks()
+        tableView.reloadData()
         self.title = "Task List"
-        myData.getListOfTasks { (listOfTasks) in
-            self.tasks = listOfTasks
-            print("\(self.tasks[0].title) \(self.tasks[0].minute) \(self.tasks[0].second)")
-            self.tableView.reloadData()
-        }
     }
-    @IBAction func btnAddSingleTask(_ sender: Any) {
-        self.performSegue(withIdentifier: "ToCreateTask", sender: self)
-    }
+    // MARK: Button IBActions
     @IBAction func btnLogout(_ sender: Any) {
         let accManagement = AccountManagementViewModel()
         accManagement.accountManagementView = self
         accManagement.accountManagementRepo = AccountManagementModel()
-        flag = false
+        navigatingToCurrentTask = false
+        showLoadingIndicator()
         let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?",
                                                 preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive,
@@ -70,77 +67,93 @@ class TaskListViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
     }
-    func signOut(moveTo: String) {
-        do {
-            flag = false
-            try Auth.auth().signOut()
-            self.performSegue(withIdentifier: moveTo, sender: self)
-        } catch let error {
-            print("Failed to sign out with error: ", error.localizedDescription)
-        }
+    @IBAction func btnAddSingleTask(_ sender: Any) {
+        navigatingToCurrentTask = false
+        self.performSegue(withIdentifier: "ToCreateTask", sender: self)
     }
     @IBAction func btnProfileTapped(_ sender: Any) {
-        flag = false
+        navigatingToCurrentTask = false
         myProfileAnalytics.profileTapped()
         self.performSegue(withIdentifier: "ToProfileView", sender: self)
     }
+    private func showAlert(title: String, desc: String) {
+        let alertController = UIAlertController(title: title, message:
+            desc, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Done", style: .default))
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
-extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
+extension TaskListViewController: AccountManagementViewType {
+    func readyForNavigation() {
+        hideLoadingIndicator()
+    }
+    func navigate() {
+        self.performSegue(withIdentifier: "ToLogout", sender: self)
+    }
+    func displayError(error: String) {
+        showAlert(title: "Error", desc: error)
+    }
+}
+extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return self.list.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let task = tasks[indexPath.row]
-        // swiftlint:disable all
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell") as! TableViewCell
-        // swiftlint:enable all
+        let task = list[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell") as? TableViewCell else {
+            showAlert(title: "Error", desc: "An error has occured")
+            return TableViewCell()
+        }
         cell.setTask(task: task)
+        cell.imgBackground.image = UIImage(named: "cellBlackAndWhite")
         return cell
-    }
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
-        myTaskListViewAnalytics.taskDeleted()
         if editingStyle == .delete {
-            tasks.remove(at: indexPath.row)
+            list.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You selected cell number: \(indexPath.row)!")
+        guard let cell = tableView.cellForRow(at: indexPath) as? TableViewCell else {
+            showAlert(title: "Error", desc: "An error has occured")
+            return
+        }
+        cell.imgBackground.image = UIImage(named: "cellColor")
         myTaskListViewAnalytics.taskSelected()
-        flag = true
-        finalHour = tasks[indexPath.row].hour
-        finalMinute = tasks[indexPath.row].minute
-        finalSecond = tasks[indexPath.row].second
-        finalTitle = tasks[indexPath.row].title
+        navigatingToCurrentTask = true
+        finalHour = list[indexPath.row].taskHour
+        finalMinute = list[indexPath.row].taskMinute
+        finalSecond = list[indexPath.row].taskSecond
+        finalTitle = list[indexPath.row].taskTitle
         self.performSegue(withIdentifier: "ActiveTaskView", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if flag {
-            // swiftlint:disable all
-            let vc = segue.destination as! CurrentTaskViewController
-            // swiftlint:enable all
-            vc.taskHour = finalHour
-            vc.taskMinute = finalMinute
-            vc.taskSecond = finalSecond
-            vc.taskTitle = finalTitle
+        if navigatingToCurrentTask {
+            let currentTaskView = segue.destination as? CurrentTaskViewController
+            if let currentTaskView = currentTaskView {
+                currentTaskView.taskHour = finalHour
+                currentTaskView.taskMinute = finalMinute
+                currentTaskView.taskSecond = finalSecond
+                currentTaskView.taskTitle = finalTitle
+            } else {
+                showAlert(title: "Error", desc: "An error has occured")
+            }
         }
     }
 }
-
-extension TaskListViewController: AccountManagementViewType {
-    func readyForNavigation() {
-        print("Ready to navigate")
+extension TaskListViewController: TaskListViewType {
+    func displayError(error: Error) {
+        print(error.localizedDescription)
     }
-    func navigate() {
-        self.performSegue(withIdentifier: "ToLogout", sender: self)
+    func dataReady() {
+        hideLoadingIndicator()
     }
-    func displayError(error: String) {
-        print(error)
+    func loadData(listOfTasks: [Task]) {
+        self.list = listOfTasks
+        tableView.reloadData()
     }
 }

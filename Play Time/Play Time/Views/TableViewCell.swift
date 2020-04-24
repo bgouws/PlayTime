@@ -10,9 +10,13 @@ import UIKit
 import PTFramework
 
 class TableViewCell: UITableViewCell {
-    @IBOutlet weak var lblTime: UILabel!
-    @IBOutlet weak var lblTitle: UILabel!
-    func setTask(task: PTTask) {
-        lblTitle.text = "\(task.title)\t\t\t\tDuration:\t \(task.hour):\(task.minute):\(task.second)"
+    @IBOutlet weak var lblTaskTitle: UILabel!
+    @IBOutlet weak var lblTaskDuration: UILabel!
+    @IBOutlet weak var lblLocation: UILabel!
+    @IBOutlet weak var imgBackground: UIImageView!
+    func setTask(task: Task) {
+        lblTaskTitle.text = task.taskTitle
+        lblTaskDuration.text = "\(task.taskHour):\(task.taskMinute):\(task.taskSecond)"
+        lblLocation.text = "Default Location"
     }
 }

@@ -10,31 +10,63 @@ import UIKit
 import PTFramework
 
 class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
-    let hour = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
-                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
-    let minute = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
-                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-                "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-                "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
-                "41", "42", "43", "44", "45", "46", "47", "48", "49", "50",
-                "51", "52", "53", "54", "55", "56", "57", "58", "59"]
-    let seconds = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
-                   "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-                   "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-                   "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
-                   "41", "42", "43", "44", "45", "46", "47", "48", "49", "50",
-                   "51", "52", "53", "54", "55", "56", "57", "58", "59"]
-    var hourSelected = ""
-    var minuteSelected = ""
-    var secondSelected = ""
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var btnCreateTask: UIButton!
+    @IBOutlet weak var txtTaskTitle: UITextField!
+    @IBOutlet weak var actIndicator: UIActivityIndicatorView!
+    let hours = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+                "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+                "22", "23", "24"]
+    let minutes = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
+                  "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+                  "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+                  "30", "31", "32", "33", "34", "35", "36", "37", "38", "39",
+                  "40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
+                  "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"]
+    let seconds = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
+                   "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+                   "20", "21", "22", "23", "24", "25", "26", "27", "28", "29",
+                   "30", "31", "32", "33", "34", "35", "36", "37", "38", "39",
+                   "40", "41", "42", "43", "44", "45", "46", "47", "48", "49",
+                   "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"]
+    let numberPickerColumns = 6
+    var hourSelected = "00"
+    var minuteSelected = "00"
+    var secondSelected = "00"
+    let myAddNewTaskAnalytics = AddNewTaskAnalytics()
+    let myTaskManipulationViewModel = TaskManipulationViewModel()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        hideLoadingIndicators()
+        prepareView()
+        self.myTaskManipulationViewModel.view = self
+        self.myTaskManipulationViewModel.repo = TaskManipulationRepo()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "Add Task"
+    }
+    private func prepareView() {
+        pickerView.delegate = self
+        txtTaskTitle.customTextBox()
+        btnCreateTask.customButton()
+        txtTaskTitle.delegate = self
+    }
+    private func showLoadingIndicators() {
+        actIndicator.startAnimating()
+        actIndicator.isHidden = true
+    }
+    private func hideLoadingIndicators() {
+        actIndicator.stopAnimating()
+        actIndicator.isHidden = true
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 6
+        return numberPickerColumns
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 0 {
-            return hour.count
+            return hours.count
         } else if component == 2 {
-            return minute.count
+            return minutes.count
         } else if component == 4 {
             return seconds.count
         }
@@ -43,11 +75,11 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return hour[row]
+            return hours[row]
         case 1:
             return "H"
         case 2:
-            return minute[row]
+            return minutes[row]
         case 3:
             return "M"
         case 4:
@@ -59,55 +91,41 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         }
     }
     @IBAction func btnCreateTask(_ sender: Any) {
-        print("++++++++")
-        print("Hour: \(hourSelected) Minute: \(minuteSelected) Second: \(secondSelected)")
-        print("++++++++")
-        actIndicator.isHidden = false
-        let myAddTask = TasksViewModel()
-        myAddTask.insertTask(taskTitle: txtTaskTitle.text!, hour: hourSelected, minute: minuteSelected,
-                             second: secondSelected) { (success) in
-            if success {
-                actIndicator.isHidden = true
-                myAddNewTaskAnalytics.addNewTask()
-            } else {
-                actIndicator.isHidden = true
-                //call alert
-            }
-        }
+        let title = txtTaskTitle.text ?? "No Title"
+        showLoadingIndicators()
+        self.myTaskManipulationViewModel.addNewItem(taskTitle: title, hour: hourSelected,
+                                                    minute: minuteSelected, second: secondSelected)
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
-            print("Hour: \(hour[row])")
-            hourSelected = hour[row]
+            hourSelected = hours[row]
         } else if component == 2 {
-            print("Minute: \(minute[row])")
-            minuteSelected = minute[row]
+            minuteSelected = minutes[row]
         } else if component == 4 {
-            print("Second: \(seconds[row])")
             secondSelected = seconds[row]
         }
         myAddNewTaskAnalytics.pickerTimeSet()
     }
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var btnCreateTask: UIButton!
-    @IBOutlet weak var txtTaskTitle: UITextField!
-    @IBOutlet weak var actIndicator: UIActivityIndicatorView!
-    let myAddNewTaskAnalytics = AddNewTaskAnalytics()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        pickerView.delegate = self
-        btnCreateTask.defaultButton()
-        txtTaskTitle.customTextBox()
-        txtTaskTitle.delegate = self
-        actIndicator.isHidden = true
-        btnCreateTask.customButton()
-        // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = "Add Task"
-    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
+    }
+    private func showAlert(error: String) {
+        let alertController = UIAlertController(title: "Error", message:
+            "\(error)", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+}
+extension AddTaskView: AddTaskViewType {
+    func taskAdded(didWriteData: Bool) {
+        if didWriteData {
+            hideLoadingIndicators()
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    func displayError(error: Error) {
+        showAlert(error: error.localizedDescription)
     }
 }
