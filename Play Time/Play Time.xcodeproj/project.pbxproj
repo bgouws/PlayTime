@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		47D5A65DA5F343F15240ECCD /* libPods-Play TimeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A7DE87B93103AC6979BE067 /* libPods-Play TimeTests.a */; };
 		9DAD997CA62EB8684ADBB6A3 /* libPods-Play Time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7601AB5532AA1D7A3D7C6DBB /* libPods-Play Time.a */; };
-		B601506F23F9CE7600ECB4E2 /* MusicTasteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */; };
+		B601506F23F9CE7600ECB4E2 /* MusicTasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601506E23F9CE7600ECB4E2 /* MusicTasteView.swift */; };
 		B602D7E223FBF5FC006AD3C3 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */; };
 		B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */; };
 		B610A0F323FBD14E00A50268 /* CurrentTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */; };
@@ -63,7 +63,7 @@
 		7601AB5532AA1D7A3D7C6DBB /* libPods-Play Time.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Play Time.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A9FDD077EE23E192B8FE40 /* Pods-Play Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play Time.debug.xcconfig"; path = "Target Support Files/Pods-Play Time/Pods-Play Time.debug.xcconfig"; sourceTree = "<group>"; };
 		9AED42646D984CBE7CDAF26F /* Pods-Play TimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Play TimeTests.release.xcconfig"; path = "Target Support Files/Pods-Play TimeTests/Pods-Play TimeTests.release.xcconfig"; sourceTree = "<group>"; };
-		B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTasteViewController.swift; sourceTree = "<group>"; };
+		B601506E23F9CE7600ECB4E2 /* MusicTasteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTasteView.swift; sourceTree = "<group>"; };
 		B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTaskViewController.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 			children = (
 				B602D7E123FBF5FC006AD3C3 /* TableViewCell.swift */,
 				B6A0260223F4179800678393 /* ToDoViewController.swift */,
-				B601506E23F9CE7600ECB4E2 /* MusicTasteViewController.swift */,
+				B601506E23F9CE7600ECB4E2 /* MusicTasteView.swift */,
 				B610A0F223FBD14E00A50268 /* CurrentTaskViewController.swift */,
 				B602D7E523FBF8CF006AD3C3 /* TaskListViewController.swift */,
 				B6376DCE23E97DE50033C48D /* Main.storyboard */,
@@ -469,7 +469,7 @@
 				B602D7E623FBF8CF006AD3C3 /* TaskListViewController.swift in Sources */,
 				B6FC6CD9243226DF00723C03 /* LogoutView.swift in Sources */,
 				B664DA0323EAE6BA0064D455 /* UITextFieldExtension.swift in Sources */,
-				B601506F23F9CE7600ECB4E2 /* MusicTasteViewController.swift in Sources */,
+				B601506F23F9CE7600ECB4E2 /* MusicTasteView.swift in Sources */,
 				B662BC192427C750001DAB07 /* UIViewExtension.swift in Sources */,
 				B6953BDB243A496C00DA3F22 /* Slide.swift in Sources */,
 				B6C9554A23EA87700096213B /* UIButtonExtension.swift in Sources */,

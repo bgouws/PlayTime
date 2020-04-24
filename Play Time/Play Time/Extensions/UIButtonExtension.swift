@@ -22,12 +22,10 @@ extension UIButton {
         layer.add(pulse, forKey: nil)
     }
     func defaultButton() {
-        //Shadow set up
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
         layer.shadowRadius = 4
         layer.shadowOpacity = 0.3
-        //General set up
         let greenColor = UIColor(red: 0.37, green: 0.58, blue: 0.33, alpha: 1.00)
         clipsToBounds = true
         layer.masksToBounds = false
@@ -35,7 +33,6 @@ extension UIButton {
         layer.backgroundColor = greenColor.cgColor
     }
     func profileButton() {
-        //clipsToBounds = true
         layer.masksToBounds = true
         layer.cornerRadius = frame.size.width / 2
         layer.borderWidth = 0.5
@@ -65,19 +62,22 @@ extension UIButton {
         layer.borderWidth = 0.5
         layer.borderColor = UIColor.darkGray.cgColor
     }
-    func colorChange(checker: Bool) {
+    func musicSelectionButtonStyle() {
+        clipsToBounds = true
+        layer.masksToBounds = false
+        layer.cornerRadius = 8
+    }
+    func backgroundColorChange(status: Bool) {
         let greenColor = UIColor(red: 0.37, green: 0.58, blue: 0.33, alpha: 1.0)
         let yellowColor = UIColor(red: 0.95, green: 0.84, blue: 0.38, alpha: 1.0)
-        var mainColor = UIColor(red: 0.5, green: 100/255, blue: 1, alpha: 0.5)
-        if checker == true {
-            mainColor = greenColor
+        if status {
+            if accessibilityIdentifier == "green" {
+                backgroundColor = greenColor
+            } else {
+                backgroundColor = yellowColor
+            }
         } else {
-            mainColor = yellowColor
-        }
-        if backgroundColor == UIColor.lightGray {
-            backgroundColor = mainColor
-        } else {
-            backgroundColor = UIColor.lightGray
+            backgroundColor = UIColor.systemGray
         }
     }
 }
