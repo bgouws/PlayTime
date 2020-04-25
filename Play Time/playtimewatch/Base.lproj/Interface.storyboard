@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="playtimewatch" customModuleProvider="target">
+                    <items>
+                        <group width="1" height="45" alignment="left" animationDuration="2" layout="vertical" id="qGj-IS-pYn">
+                            <items>
+                                <label width="1" height="22" alignment="left" text="Task Status: " textAlignment="center" id="F2A-1J-PLn">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                </label>
+                                <label width="1" alignment="left" text="In progress" textAlignment="center" id="KIF-fa-B3Y">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Play" id="LRM-Fd-OPH">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.46566450599999998" green="0.64212161300000004" blue="0.39400985840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="btnToggleTimerTapped" destination="AgC-eL-Hgc" id="T5N-D8-2Ox"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Next" id="h7J-B4-C6r">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.46566450599999998" green="0.64212161300000004" blue="0.39400985840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="btnNextTapped" destination="AgC-eL-Hgc" id="IQ3-1G-hpz"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" layout="vertical" id="64R-XC-gr1">
+                            <items>
+                                <label width="1" alignment="left" text="Now Playing: " textAlignment="center" id="6fu-Yg-Mcf">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" height="74" alignment="left" layout="vertical" spacing="4" id="V3Z-cn-0OU">
+                            <items>
+                                <imageView width="50" height="50" alignment="center" verticalAlignment="center" id="hRO-hP-rkT"/>
+                            </items>
+                        </group>
+                        <group width="1" height="49" alignment="left" layout="vertical" spacing="5" id="Mhl-Sv-E8H">
+                            <items>
+                                <label alignment="left" text="loading..." minimumScaleFactor="0.5" id="NMi-QL-evU">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </label>
+                                <label alignment="left" text="loading..." minimumScaleFactor="0.5" id="EK9-l8-kk3">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="btnNext" destination="h7J-B4-C6r" id="EpK-fx-Nzi"/>
+                        <outlet property="btnToggleTimer" destination="LRM-Fd-OPH" id="jGM-Op-xLu"/>
+                        <outlet property="imgAlbumArt" destination="hRO-hP-rkT" id="0e0-T9-Tan"/>
+                        <outlet property="lblTaskStatus" destination="KIF-fa-B3Y" id="lIA-Ka-YpK"/>
+                        <outlet property="lblTrackArtist" destination="EK9-l8-kk3" id="wVl-rW-DFM"/>
+                        <outlet property="lblTrackTitle" destination="NMi-QL-evU" id="ptG-Jf-gyb"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="338.5"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="playtimewatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="playtimewatch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+</document>

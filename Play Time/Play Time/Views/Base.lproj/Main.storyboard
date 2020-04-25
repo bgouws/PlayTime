@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Music Taste View Controller-->
+        <!--Music Taste View-->
         <scene sceneID="TTz-Q5-eGM">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="r0B-yr-Dae" customClass="MusicTasteViewController" customModule="Play_Time" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="r0B-yr-Dae" customClass="MusicTasteView" customModule="Play_Time" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bRX-45-QwH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

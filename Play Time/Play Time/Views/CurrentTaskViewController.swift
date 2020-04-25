@@ -9,6 +9,7 @@
 import UIKit
 import PTFramework
 import AVFoundation
+import WatchConnectivity
 
 class CurrentTaskViewController: UIViewController {
     //Components
@@ -29,6 +30,7 @@ class CurrentTaskViewController: UIViewController {
     @IBOutlet weak var btnLike: UIButton!
     @IBOutlet weak var actInCurrentTrack: UIActivityIndicatorView!
     @IBOutlet weak var actInNextTrack: UIActivityIndicatorView!
+    var session: WCSession?
     //Objects
     let myCurrentTaskAnalytics = CurrentTaskAnalytics()
     var musicListViewModel = MusicListViewModel()
@@ -57,6 +59,15 @@ class CurrentTaskViewController: UIViewController {
         self.musicListViewModel.getListOfTracks(index: trackIndex, indexUpNext: trackIndex + 1)
         NotificationCenter.default.addObserver(self, selector: #selector(nextTrack),
         name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        self.configureWatchKitSession()
+        sendWatchPlayerStatus()
+    }
+    func configureWatchKitSession() {
+        if WCSession.isSupported() {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
     }
     // MARK: Style functions
     private func styleView() {
@@ -76,6 +87,7 @@ class CurrentTaskViewController: UIViewController {
         btnReset.isEnabled = false
         btnNextTrack.isEnabled = false
         timerLabel.textColor = UIColor.black
+        isTimerRunning = false
     }
     private func styleTimerPaused() {
         btnStart.isEnabled = true
@@ -94,21 +106,33 @@ class CurrentTaskViewController: UIViewController {
         btnReset.isEnabled = true
         btnNextTrack.isEnabled = false
     }
-    override func viewWillAppear(_ animated: Bool) {
-        self.title = "Timer View"
-    }
-    // MARK: Button IBActions
-    @IBAction func btnStart(_ sender: Any) {
+    private func startTimer() {
         myCurrentTaskAnalytics.musicStart()
         styleTimerOn()
         player?.play()
         toggleTimers()
     }
-    @IBAction func btnStop(_ sender: Any) {
+    private func stopTimer() {
         styleTimerPaused()
         myCurrentTaskAnalytics.musicPause()
         player?.pause()
         toggleTimers()
+    }
+    private func sendWatchPlayerStatus() {
+        if let validSession = self.session, validSession.isReachable {
+            let playerStatus: [String: Bool] = ["playerStatus": isTimerRunning]
+            validSession.sendMessage(playerStatus, replyHandler: nil, errorHandler: nil)
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "Timer View"
+    }
+    // MARK: Button IBActions
+    @IBAction func btnStart(_ sender: Any) {
+        startTimer()
+    }
+    @IBAction func btnStop(_ sender: Any) {
+        stopTimer()
     }
     @IBAction func btnReset(_ sender: Any) {
         styleTimerOff()
@@ -124,6 +148,13 @@ class CurrentTaskViewController: UIViewController {
         nextTrack()
     }
     @IBAction func btnLikeTapped(_ sender: UIButton) {
+    }
+    private func trackInfoToWatch(trackTitle: String, trackArtist: String, albumArt: UIImage) {
+        let imageData = albumArt.pngData()
+        if let validSession = self.session, validSession.isReachable {
+            let trackInfo: [String: [Any]] = ["TrackInfo": ["\(trackTitle)", "\(trackArtist)", imageData!]]
+            validSession.sendMessage(trackInfo, replyHandler: nil, errorHandler: nil)
+        }
     }
     // MARK: Helper Methods
     @objc
@@ -150,6 +181,10 @@ class CurrentTaskViewController: UIViewController {
         }
         timerLabel.text = "\(hourString):\(minuteString):\(secondString)"
         if hourString == taskHour && minuteString == taskMinute && secondString == taskSecond {
+            if let validSession = self.session, validSession.isReachable {
+                let timerData: [String: String] = ["timerValue": "Task is complete"]
+                validSession.sendMessage(timerData, replyHandler: nil, errorHandler: nil)
+            }
             timerLabel.textColor = UIColor.green
             player?.pause()
             toggleTimers()
@@ -166,6 +201,7 @@ class CurrentTaskViewController: UIViewController {
         lblSongTitle.text = currentTitle
         lblSongArtist.text = currentArtist
         imgArtWork.image = currentAlbumArt
+        trackInfoToWatch(trackTitle: currentTitle, trackArtist: currentArtist, albumArt: currentAlbumArt)
     }
     private func setNextTrack(nextTitle: String, nextArtist: String, nextAlbumArt: UIImage) {
         lblSongTitleUpNext.text = nextTitle
@@ -203,6 +239,7 @@ class CurrentTaskViewController: UIViewController {
     }
     func toggleTimers() {
         isTimerRunning = !isTimerRunning
+        sendWatchPlayerStatus()
         manageTimer()
     }
 }
@@ -240,4 +277,29 @@ extension UIImage {
          else { return nil }
         self.init(data: data)
     }
+}
+extension CurrentTaskViewController: WCSessionDelegate {
+  func sessionDidBecomeInactive(_ session: WCSession) {
+  }
+  func sessionDidDeactivate(_ session: WCSession) {
+  }
+  func session(_ session: WCSession,
+               activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+  }
+  func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+    DispatchQueue.main.async {
+      if let value = message["PlayerRequest"] as? String {
+        switch value {
+        case "Pause":
+            self.stopTimer()
+        case "Play":
+            self.startTimer()
+        case "NextTrack":
+            self.nextTrack()
+        default:
+            self.showAlert(title: "Error", desc: "Unknow watch command")
+        }
+      }
+    }
+  }
 }
