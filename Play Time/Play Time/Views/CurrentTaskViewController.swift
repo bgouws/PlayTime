@@ -34,6 +34,9 @@ class CurrentTaskViewController: UIViewController {
     //Objects
     let myCurrentTaskAnalytics = CurrentTaskAnalytics()
     var musicListViewModel = MusicListViewModel()
+    var favouritesViewModel = FavouritesViewModel()
+    var nowPlaying = FavTrack(artistName: "default", trackTitle: "default",
+                              artworkUrl100: "default", previewUrl: "default")
     //Variables
     var taskHour = ""
     var taskMinute = ""
@@ -56,6 +59,8 @@ class CurrentTaskViewController: UIViewController {
         txtHeaderTask.text = "Your Current Task: \(taskTitle)"
         self.musicListViewModel.view = self
         self.musicListViewModel.repo = MusicListRepo()
+        self.favouritesViewModel.view = self
+        self.favouritesViewModel.repo = FavouritesRepo()
         self.musicListViewModel.getListOfTracks(index: trackIndex, indexUpNext: trackIndex + 1)
         NotificationCenter.default.addObserver(self, selector: #selector(nextTrack),
         name: .AVPlayerItemDidPlayToEndTime, object: nil)
@@ -148,6 +153,7 @@ class CurrentTaskViewController: UIViewController {
         nextTrack()
     }
     @IBAction func btnLikeTapped(_ sender: UIButton) {
+        self.favouritesViewModel.saveTrack(track: nowPlaying)
     }
     private func trackInfoToWatch(trackTitle: String, trackArtist: String, albumArt: UIImage) {
         let imageData = albumArt.pngData()
@@ -242,6 +248,12 @@ class CurrentTaskViewController: UIViewController {
         sendWatchPlayerStatus()
         manageTimer()
     }
+    func setNowPlaying(nowPlaying: TrackDetails) {
+        self.nowPlaying.trackTitle = nowPlaying.trackName
+        self.nowPlaying.artistName = nowPlaying.artistName
+        self.nowPlaying.artworkUrl100 = nowPlaying.artworkUrl100
+        self.nowPlaying.previewUrl = nowPlaying.previewUrl
+    }
 }
 extension CurrentTaskViewController: MusicListViewType {
     func loadCurrentTrack(currentTrack: TrackDetails) {
@@ -249,7 +261,8 @@ extension CurrentTaskViewController: MusicListViewType {
             DispatchQueue.main.async {
                 self.setCurrentTrack(currentTitle: currentTrack.trackName,
                                      currentArtist: currentTrack.artistName, currentAlbumArt: image)
-                 self.stopLoadingIndicators()
+                self.setNowPlaying(nowPlaying: currentTrack)
+                self.stopLoadingIndicators()
              }
         }
         player = AVPlayer(playerItem: AVPlayerItem(url: URL(string: currentTrack.previewUrl)!))
@@ -302,4 +315,26 @@ extension CurrentTaskViewController: WCSessionDelegate {
       }
     }
   }
+}
+extension CurrentTaskViewController: FavouritesViewType {
+    func removedSingleItem(isRemoved: Bool) {
+    }
+    func displayCoreDataError(error: Error) {
+        showAlert(title: "Error", desc: error.localizedDescription)
+    }
+    func saveNewFavourite(saved: Bool) {
+        if saved {
+            showAlert(title: "Added to favourites", desc: "Track added to you favourites.")
+        } else {
+            showAlert(title: "Error", desc: "Unable to save to favourites")
+        }
+    }
+    func displayFavCleared(listCleared: Bool) {
+    }
+    func getFavouriteList(list: [FavTrack]) {
+        //Will compare list here
+    }
+    func saveNewFavourite() {
+        showAlert(title: "Favourites", desc: "Track added to favourites")
+    }
 }

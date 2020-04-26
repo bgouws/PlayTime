@@ -18,6 +18,7 @@ class TaskListViewController: UIViewController {
     var navigatingToCurrentTask = false
     @IBOutlet weak var actIn: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnFavourites: UIButton!
     @IBOutlet weak var btnAddSingleTask: UIButton!
     @IBOutlet weak var btnProfile: UIButton!
     @IBOutlet weak var btnLogout: UIButton!
@@ -53,6 +54,11 @@ class TaskListViewController: UIViewController {
         self.title = "Task List"
     }
     // MARK: Button IBActions
+    @IBAction func btnFavouritesTapped(_ sender: Any) {
+        navigatingToCurrentTask = false
+        showLoadingIndicator()
+        self.performSegue(withIdentifier: "ToFavouritesView", sender: self)
+    }
     @IBAction func btnLogout(_ sender: Any) {
         let accManagement = AccountManagementViewModel()
         accManagement.accountManagementView = self
