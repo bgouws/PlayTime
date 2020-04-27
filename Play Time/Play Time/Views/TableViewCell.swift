@@ -17,6 +17,6 @@ class TableViewCell: UITableViewCell {
     func setTask(task: Task) {
         lblTaskTitle.text = task.taskTitle
         lblTaskDuration.text = "\(task.taskHour):\(task.taskMinute):\(task.taskSecond)"
-        lblLocation.text = "Default Location"
+        lblLocation.text = task.location
     }
 }

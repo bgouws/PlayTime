@@ -8,6 +8,8 @@
 
 import UIKit
 import PTFramework
+import MapKit
+import CoreLocation
 
 class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var pickerView: UIPickerView!
@@ -33,12 +35,15 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     var hourSelected = "00"
     var minuteSelected = "00"
     var secondSelected = "00"
+    let manager = CLLocationManager()
+    var userLocation: String = "Default"
     let myAddNewTaskAnalytics = AddNewTaskAnalytics()
     let myTaskManipulationViewModel = TaskManipulationViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         hideLoadingIndicators()
         prepareView()
+        setupLocationData()
         self.myTaskManipulationViewModel.view = self
         self.myTaskManipulationViewModel.repo = TaskManipulationRepo()
     }
@@ -93,8 +98,9 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
     @IBAction func btnCreateTask(_ sender: Any) {
         let title = txtTaskTitle.text ?? "No Title"
         showLoadingIndicators()
-        self.myTaskManipulationViewModel.addNewItem(taskTitle: title, hour: hourSelected,
-                                                    minute: minuteSelected, second: secondSelected)
+        let newTask = Task(taskTitle: title, taskHour: hourSelected, taskMinute: minuteSelected,
+                           taskSecond: secondSelected, location: userLocation)
+        self.myTaskManipulationViewModel.addNewItem(newTask: newTask)
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
@@ -117,6 +123,12 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
 
         self.present(alertController, animated: true, completion: nil)
     }
+    private func setupLocationData() {
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+    }
 }
 extension AddTaskView: AddTaskViewType {
     func taskAdded(didWriteData: Bool) {
@@ -127,5 +139,21 @@ extension AddTaskView: AddTaskViewType {
     }
     func displayError(error: Error) {
         showAlert(error: error.localizedDescription)
+    }
+}
+extension AddTaskView: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        let address = CLGeocoder.init()
+        address.reverseGeocodeLocation(CLLocation.init(latitude: location.coordinate.latitude,
+                                       longitude: location.coordinate.longitude)) { (places, error) in
+            if error == nil {
+                if let place = places {
+                    let data = place.description
+                    let array = data.components(separatedBy: ",")
+                    self.userLocation = "Location: \(array[1])\(array[2])\(array[3])\(array[4])"
+                }
+            }
+        }
     }
 }
