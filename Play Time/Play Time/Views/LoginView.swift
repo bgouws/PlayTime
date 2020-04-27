@@ -20,7 +20,7 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let myLoginAnalytics = LoginAnalytics()
-    var allQuotes = [Quote]()
+    let quotesGetViewModel = QuotesGetViewModel()
     var qCount = 0
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,16 +35,11 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
         txtPassword.customTextBox()
         activityIndicator.isHidden = true
         self.hideKeyboard()
-        //Slides
-        let myPTAPIViewModel = PTAPIViewModel()
-        myPTAPIViewModel.getAllQuotes { (listOfQuotes) in
-            self.allQuotes = listOfQuotes
-            DispatchQueue.main.async {
-                self.loadQuotes(count: listOfQuotes.count, list: listOfQuotes)
-            }
-        }
+        quotesGetViewModel.repo = QuotesGetRepo()
+        quotesGetViewModel.view = self
+        quotesGetViewModel.getAllQuotes()
     }
-    func loadQuotes(count: Int, list: [Quote]) {
+    func loadQuotes(count: Int, list: [Quotes]) {
         let allSlides = createSlides(count: count, quotes: list)
         setUpSlideScrollView(slides: allSlides)
         pageControl.numberOfPages = allSlides.count
@@ -58,7 +53,7 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
             }
         }
     }
-    func createSlides(count: Int, quotes: [Quote]) -> [Slide] {
+    func createSlides(count: Int, quotes: [Quotes]) -> [Slide] {
         var allSlides = [Slide]()
         for quotesCount in 0...count-1 {
             // swiftlint:disable all
@@ -120,10 +115,8 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
         return true
     }
 }
-
 extension LoginView: AccountManagementViewType {
     func readyForNavigation() {
-        print("Ready to navigate")
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
     }
@@ -132,5 +125,15 @@ extension LoginView: AccountManagementViewType {
     }
     func displayError(error: String) {
         showFailureAlert(error: error)
+    }
+}
+extension LoginView: QuotesGetViewType {
+    func dataReady(listOfQuotes: [Quotes]) {
+        DispatchQueue.main.async {
+            self.loadQuotes(count: listOfQuotes.count, list: listOfQuotes)
+        }
+    }
+    func displayError(error: QuotesError) {
+        showFailureAlert(error: error.localizedDescription)
     }
 }
