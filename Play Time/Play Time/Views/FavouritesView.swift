@@ -39,6 +39,9 @@ class FavouritesView: UIViewController {
     }
 }
 extension FavouritesView: FavouritesViewType {
+    func loadCurrentTrack(currentTrack: FavTrack) { }
+    func loadNextTrack(nextTrack: FavTrack) { }
+    func displayDuplicateError(error: String) { }
     func removedSingleItem(isRemoved: Bool) {
         if isRemoved {
             self.favouritesViewModel.getFavourites()

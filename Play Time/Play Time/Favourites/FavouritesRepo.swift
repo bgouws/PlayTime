@@ -21,7 +21,7 @@ public class FavouritesRepo: FavouritesRepoType {
             newValue.setValue(track.trackTitle, forKey: "tracktitle")
             newValue.setValue(track.artistName, forKey: "trackartist")
             newValue.setValue(track.artworkUrl100, forKey: "albumart")
-            newValue.setValue(track.artworkUrl100, forKey: "previewurl")
+            newValue.setValue(track.previewUrl, forKey: "previewurl")
             do {
                 try context.save()
             } catch let error as NSError {

@@ -15,15 +15,20 @@ class TaskListViewController: UIViewController {
     var finalMinute = ""
     var finalSecond = ""
     var finalTitle = ""
+    var finalMusicTaste = ""
+    var useFavourites: Bool = false
     var navigatingToCurrentTask = false
     @IBOutlet weak var actIn: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var favSwitch: UISwitch!
     @IBOutlet weak var btnFavourites: UIButton!
     @IBOutlet weak var btnAddSingleTask: UIButton!
     @IBOutlet weak var btnProfile: UIButton!
     @IBOutlet weak var btnLogout: UIButton!
     let myProfileAnalytics = ProfileAnalytics()
     let myTaskListViewAnalytics = TaskListViewAnalytics()
+    let musicTasteViewModel = MusicTasteViewModel()
+    let taskManipulationViewModel = TaskManipulationViewModel()
     var list: [Task] = []
     let myTaskViewModel = TaskListViewModel()
     override func viewDidLoad() {
@@ -31,6 +36,10 @@ class TaskListViewController: UIViewController {
         prepareView()
         myTaskViewModel.view = self
         myTaskViewModel.repo = TaskListRepo()
+        musicTasteViewModel.view = self
+        musicTasteViewModel.repo = MusicTasteRepo()
+        taskManipulationViewModel.view = self
+        taskManipulationViewModel.repo = TaskManipulationRepo()
         myTaskViewModel.getListOfTasks()
         showLoadingIndicator()
     }
@@ -54,6 +63,13 @@ class TaskListViewController: UIViewController {
         self.title = "Task List"
     }
     // MARK: Button IBActions
+    @IBAction func favSwitchTapped(_ sender: UISwitch) {
+        if sender.isOn {
+            useFavourites = true
+        } else {
+            useFavourites = false
+        }
+    }
     @IBAction func btnFavouritesTapped(_ sender: Any) {
         navigatingToCurrentTask = false
         showLoadingIndicator()
@@ -118,6 +134,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             list.remove(at: indexPath.row)
+            taskManipulationViewModel.removeTask(newList: list)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
@@ -129,13 +146,19 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         cell.imgBackground.image = UIImage(named: "cellColor")
+        showLoadingIndicator()
         myTaskListViewAnalytics.taskSelected()
         navigatingToCurrentTask = true
         finalHour = list[indexPath.row].taskHour
         finalMinute = list[indexPath.row].taskMinute
         finalSecond = list[indexPath.row].taskSecond
         finalTitle = list[indexPath.row].taskTitle
-        self.performSegue(withIdentifier: "ActiveTaskView", sender: self)
+        if useFavourites {
+            self.performSegue(withIdentifier: "ActiveTaskView", sender: self)
+        } else {
+            useFavourites = false
+            musicTasteViewModel.getMusicTaste()
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if navigatingToCurrentTask {
@@ -145,6 +168,8 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
                 currentTaskView.taskMinute = finalMinute
                 currentTaskView.taskSecond = finalSecond
                 currentTaskView.taskTitle = finalTitle
+                currentTaskView.genre = finalMusicTaste
+                currentTaskView.customPlayList = useFavourites
             } else {
                 showAlert(title: "Error", desc: "An error has occured")
             }
@@ -161,5 +186,26 @@ extension TaskListViewController: TaskListViewType {
     func loadData(listOfTasks: [Task]) {
         self.list = listOfTasks
         tableView.reloadData()
+    }
+}
+extension TaskListViewController: MusicTasteViewType {
+    func musicTasteSaved(didSaveData: Bool) { }
+    func dataReady(genre: String) {
+        self.hideLoadingIndicator()
+        finalMusicTaste = genre
+        self.performSegue(withIdentifier: "ActiveTaskView", sender: self)
+    }
+}
+extension TaskListViewController: TaskManipulationViewType {
+    func displayManipulationError(error: Error) {
+        showAlert(title: "Error", desc: error.localizedDescription)
+    }
+    func taskAdded(didWriteData: Bool) { }
+    func taskRemoved(isSuccessful: Bool) {
+        if isSuccessful {
+            showAlert(title: "Task Removed", desc: "Task was removed successfully")
+        } else {
+            showAlert(title: "Error", desc: "Something went wrong")
+        }
     }
 }

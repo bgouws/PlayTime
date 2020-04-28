@@ -130,7 +130,11 @@ class AddTaskView: UIViewController, UIPickerViewDataSource, UIPickerViewDelegat
         manager.startUpdatingLocation()
     }
 }
-extension AddTaskView: AddTaskViewType {
+extension AddTaskView: TaskManipulationViewType {
+    func displayManipulationError(error: Error) {
+        showAlert(error: error.localizedDescription)
+    }
+    func taskRemoved(isSuccessful: Bool) { }
     func taskAdded(didWriteData: Bool) {
         if didWriteData {
             hideLoadingIndicators()

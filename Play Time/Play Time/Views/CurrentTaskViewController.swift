@@ -12,7 +12,6 @@ import AVFoundation
 import WatchConnectivity
 
 class CurrentTaskViewController: UIViewController {
-    //Components
     @IBOutlet weak var lblArtistUpNext: UILabel!
     @IBOutlet weak var lblSongTitleUpNext: UILabel!
     @IBOutlet weak var imgUpNext: UIImageView!
@@ -31,37 +30,40 @@ class CurrentTaskViewController: UIViewController {
     @IBOutlet weak var actInCurrentTrack: UIActivityIndicatorView!
     @IBOutlet weak var actInNextTrack: UIActivityIndicatorView!
     var session: WCSession?
-    //Objects
     let myCurrentTaskAnalytics = CurrentTaskAnalytics()
     var musicListViewModel = MusicListViewModel()
     var favouritesViewModel = FavouritesViewModel()
     var nowPlaying = FavTrack(artistName: "default", trackTitle: "default",
                               artworkUrl100: "default", previewUrl: "default")
-    //Variables
     var taskHour = ""
     var taskMinute = ""
     var taskSecond = ""
     var taskTitle = ""
+    var genre = ""
+    var favouritesCount = 0
+    var customPlayList: Bool = false
     var isTimerRunning: Bool = false
     var trackIndex: Int = 0
     var timerCounter: Float = 0
-    //AVPlayer
     var player: AVPlayer?
     var playerItem: AVPlayerItem?
-    //Timer
     var timer = Timer()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Styling and preparing view
         styleView()
         styleTimerOff()
         startLoadingIndicators()
         txtHeaderTask.text = "Your Current Task: \(taskTitle)"
-        self.musicListViewModel.view = self
-        self.musicListViewModel.repo = MusicListRepo()
         self.favouritesViewModel.view = self
         self.favouritesViewModel.repo = FavouritesRepo()
-        self.musicListViewModel.getListOfTracks(index: trackIndex, indexUpNext: trackIndex + 1)
+        if customPlayList {
+            self.favouritesViewModel.getFavourites()
+            self.favouritesViewModel.getCustomPlaylistTracks(index: trackIndex, indexUpNext: trackIndex+1)
+        } else {
+            self.musicListViewModel.view = self
+            self.musicListViewModel.repo = MusicListRepo(genre: genre)
+            self.musicListViewModel.getListOfTracks(index: trackIndex, indexUpNext: trackIndex + 1)
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(nextTrack),
         name: .AVPlayerItemDidPlayToEndTime, object: nil)
         self.configureWatchKitSession()
@@ -74,7 +76,6 @@ class CurrentTaskViewController: UIViewController {
             session?.activate()
         }
     }
-    // MARK: Style functions
     private func styleView() {
         btnStart.defaultButton()
         btnStop.defaultButton()
@@ -130,9 +131,9 @@ class CurrentTaskViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        trackIndex = 0
         self.title = "Timer View"
     }
-    // MARK: Button IBActions
     @IBAction func btnStart(_ sender: Any) {
         startTimer()
     }
@@ -162,9 +163,7 @@ class CurrentTaskViewController: UIViewController {
             validSession.sendMessage(trackInfo, replyHandler: nil, errorHandler: nil)
         }
     }
-    // MARK: Helper Methods
-    @objc
-    func runTimer() {
+    @objc func runTimer() {
         timerCounter += 0.1
         var minuteString = ""
         var secondString = ""
@@ -238,10 +237,18 @@ class CurrentTaskViewController: UIViewController {
             timer.invalidate()
         }
     }
-    @objc
-    public func nextTrack() {
+    @objc public func nextTrack() {
         trackIndex += 1
-        self.musicListViewModel.getListOfTracks(index: trackIndex, indexUpNext: trackIndex + 1)
+        if customPlayList {
+            if trackIndex == favouritesCount-1 {
+                self.favouritesViewModel.getCustomPlaylistTracks(index: trackIndex, indexUpNext: 0)
+                trackIndex = -1
+            } else {
+                self.favouritesViewModel.getCustomPlaylistTracks(index: trackIndex, indexUpNext: trackIndex+1)
+            }
+        } else {
+            self.musicListViewModel.getListOfTracks(index: trackIndex, indexUpNext: trackIndex + 1)
+        }
     }
     func toggleTimers() {
         isTimerRunning = !isTimerRunning
@@ -292,10 +299,8 @@ extension UIImage {
     }
 }
 extension CurrentTaskViewController: WCSessionDelegate {
-  func sessionDidBecomeInactive(_ session: WCSession) {
-  }
-  func sessionDidDeactivate(_ session: WCSession) {
-  }
+  func sessionDidBecomeInactive(_ session: WCSession) { }
+  func sessionDidDeactivate(_ session: WCSession) { }
   func session(_ session: WCSession,
                activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
   }
@@ -317,8 +322,32 @@ extension CurrentTaskViewController: WCSessionDelegate {
   }
 }
 extension CurrentTaskViewController: FavouritesViewType {
-    func removedSingleItem(isRemoved: Bool) {
+    func loadCurrentTrack(currentTrack: FavTrack) {
+        if let image = UIImage(urlString: currentTrack.artworkUrl100) {
+            DispatchQueue.main.async {
+                self.setCurrentTrack(currentTitle: currentTrack.trackTitle,
+                                     currentArtist: currentTrack.artistName, currentAlbumArt: image)
+                self.stopLoadingIndicators()
+             }
+        }
+        player = AVPlayer(playerItem: AVPlayerItem(url: URL(string: currentTrack.previewUrl)!))
+        if isTimerRunning {
+            player?.play()
+        }
     }
+    func loadNextTrack(nextTrack: FavTrack) {
+        if let image = UIImage(urlString: nextTrack.artworkUrl100) {
+            DispatchQueue.main.async {
+                self.setNextTrack(nextTitle: nextTrack.trackTitle,
+                                  nextArtist: nextTrack.artistName, nextAlbumArt: image)
+                 self.stopLoadingIndicators()
+             }
+        }
+    }
+    func displayDuplicateError(error: String) {
+        self.showAlert(title: "Error", desc: error)
+    }
+    func removedSingleItem(isRemoved: Bool) { }
     func displayCoreDataError(error: Error) {
         showAlert(title: "Error", desc: error.localizedDescription)
     }
@@ -329,10 +358,9 @@ extension CurrentTaskViewController: FavouritesViewType {
             showAlert(title: "Error", desc: "Unable to save to favourites")
         }
     }
-    func displayFavCleared(listCleared: Bool) {
-    }
+    func displayFavCleared(listCleared: Bool) { }
     func getFavouriteList(list: [FavTrack]) {
-        //Will compare list here
+        self.favouritesCount = list.count
     }
     func saveNewFavourite() {
         showAlert(title: "Favourites", desc: "Track added to favourites")

@@ -30,11 +30,11 @@ class MusicTasteView: UIViewController {
     let myMusicTasteAnalytics = MusicTasteAnalytics()
     let myMusicTasteViewModel = MusicTasteViewModel()
     var list: [String] = []
-    var userSelection: [String: Bool] = ["Rock": false, "Pop": false, "Indie": false,
-                                         "Hip Hop": false, "Country": false, "Jazz": false,
-                                         "Pop Rock": false, "Disco": false, "Classic": false,
-                                         "Punk": false, "Alt": false, "Blues": false,
-                                         "House": false, "Grunge": false, "Techno": false]
+    var userSelection: [String: Bool] = ["rock": false, "pop": false, "indie": false,
+                                         "r&b": false, "country": false, "jazz": false,
+                                         "pop+rock": false, "disco": false, "classic": false,
+                                         "punk": false, "alternative": false, "blues": false,
+                                         "house": false, "grunge": false, "techno": false]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myMusicTasteViewModel.view = self
@@ -49,49 +49,49 @@ class MusicTasteView: UIViewController {
         self.myMusicTasteViewModel.storeTaste(tasteList: list)
     }
     @IBAction func btnRockTapped(_ sender: UIButton) {
-        userSelection["Rock"] = switchButton(status: userSelection["Rock"]!, button: sender)
+        userSelection["rock"] = switchButton(status: userSelection["rock"]!, button: sender)
     }
     @IBAction func btnPopTapped(_ sender: UIButton) {
-        userSelection["Pop"] = switchButton(status: userSelection["Pop"]!, button: sender)
+        userSelection["pop"] = switchButton(status: userSelection["pop"]!, button: sender)
     }
     @IBAction func btnIndieTapped(_ sender: UIButton) {
-        userSelection["Indie"] = switchButton(status: userSelection["Indie"]!, button: sender)
+        userSelection["indie"] = switchButton(status: userSelection["indie"]!, button: sender)
     }
     @IBAction func btnHipHopTapped(_ sender: UIButton) {
-        userSelection["Hip Hop"] = switchButton(status: userSelection["Hip Hop"]!, button: sender)
+        userSelection["r&b"] = switchButton(status: userSelection["r&b"]!, button: sender)
     }
     @IBAction func btnCountryTapped(_ sender: UIButton) {
-        userSelection["Country"] = switchButton(status: userSelection["Country"]!, button: sender)
+        userSelection["country"] = switchButton(status: userSelection["country"]!, button: sender)
     }
     @IBAction func btnJazzTapped(_ sender: UIButton) {
-        userSelection["Jazz"] = switchButton(status: userSelection["Jazz"]!, button: sender)
+        userSelection["jazz"] = switchButton(status: userSelection["jazz"]!, button: sender)
     }
     @IBAction func btnPopRockTapped(_ sender: UIButton) {
-        userSelection["Pop Rock"] = switchButton(status: userSelection["Pop Rock"]!, button: sender)
+        userSelection["pop+rock"] = switchButton(status: userSelection["pop+rock"]!, button: sender)
     }
     @IBAction func btnDiscoTapped(_ sender: UIButton) {
-        userSelection["Disco"] = switchButton(status: userSelection["Disco"]!, button: sender)
+        userSelection["disco"] = switchButton(status: userSelection["disco"]!, button: sender)
     }
     @IBAction func btnClassicTapped(_ sender: UIButton) {
-        userSelection["Classic"] = switchButton(status: userSelection["Classic"]!, button: sender)
+        userSelection["classic"] = switchButton(status: userSelection["classic"]!, button: sender)
     }
     @IBAction func btnPunkTapped(_ sender: UIButton) {
-        userSelection["Punk"] = switchButton(status: userSelection["Punk"]!, button: sender)
+        userSelection["punk"] = switchButton(status: userSelection["punk"]!, button: sender)
     }
     @IBAction func btnAltTapped(_ sender: UIButton) {
-        userSelection["Alt"] = switchButton(status: userSelection["Alt"]!, button: sender)
+        userSelection["alternative"] = switchButton(status: userSelection["alternative"]!, button: sender)
     }
     @IBAction func btnBluesTapped(_ sender: UIButton) {
-        userSelection["Blues"] = switchButton(status: userSelection["Blues"]!, button: sender)
+        userSelection["blues"] = switchButton(status: userSelection["blues"]!, button: sender)
     }
     @IBAction func btnHouseTapped(_ sender: UIButton) {
-        userSelection["House"] = switchButton(status: userSelection["House"]!, button: sender)
+        userSelection["house"] = switchButton(status: userSelection["house"]!, button: sender)
     }
     @IBAction func btnGrungeTapped(_ sender: UIButton) {
-        userSelection["Grunge"] = switchButton(status: userSelection["Grunge"]!, button: sender)
+        userSelection["grunge"] = switchButton(status: userSelection["grunge"]!, button: sender)
     }
     @IBAction func btnTechnoTapped(_ sender: UIButton) {
-        userSelection["Techno"] = switchButton(status: userSelection["Techno"]!, button: sender)
+        userSelection["techno"] = switchButton(status: userSelection["techno"]!, button: sender)
     }
     func switchButton(status: Bool, button: UIButton) -> Bool {
         let newStatus = !status
@@ -136,6 +136,7 @@ class MusicTasteView: UIViewController {
     }
 }
 extension MusicTasteView: MusicTasteViewType {
+    func dataReady(genre: String) { }
     func musicTasteSaved(didSaveData: Bool) {
         self.performSegue(withIdentifier: "ToListView", sender: self)
     }

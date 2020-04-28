@@ -13,10 +13,22 @@ public class FavouritesViewModel {
     public var repo: FavouritesRepoType?
     public init() { }
     public func saveTrack(track: FavTrack) {
-        let result = repo?.save(track: track)
-        switch result {
-        case .success(let isSuccessful):
-            view?.saveNewFavourite(saved: isSuccessful)
+        let currentList = repo?.getFavourites()
+        switch currentList {
+        case .success(let listOfFavourites):
+            let total = listOfFavourites.count
+            if listOfFavourites.isEmpty {
+                storeFavouriteTrack(track: track)
+            }
+            for tracks in 0..<total {
+                if track.artistName == listOfFavourites[tracks].artistName &&
+                    track.trackTitle == listOfFavourites[tracks].trackTitle {
+                    self.view?.displayDuplicateError(error: "This track is already in your favourites")
+                    return
+                } else {
+                    storeFavouriteTrack(track: track)
+                }
+            }
         case .failure(let error):
             view?.displayCoreDataError(error: error)
         default:
@@ -24,6 +36,21 @@ public class FavouritesViewModel {
         }
     }
     public func getFavourites() {
+        getListOfFavourites()
+    }
+    public func getCustomPlaylistTracks(index: Int, indexUpNext: Int) {
+        let result = repo?.getFavourites()
+        switch result {
+        case .success(let listOfFavourites):
+            self.view?.loadCurrentTrack(currentTrack: listOfFavourites[index])
+            self.view?.loadNextTrack(nextTrack: listOfFavourites[indexUpNext])
+        case .failure(let error):
+            view?.displayCoreDataError(error: error)
+        default:
+            print("Unknown Error")
+        }
+    }
+    private func getListOfFavourites() {
         let result = repo?.getFavourites()
         switch result {
         case .success(let listOfFavourites):
@@ -50,6 +77,17 @@ public class FavouritesViewModel {
         switch result {
         case .success(let isSuccessful):
             view?.removedSingleItem(isRemoved: isSuccessful)
+        case .failure(let error):
+            view?.displayCoreDataError(error: error)
+        default:
+            print("Unknown Error")
+        }
+    }
+    private func storeFavouriteTrack(track: FavTrack) {
+        let result = repo?.save(track: track)
+        switch result {
+        case .success(let isSuccessful):
+            view?.saveNewFavourite(saved: isSuccessful)
         case .failure(let error):
             view?.displayCoreDataError(error: error)
         default:

@@ -14,4 +14,7 @@ public protocol FavouritesViewType: class {
     func displayCoreDataError(error: Error)
     func displayFavCleared(listCleared: Bool)
     func removedSingleItem(isRemoved: Bool)
+    func displayDuplicateError(error: String)
+    func loadCurrentTrack(currentTrack: FavTrack)
+    func loadNextTrack(nextTrack: FavTrack)
 }
