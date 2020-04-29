@@ -42,6 +42,10 @@ class TaskListViewController: UIViewController {
         taskManipulationViewModel.repo = TaskManipulationRepo()
         myTaskViewModel.getListOfTasks()
         showLoadingIndicator()
+        let profileViewModel = ProfileViewModel()
+        profileViewModel.setdata { (_, _, _, profileImage) in
+            self.btnProfile.setImage(profileImage, for: .normal)
+        }
     }
     private func prepareView() {
         btnProfile.profileButton()
