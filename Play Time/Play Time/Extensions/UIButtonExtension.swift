@@ -77,7 +77,7 @@ extension UIButton {
                 backgroundColor = yellowColor
             }
         } else {
-            backgroundColor = UIColor.systemGray
+            backgroundColor = UIColor.lightGray
         }
     }
 }

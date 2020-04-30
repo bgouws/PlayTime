@@ -15,6 +15,7 @@ class ProfileSettingsView: UIViewController {
     @IBOutlet weak var txtLastName: UITextField!
     @IBOutlet weak var txtQuote: UITextField!
     @IBOutlet weak var btnAddQuote: UIButton!
+    @IBOutlet weak var btnSignOut: UIButton!
     let quotesPostViewModel = QuotesPostViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,7 @@ class ProfileSettingsView: UIViewController {
         txtLastName.customTextBox()
         txtQuote.customTextBox()
         btnAddQuote.defaultButton()
+        btnSignOut.defaultButton()
         actIn.isHidden = true
         actIn.stopAnimating()
     }
@@ -56,6 +58,21 @@ class ProfileSettingsView: UIViewController {
         txtLastName.text = ""
         txtQuote.text = ""
     }
+    @IBAction func btnSignOut(_ sender: Any) {
+        let alert = UIAlertController(title: "Sign out?",
+                                      message: "Are you sure you want to sign out?",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+            self.showLoadingIndicator()
+            let accountManagementViewModel = AccountManagementViewModel()
+            accountManagementViewModel.accountManagementRepo = AccountManagementModel()
+            accountManagementViewModel.accountManagementView = self
+            accountManagementViewModel.signOut()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { _ in
+        }))
+        self.present(alert, animated: true)
+    }
 }
 extension ProfileSettingsView: QuotesPostViewType {
     func displayError(error: Error) {
@@ -75,5 +92,16 @@ extension ProfileSettingsView: QuotesPostViewType {
             self.hideLoadingIndicator()
             self.clearComponents()
         }
+    }
+}
+extension ProfileSettingsView: AccountManagementViewType {
+    func readyForNavigation() {
+        hideLoadingIndicator()
+    }
+    func navigate() {
+        self.performSegue(withIdentifier: "ToLoggedOutScreen", sender: self)
+    }
+    func displayError(error: String) {
+        showAlert(title: "Error", desc: error)
     }
 }

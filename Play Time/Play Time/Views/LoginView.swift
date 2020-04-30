@@ -65,7 +65,7 @@ class LoginView: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
         return allSlides
     }
     func setUpSlideScrollView(slides: [Slide]) {
-        scrollView.frame = CGRect(x: 57, y: 102, width: 300, height: 200)
+        scrollView.frame = CGRect(x: 57, y: 50, width: 300, height: 200) //102
         scrollView.contentSize = CGSize(width: 300 * CGFloat(slides.count), height: 200)
         for noSlide in 0 ... slides.count-1 {
             slides[noSlide].frame = CGRect(x: 300 * CGFloat(noSlide), y: 0, width: 300, height: 200)

@@ -20,14 +20,16 @@ public class FavouritesViewModel {
             if listOfFavourites.isEmpty {
                 storeFavouriteTrack(track: track)
             }
+            var isPresent = false
             for tracks in 0..<total {
                 if track.artistName == listOfFavourites[tracks].artistName &&
                     track.trackTitle == listOfFavourites[tracks].trackTitle {
+                    isPresent = true
                     self.view?.displayDuplicateError(error: "This track is already in your favourites")
-                    return
-                } else {
-                    storeFavouriteTrack(track: track)
                 }
+            }
+            if isPresent == false {
+                storeFavouriteTrack(track: track)
             }
         case .failure(let error):
             view?.displayCoreDataError(error: error)

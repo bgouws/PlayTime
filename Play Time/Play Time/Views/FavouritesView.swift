@@ -33,6 +33,7 @@ class FavouritesView: UIViewController {
     private func prepareView() {
         tableView.delegate = self
         tableView.dataSource = self
+        btnClear.defaultButton()
         self.favouritesViewModel.view = self
         self.favouritesViewModel.repo = FavouritesRepo()
         self.favouritesViewModel.getFavourites()

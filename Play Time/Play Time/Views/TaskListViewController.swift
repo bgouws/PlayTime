@@ -79,20 +79,6 @@ class TaskListViewController: UIViewController {
         showLoadingIndicator()
         self.performSegue(withIdentifier: "ToFavouritesView", sender: self)
     }
-    @IBAction func btnLogout(_ sender: Any) {
-        let accManagement = AccountManagementViewModel()
-        accManagement.accountManagementView = self
-        accManagement.accountManagementRepo = AccountManagementModel()
-        navigatingToCurrentTask = false
-        showLoadingIndicator()
-        let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?",
-                                                preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive,
-                                                handler: {(_) in accManagement.signOut()
-        }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: nil)
-    }
     @IBAction func btnAddSingleTask(_ sender: Any) {
         navigatingToCurrentTask = false
         self.performSegue(withIdentifier: "ToCreateTask", sender: self)
@@ -107,17 +93,6 @@ class TaskListViewController: UIViewController {
             desc, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Done", style: .default))
         self.present(alertController, animated: true, completion: nil)
-    }
-}
-extension TaskListViewController: AccountManagementViewType {
-    func readyForNavigation() {
-        hideLoadingIndicator()
-    }
-    func navigate() {
-        self.performSegue(withIdentifier: "ToLogout", sender: self)
-    }
-    func displayError(error: String) {
-        showAlert(title: "Error", desc: error)
     }
 }
 extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {

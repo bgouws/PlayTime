@@ -67,7 +67,6 @@ class CurrentTaskViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(nextTrack),
         name: .AVPlayerItemDidPlayToEndTime, object: nil)
         self.configureWatchKitSession()
-        sendWatchPlayerStatus()
     }
     func configureWatchKitSession() {
         if WCSession.isSupported() {
@@ -128,6 +127,8 @@ class CurrentTaskViewController: UIViewController {
         if let validSession = self.session, validSession.isReachable {
             let playerStatus: [String: Bool] = ["playerStatus": isTimerRunning]
             validSession.sendMessage(playerStatus, replyHandler: nil, errorHandler: nil)
+        } else {
+            print("No Active Session")
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -190,7 +191,8 @@ class CurrentTaskViewController: UIViewController {
                 let timerData: [String: String] = ["timerValue": "Task is complete"]
                 validSession.sendMessage(timerData, replyHandler: nil, errorHandler: nil)
             }
-            timerLabel.textColor = UIColor.green
+            let greenColor = UIColor(red: 0.37, green: 0.58, blue: 0.33, alpha: 1.0)
+            timerLabel.textColor = greenColor
             player?.pause()
             toggleTimers()
             styleTaskComplete()
