@@ -3,13 +3,22 @@
 ## Summary
 Play Time is a productivity app which will replace conventional timers with exciting custom timers, it will allow users to set up tasks and allocate a duration for each of these tasks, it will then use the Apple Music API to generate a playlist based on user taste which will last for the duration of the task they set.
 
-## Eventual Goals
+## Core Features
 
-Possibly use machine learning to determine what type of songs should be played for the user, for example if the user selectedf the genre "Rock" it contains multiple sub genres like Alternative, math, etc...
+- User profiles
+- Favourites List
+- Generates Playlist based on user's taste
 
-So if the user were to create a task such as "Running or gym" the application should rather select a sub genre that suits the activity such as "punk rock"
+## Technologies and Principles Applied 
 
-Whereas if the user selects a task called "Break" or "Rest" it should select a sub genre like "Soul"
+- Development pod (CocoaPods) 
+- Getting data from restful API
+- MVVM Architecture
+- Objc & Swift
+- Core Data 
+- Core Location 
+- Apple Watch Application
+- Custom API with Server Side Swift
 
 ## Build Badges
 
@@ -19,26 +28,54 @@ Whereas if the user selects a task called "Break" or "Rest" it should select a s
 
 ## Screenshots
 ### Sign In View
-![](Play%20Time/Images/LoginPlayTime.png)
+![](Play%20Time/Images/LoginScreen.png)
 
 ### Sign Up View
-![](Play%20Time/Images/SignUpPlayTime.png)
+![](Play%20Time/Images/SignUpScreen.png)
 
 ### Music Taste Selection View
-![](Play%20Time/Images/MusicTasteScreen2.png)
+![](Play%20Time/Images/MusicSelectionScreen.png)
 
 ### Task List View
-![](Play%20Time/Images/TaskViewPlayTime.png)
-
-### Add Task View
-![](Play%20Time/Images/AddTaskView.png)
-
-### Profile View
-![](Play%20Time/Images/ProfileView.png)
+![](Play%20Time/Images/TaskListScreen.png)
 
 ### Timer View
-![](Play%20Time/Images/TimerView.png)
+![](Play%20Time/Images/CurrentTaskScreen.png)
+
+### Favourites View
+![](Play%20Time/Images/FavouritesListScreen.png)
+
+### Settings View
+![](Play%20Time/Images/SettingsScreen.png)
 
 ### Logout View
 ![](Play%20Time/Images/Logout.png)
 
+## Original Designs 
+
+### SignIn View
+![](Play%20Time/Images/Sketch/Login.png)
+
+### SignUp View
+![](Play%20Time/Images/Sketch/SignUp.png)
+
+### Profile
+![](Play%20Time/Images/Sketch/Profile.png)
+
+### Task List View
+![](Play%20Time/Images/Sketch/TaskList.png)
+
+### Taste Selection View
+![](Play%20Time/Images/Sketch/MusicTaste.png)
+
+### Add Task View View
+![](Play%20Time/Images/Sketch/AddTask.png)
+
+### Timer View
+![](Play%20Time/Images/Sketch/CurrentTask.png)
+
+### Favourites View
+![](Play%20Time/Images/Sketch/iPhone11ProMax.png)
+
+### SignOut View
+![](Play%20Time/Images/Sketch/Logout.png)
