@@ -13,6 +13,7 @@ target 'Play Time' do
   pod 'Crashlytics'
   pod 'Fabric'
   pod 'Firebase/Performance'
+  pod 'SkeletonView', '~> 1.8.7'
 
   pod 'PTFramework', :git => 'https://github.com/bgouws/PTPod.git'
   #pod 'PTFramework', :path => '/Users/bgouws/Desktop/PTFramework/PTPod'

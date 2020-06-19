@@ -153,6 +153,7 @@ PODS:
     - Firebase/Auth
     - Firebase/Database
     - Firebase/Storage
+  - SkeletonView (1.8.7)
 
 DEPENDENCIES:
   - Crashlytics
@@ -162,7 +163,8 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Performance
   - OHHTTPStubs/Swift
-  - PTFramework (from `/Users/bgouws/Desktop/PTFramework/PTPod`)
+  - PTFramework (from `https://github.com/bgouws/PTPod.git`)
+  - SkeletonView (~> 1.8.7)
 
 SPEC REPOS:
   trunk:
@@ -194,10 +196,16 @@ SPEC REPOS:
     - OHHTTPStubs
     - PromisesObjC
     - Protobuf
+    - SkeletonView
 
 EXTERNAL SOURCES:
   PTFramework:
-    :path: "/Users/bgouws/Desktop/PTFramework/PTPod"
+    :git: https://github.com/bgouws/PTPod.git
+
+CHECKOUT OPTIONS:
+  PTFramework:
+    :commit: 5821cbe1a8256e8481a3eb4103a8f4df4224ebf3
+    :git: https://github.com/bgouws/PTPod.git
 
 SPEC CHECKSUMS:
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
@@ -229,7 +237,8 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   PTFramework: 7c99636dbe7577b35d1f62af77b78fca2b18b585
+  SkeletonView: ba5370f41280b2f0a76918bb143c1294232bb4f4
 
-PODFILE CHECKSUM: 49be18f71c039c2b7492264fa5febd7217a42c8b
+PODFILE CHECKSUM: e1a487ca8f33bf1b9a206f321eebb336c1179ebe
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3
