@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import PTFramework
+import SkeletonView
 
 class MusicTasteView: UIViewController {
     @IBOutlet weak var btnStart: UIButton!
